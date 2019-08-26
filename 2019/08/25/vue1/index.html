@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Hexo</title>
+  <title>VUE学习 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="VUE学习笔记一、总体结构 el：’#id’ el为DOM元素中的id,id表示为div中的id名(JavaScript是代码，HTML是标记，这是两种完全不同的东西，通过DOM使得二者可以进行交互）    data,data中数据为vue中用到的数据，个人理解类似于js中的各个变量1234data: &amp;#123;    x: &amp;quot;***&amp;quot;,    y: &amp;quot;***&amp;qu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/08/14/hello-world/index.html">
+<meta property="og:title" content="VUE学习">
+<meta property="og:url" content="http://yoursite.com/2019/08/25/vue1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="VUE学习笔记一、总体结构 el：’#id’ el为DOM元素中的id,id表示为div中的id名(JavaScript是代码，HTML是标记，这是两种完全不同的东西，通过DOM使得二者可以进行交互）    data,data中数据为vue中用到的数据，个人理解类似于js中的各个变量1234data: &amp;#123;    x: &amp;quot;***&amp;quot;,    y: &amp;quot;***&amp;qu">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-14T02:00:35.671Z">
+<meta property="og:image" content="c:/Users/my_l/Desktop/1.png">
+<meta property="og:updated_time" content="2019-08-26T11:38:13.144Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="VUE学习">
+<meta name="twitter:description" content="VUE学习笔记一、总体结构 el：’#id’ el为DOM元素中的id,id表示为div中的id名(JavaScript是代码，HTML是标记，这是两种完全不同的东西，通过DOM使得二者可以进行交互）    data,data中数据为vue中用到的数据，个人理解类似于js中的各个变量1234data: &amp;#123;    x: &amp;quot;***&amp;quot;,    y: &amp;quot;***&amp;qu">
+<meta name="twitter:image" content="c:/Users/my_l/Desktop/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,35 +156,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vue1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      VUE学习
     </h1>
   
 
         
-        <a href="/2019/08/14/hello-world/" class="archive-article-date">
-  	<time datetime="2019-08-14T02:00:35.671Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
+        <a href="/2019/08/25/vue1/" class="archive-article-date">
+  	<time datetime="2019-08-25T08:59:47.337Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="VUE学习笔记"><a href="#VUE学习笔记" class="headerlink" title="VUE学习笔记"></a>VUE学习笔记</h2><h3 id="一、总体结构"><a href="#一、总体结构" class="headerlink" title="一、总体结构"></a>一、总体结构</h3><ul>
+<li>el：’#id’ el为DOM元素中的id,id表示为div中的id名<br>(JavaScript是代码，HTML是标记，这是两种完全不同的东西，通过DOM使得二者可以进行交互） </li>
+</ul>
+<ul>
+<li>data,data中数据为vue中用到的数据，个人理解类似于js中的各个变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    x: &quot;***&quot;,</span><br><span class="line">    y: &quot;***&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>methods,methods中聚集了js中的函数，可以通过return返回函数值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    a: function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    bfunction(c)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vue_det&quot;&gt;</span><br><span class="line">    &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;/h1&gt;</span><br><span class="line">    &lt;h1&gt;url : &#123;&#123;url&#125;&#125;&lt;/h1&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;details()&#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var vm = new Vue(&#123;</span><br><span class="line">        el: &apos;#vue_det&apos;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            site: &quot;菜鸟教程&quot;,</span><br><span class="line">            url: &quot;www.runoob.com&quot;,</span><br><span class="line">            alexa: &quot;10000&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            details: function() &#123;</span><br><span class="line">                return  this.site + &quot; - 学的不仅是技术，更是梦想！&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>结果为：<br><img src="C:/Users/my_l/Desktop/1.png" alt="运行截图"><br>另：Vue 实例还提供了一些有用的实例属性与方法。它们都有前缀 $</p>
+<h3 id="二、Vue模板语法"><a href="#二、Vue模板语法" class="headerlink" title="二、Vue模板语法"></a>二、Vue模板语法</h3><ul>
+<li>文本插值<br>数据绑定最常见的形式就是使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;...&#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>的文本插值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &lt;p&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>message在data中定义</p>
+<ul>
+<li>html<br>使用 v-html 指令用于输出 html 代码，即data中的message可以为html格式的语句</li>
+<li><p>属性<br>HTML 属性中的值应使用 v-bind 指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:class=&quot;&#123;&apos;class1&apos;: use&#125;&quot;&gt;</span><br><span class="line">   v-bind:class 指令</span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>  use 为data中元素</p>
+</li>
+<li>表达式<br>Vue.js 都提供了完全的 JavaScript 表达式支持</li>
+<li><p>指令<br>指令是带有 v- 前缀的特殊属性。<br>指令用于在表达式的值改变时，将某些行为应用到 DOM 上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p v-if=&quot;seen&quot;&gt;现在你看到我了&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>  v-if 指令将根据表达式 seen 的值(true 或 false )来决定是否插入 p 元素</p>
+</li>
+<li><p>参数<br>参数在指令后以冒号指明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;pre&gt;&lt;a v-bind:href=&quot;url&quot;&gt;菜鸟教程&lt;/a&gt;&lt;/pre&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>过滤器<br>Vue.js 允许你自定义过滤器，被用作一些常见的文本格式化,下面是将首字母大写的例子</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &#123;&#123; message | capitalize &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: &apos;runoob&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  filters: &#123;</span><br><span class="line">    capitalize: function (value) &#123;</span><br><span class="line">      if (!value) return &apos;&apos;</span><br><span class="line">      value = value.toString()</span><br><span class="line">      return value.charAt(0).toUpperCase() + value.slice(1)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>缩写<br>Vue.js 为两个最为常用的指令v-bind与v-on提供了特别的缩写：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a v-bind:href=&quot;url&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;a :href=&quot;url&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;a v-on:click=&quot;doSomething&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;a @click=&quot;doSomething&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>未完待续~~~</p>
 
       
 
@@ -262,7 +297,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/14/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/25/vue1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -276,15 +311,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/14/我的第一篇博客文章/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          我的第一篇博客文章
-        
-      </div>
-    </a>
   
+    <a href="/2019/08/14/fist blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一篇博客文章</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

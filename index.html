@@ -43,10 +43,10 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="img/my.jpg" class="js-avatar">
+			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Mingyuan Li</a></h1>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
 		</hgroup>
 		
 
@@ -101,10 +101,10 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="img/my.jpg" class="js-avatar">
+				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Mingyuan Li</h1>
+			  <h1 class="header-author js-header-author">John Doe</h1>
 			</hgroup>
 			
 			
@@ -151,6 +151,110 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-vue1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/25/vue1/">VUE学习</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/25/vue1/" class="archive-article-date">
+  	<time datetime="2019-08-25T08:59:47.337Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="VUE学习笔记"><a href="#VUE学习笔记" class="headerlink" title="VUE学习笔记"></a>VUE学习笔记</h2><h3 id="一、总体结构"><a href="#一、总体结构" class="headerlink" title="一、总体结构"></a>一、总体结构</h3><ul>
+<li>el：’#id’ el为DOM元素中的id,id表示为div中的id名<br>(JavaScript是代码，HTML是标记，这是两种完全不同的东西，通过DOM使得二者可以进行交互） </li>
+</ul>
+<ul>
+<li>data,data中数据为vue中用到的数据，个人理解类似于js中的各个变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    x: &quot;***&quot;,</span><br><span class="line">    y: &quot;***&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>methods,methods中聚集了js中的函数，可以通过return返回函数值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    a: function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    bfunction(c)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vue_det&quot;&gt;</span><br><span class="line">    &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;/h1&gt;</span><br><span class="line">    &lt;h1&gt;url : &#123;&#123;url&#125;&#125;&lt;/h1&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;details()&#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var vm = new Vue(&#123;</span><br><span class="line">        el: &apos;#vue_det&apos;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            site: &quot;菜鸟教程&quot;,</span><br><span class="line">            url: &quot;www.runoob.com&quot;,</span><br><span class="line">            alexa: &quot;10000&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            details: function() &#123;</span><br><span class="line">                return  this.site + &quot; - 学的不仅是技术，更是梦想！&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>结果为：<br><img src="C:/Users/my_l/Desktop/1.png" alt="运行截图"><br>另：Vue 实例还提供了一些有用的实例属性与方法。它们都有前缀 $</p>
+<h3 id="二、Vue模板语法"><a href="#二、Vue模板语法" class="headerlink" title="二、Vue模板语法"></a>二、Vue模板语法</h3><ul>
+<li>文本插值<br>数据绑定最常见的形式就是使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;...&#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>的文本插值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &lt;p&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>message在data中定义</p>
+<ul>
+<li>html<br>使用 v-html 指令用于输出 html 代码，即data中的message可以为html格式的语句</li>
+<li><p>属性<br>HTML 属性中的值应使用 v-bind 指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:class=&quot;&#123;&apos;class1&apos;: use&#125;&quot;&gt;</span><br><span class="line">   v-bind:class 指令</span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>  use 为data中元素</p>
+</li>
+<li>表达式<br>Vue.js 都提供了完全的 JavaScript 表达式支持</li>
+<li><p>指令<br>指令是带有 v- 前缀的特殊属性。<br>指令用于在表达式的值改变时，将某些行为应用到 DOM 上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p v-if=&quot;seen&quot;&gt;现在你看到我了&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>  v-if 指令将根据表达式 seen 的值(true 或 false )来决定是否插入 p 元素</p>
+</li>
+<li><p>参数<br>参数在指令后以冒号指明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;pre&gt;&lt;a v-bind:href=&quot;url&quot;&gt;菜鸟教程&lt;/a&gt;&lt;/pre&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>过滤器<br>Vue.js 允许你自定义过滤器，被用作一些常见的文本格式化,下面是将首字母大写的例子</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &#123;&#123; message | capitalize &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: &apos;runoob&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  filters: &#123;</span><br><span class="line">    capitalize: function (value) &#123;</span><br><span class="line">      if (!value) return &apos;&apos;</span><br><span class="line">      value = value.toString()</span><br><span class="line">      return value.charAt(0).toUpperCase() + value.slice(1)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>缩写<br>Vue.js 为两个最为常用的指令v-bind与v-on提供了特别的缩写：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a v-bind:href=&quot;url&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;a :href=&quot;url&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;a v-on:click=&quot;doSomething&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;a @click=&quot;doSomething&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>未完待续~~~</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/25/vue1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-fist blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -219,219 +323,6 @@
 
 
   
-    <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/14/我的第一篇博客文章/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/14/我的第一篇博客文章/" class="archive-article-date">
-  	<time datetime="2019-08-14T03:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="本项目内容为-《Spring-Boot实战合集》系列文章，代码已开源，并持续保持更新。如您觉得该项目对您有用，欢迎点击右上方的-Star-按钮，给予支持！！"><a href="#本项目内容为-《Spring-Boot实战合集》系列文章，代码已开源，并持续保持更新。如您觉得该项目对您有用，欢迎点击右上方的-Star-按钮，给予支持！！" class="headerlink" title="本项目内容为 《Spring Boot实战合集》系列文章，代码已开源，并持续保持更新。如您觉得该项目对您有用，欢迎点击右上方的 Star 按钮，给予支持！！"></a>本项目内容为 《Spring Boot实战合集》系列文章，代码已开源，并持续保持更新。如您觉得该项目对您有用，欢迎点击右上方的 Star 按钮，给予支持！！</h3><ul>
-<li>个人博客：<a href="https://www.codesheep.cn" target="_blank" rel="noopener">https://www.codesheep.cn</a></li>
-<li>GitHub：<a href="https://github.com/hansonwang99" target="_blank" rel="noopener">https://github.com/hansonwang99</a></li>
-</ul>
-<p>另外所有内容都在我的个人微信公众号 <strong>CodeSheep</strong> 最先推出，大家可以关注一下，可 <strong>长按</strong> 或 <strong>扫描</strong> 下面的 <strong>小心心</strong> 来获取更多 <strong>务实、能看懂、可复现的</strong> 原创文。除此之外 <strong>提问/进群交流</strong> 也可以扫码进行！！！</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/8/9/1651c0ef66e4923f?w=270&amp;h=270&amp;f=png&amp;s=102007" alt="CodeSheep · 程序羊"></p>
-<p><a href="https://996.icu/#/en_US" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg" alt="Badge"></a><br><a href="https://github.com/996icu/996.ICU/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/license-Anti%20996-blue.svg" alt="LICENSE"></a><br><a href="https://join.slack.com/t/996icu/shared_invite/enQtNTg4MjA3MzA1MzgxLWQyYzM5M2IyZmIyMTVjMzU5NTE5MGI5Y2Y2YjgwMmJiMWMxMWMzNGU3NDJmOTdhNmRlYjJlNjk5ZWZhNWIwZGM" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/slack-996icu-green.svg" alt="Slack"></a></p>
-<hr>
-<hr>
-<h1 id="数据库-缓存相关"><a href="#数据库-缓存相关" class="headerlink" title="数据库/缓存相关"></a>数据库/缓存相关</h1><ul>
-<li><p><a href="https://github.com/hansonwang99/Spring-Boot-In-Action/tree/master/springbt_guava_cache" target="_blank" rel="noopener">Guava Cache本地缓存在 Spring Boot应用中的实践</a></p>
-</li>
-<li><p><a href="https://github.com/hansonwang99/Spring-Boot-In-Action/tree/master/springbt_evcache" target="_blank" rel="noopener">EVCache缓存在 Spring Boot中的实战</a></p>
-</li>
-<li><p><a href="https://github.com/hansonwang99/Spring-Boot-In-Action/tree/master/springbt_ehcache" target="_blank" rel="noopener">Spring Boot应用缓存实践之：Ehcache加持</a></p>
-</li>
-<li><p><a href="https://github.com/hansonwang99/Spring-Boot-In-Action/tree/master/springbt_mybatis_sqlserver" target="_blank" rel="noopener">Spring Boot集成 MyBatis和 SQL Server实践</a></p>
-</li>
-<li><p><a href="https://github.com/hansonwang99/Spring-Boot-In-Action/tree/master/springboot_es_demo" target="_blank" rel="noopener">Elasticsearch搜索引擎在Spring Boot中的实践</a></p>
-</li>
-<li><p><a href="https://www.codesheep.cn/2019/02/28/elasticsearch-spring-boot-starter/" target="_blank" rel="noopener">自制一个 elasticsearch-spring-boot-starter</a></p>
-</li>
-<li><p><a href="https://www.codesheep.cn/2019/02/14/mybatis-generator/" target="_blank" rel="noopener">Spring Boot项目利用MyBatis Generator进行数据层代码自动生成</a></p>
-</li>
-<li><p><a href="https://www.codesheep.cn/2019/04/12/springbt-mybatis-plus/" target="_blank" rel="noopener">Mybatis-Plus 真好用（乡村爱情加持）</a></p>
-</li>
-</ul>
-<hr>
-<h1 id="日志相关"><a href="#日志相关" class="headerlink" title="日志相关"></a>日志相关</h1><ul>
-<li><a href="http://www.codesheep.cn/2018/03/29/Boot%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AE%9E%E8%B7%B5/" target="_blank" rel="noopener">Spring Boot日志框架实践</a></li>
-</ul>
-<hr>
-<h1 id="应用监控相关"><a href="#应用监控相关" class="headerlink" title="应用监控相关"></a>应用监控相关</h1><ul>
-<li><p><a href="https://www.codesheep.cn/2019/01/17/springbt-btrace/" target="_blank" rel="noopener">利用神器 BTrace 追踪线上 Spring Boot应用运行时信息</a></p>
-</li>
-<li><p><a href="https://github.com/hansonwang99/Spring-Boot-In-Action/tree/master/springbt_admin_server" target="_blank" rel="noopener">Spring Boot应用监控实战</a></p>
-</li>
-<li><p><a href="https://github.com/hansonwang99/Spring-Boot-In-Action/tree/master/spring_boot_admin2.0_demo" target="_blank" rel="noopener">Spring Boot Admin 2.0开箱体验</a></p>
-</li>
-</ul>
-<hr>
-<h1 id="内部机制相关"><a href="#内部机制相关" class="headerlink" title="内部机制相关"></a>内部机制相关</h1><ul>
-<li><p><a href="http://www.codesheep.cn/2018/07/30/at-SpringBootApplication-zhujie/" target="_blank" rel="noopener">SpringBoot 中 @SpringBootApplication注解背后的三体结构探秘</a></p>
-</li>
-<li><p><a href="http://www.codesheep.cn/2018/09/04/springboot-startup-process/" target="_blank" rel="noopener">SpringBoot 应用程序启动过程探秘</a></p>
-</li>
-<li><p><a href="https://www.codesheep.cn/2019/01/24/springbt-starter/" target="_blank" rel="noopener">如何自制一个Spring Boot Starter并推送到远端公服</a></p>
-</li>
-</ul>
-<hr>
-<h1 id="认证和权限相关"><a href="#认证和权限相关" class="headerlink" title="认证和权限相关"></a>认证和权限相关</h1><ul>
-<li><p><a href="https://github.com/hansonwang99/Spring-Boot-In-Action/tree/master/springbt_security_jwt" target="_blank" rel="noopener">基于 Spring Security和 JWT的权限系统设计</a></p>
-</li>
-<li><p><a href="https://github.com/hansonwang99/Spring-Boot-In-Action/tree/master/springbt_sso_jwt" target="_blank" rel="noopener">基于Spring Security Oauth2的SSO单点登录+JWT权限控制实践</a></p>
-</li>
-</ul>
-<hr>
-<h1 id="实战经验相关"><a href="#实战经验相关" class="headerlink" title="实战经验相关"></a>实战经验相关</h1><ul>
-<li><p><a href="https://github.com/hansonwang99/Spring-Boot-In-Action/tree/master/springbt_uid_generator" target="_blank" rel="noopener">Spring Boot工程集成全局唯一ID生成器 UidGenerator</a></p>
-</li>
-<li><p><a href="https://github.com/hansonwang99/Spring-Boot-In-Action/tree/master/springbt_vesta" target="_blank" rel="noopener">Spring Boot 工程集成全局唯一ID生成器 Vesta</a></p>
-</li>
-<li><p><a href="http://www.codesheep.cn/2018/04/09/SpringBoot%E4%BC%98%E9%9B%85%E7%BC%96%E7%A0%81%E4%B9%8B%EF%BC%9ALombok%E5%8A%A0%E6%8C%81/" target="_blank" rel="noopener">Spring Boot优雅编码之：Lombok加持</a></p>
-</li>
-<li><p><a href="http://www.codesheep.cn/2018/04/12/SpringBoot%E5%BA%94%E7%94%A8Docker%E5%8C%96/" target="_blank" rel="noopener">Spring Boot应用 Docker化</a></p>
-</li>
-<li><p><a href="http://www.codesheep.cn/2018/06/23/SpringBoot%E7%83%AD%E9%83%A8%E7%BD%B2%E5%8A%A0%E6%8C%81/" target="_blank" rel="noopener">Spring Boot热部署加持</a></p>
-</li>
-<li><p><a href="https://github.com/hansonwang99/Spring-Boot-In-Action/tree/master/springbt_watermark" target="_blank" rel="noopener">基于Spring Boot实现图片上传/加水印一把梭操作</a></p>
-</li>
-<li><p><a href="http://www.codesheep.cn/2018/06/10/%E4%BB%8ESpringBoot%E5%88%B0SpringMVC/" target="_blank" rel="noopener">从Spring Boot到 SpringMVC</a></p>
-</li>
-<li><p><a href="http://www.codesheep.cn/2018/11/01/springbt-hanlp/" target="_blank" rel="noopener">自然语言处理工具包 HanLP在 Spring Boot中的应用</a></p>
-</li>
-<li><p><a href="http://www.codesheep.cn/2018/06/05/SpringBoot%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E4%BA%8E%E5%A4%96%E7%BD%AETomcat%E5%AE%B9%E5%99%A8/" target="_blank" rel="noopener">Spring Boot应用部署于外置Tomcat容器</a></p>
-</li>
-<li><p><a href="https://github.com/hansonwang99/Spring-Boot-In-Action/tree/master/kotlin_with_springbt" target="_blank" rel="noopener">初探 Kotlin + Spring Boot联合编程</a></p>
-</li>
-</ul>
-<hr>
-<h1 id="【持续更新中……】"><a href="#【持续更新中……】" class="headerlink" title="【持续更新中……】"></a>【持续更新中……】</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/14/我的第一篇博客文章/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/14/hello-world/" class="archive-article-date">
-  	<time datetime="2019-08-14T02:00:35.671Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/14/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -442,7 +333,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Mingyuan Li
+    		&copy; 2019 John Doe
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

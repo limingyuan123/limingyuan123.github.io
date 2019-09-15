@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>VUE学习2 | Mingyuan</title>
+  <title>在网页中加入“加载中提示”的方法 | Mingyuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="VUE学习笔记三、Vue.js条件与循环 条件判断使用 v-if 指令 v-else可以用 v-else 指令给 v-if 添加一个 “else” 块 12345678&amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;	&amp;lt;div v-if=&amp;quot;Math.random() &amp;gt; 0.5&amp;quot;&amp;gt;	  Sorry	&amp;lt;/div&amp;gt;	&amp;lt;div v-el">
+  <meta name="description" content="##在网页中加入“加载中提示”的方法在一些我们做的网页中，有时候需要加载一些东西，如果加载的东西数据量比较大，比较费时，例如加载一个大的图片或者我下面写的例子中需要从数据库中读取很多的数据绘制图形，这时候加载图形就会比较慢。那么，为了避免用户在使用我们网页时因加载过慢而急躁，甚至以为网页崩溃，所以在一些加载过慢的网页上加上一层“加载中”则是很有必要的。 ###确定需要加“加载中”的时机 通过网页执">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VUE学习2">
-<meta property="og:url" content="http://yoursite.com/2019/08/27/vue2/index.html">
+<meta property="og:title" content="在网页中加入“加载中提示”的方法">
+<meta property="og:url" content="http://yoursite.com/2019/09/15/add loading/index.html">
 <meta property="og:site_name" content="Mingyuan">
-<meta property="og:description" content="VUE学习笔记三、Vue.js条件与循环 条件判断使用 v-if 指令 v-else可以用 v-else 指令给 v-if 添加一个 “else” 块 12345678&amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;	&amp;lt;div v-if=&amp;quot;Math.random() &amp;gt; 0.5&amp;quot;&amp;gt;	  Sorry	&amp;lt;/div&amp;gt;	&amp;lt;div v-el">
+<meta property="og:description" content="##在网页中加入“加载中提示”的方法在一些我们做的网页中，有时候需要加载一些东西，如果加载的东西数据量比较大，比较费时，例如加载一个大的图片或者我下面写的例子中需要从数据库中读取很多的数据绘制图形，这时候加载图形就会比较慢。那么，为了避免用户在使用我们网页时因加载过慢而急躁，甚至以为网页崩溃，所以在一些加载过慢的网页上加上一层“加载中”则是很有必要的。 ###确定需要加“加载中”的时机 通过网页执">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-27T13:43:35.121Z">
+<meta property="og:updated_time" content="2019-09-15T02:59:35.478Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VUE学习2">
-<meta name="twitter:description" content="VUE学习笔记三、Vue.js条件与循环 条件判断使用 v-if 指令 v-else可以用 v-else 指令给 v-if 添加一个 “else” 块 12345678&amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;	&amp;lt;div v-if=&amp;quot;Math.random() &amp;gt; 0.5&amp;quot;&amp;gt;	  Sorry	&amp;lt;/div&amp;gt;	&amp;lt;div v-el">
+<meta name="twitter:title" content="在网页中加入“加载中提示”的方法">
+<meta name="twitter:description" content="##在网页中加入“加载中提示”的方法在一些我们做的网页中，有时候需要加载一些东西，如果加载的东西数据量比较大，比较费时，例如加载一个大的图片或者我下面写的例子中需要从数据库中读取很多的数据绘制图形，这时候加载图形就会比较慢。那么，为了避免用户在使用我们网页时因加载过慢而急躁，甚至以为网页崩溃，所以在一些加载过慢的网页上加上一层“加载中”则是很有必要的。 ###确定需要加“加载中”的时机 通过网页执">
   
     <link rel="alternative" href="/atom.xml" title="Mingyuan" type="application/atom+xml">
   
@@ -150,78 +150,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vue2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-add loading" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      VUE学习2
+      在网页中加入“加载中提示”的方法
     </h1>
   
 
         
-        <a href="/2019/08/27/vue2/" class="archive-article-date">
-  	<time datetime="2019-08-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-27</time>
+        <a href="/2019/09/15/add loading/" class="archive-article-date">
+  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="VUE学习笔记"><a href="#VUE学习笔记" class="headerlink" title="VUE学习笔记"></a>VUE学习笔记</h2><h3 id="三、Vue-js条件与循环"><a href="#三、Vue-js条件与循环" class="headerlink" title="三、Vue.js条件与循环"></a>三、Vue.js条件与循环</h3><ul>
-<li>条件判断使用 v-if 指令</li>
-<li><p>v-else<br>可以用 v-else 指令给 v-if 添加一个 “else” 块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">	&lt;div v-if=&quot;Math.random() &gt; 0.5&quot;&gt;</span><br><span class="line">	  Sorry</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div v-else&gt;</span><br><span class="line">	  Not sorry</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>v-else-if<br>v-else-if 在 2.1.0 新增，顾名思义，用作 v-if 的 else-if 块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;div v-if=&quot;type === &apos;A&apos;&quot;&gt;</span><br><span class="line">      A</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div v-else-if=&quot;type === &apos;B&apos;&quot;&gt;</span><br><span class="line">	  B</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div v-else-if=&quot;type === &apos;C&apos;&quot;&gt;</span><br><span class="line">	  C</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div v-else&gt;</span><br><span class="line">	  Not A/B/C</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>ps:v-else 、v-else-if 必须跟在 v-if 或者 v-else-if之后</p>
+        <p>##在网页中加入“加载中提示”的方法<br>在一些我们做的网页中，有时候需要加载一些东西，如果加载的东西数据量比较大，比较费时，例如加载一个大的图片或者我下面写的例子中需要从数据库中读取很多的数据绘制图形，这时候加载图形就会比较慢。那么，为了避免用户在使用我们网页时因加载过慢而急躁，甚至以为网页崩溃，所以在一些加载过慢的网页上加上一层“加载中”则是很有必要的。</p>
+<p>###确定需要加“加载中”的时机</p>
+<h4 id="通过网页执行流程，找到加载慢的点"><a href="#通过网页执行流程，找到加载慢的点" class="headerlink" title="通过网页执行流程，找到加载慢的点"></a>通过网页执行流程，找到加载慢的点</h4><p>本例中，需要将从数据库中获取数据的时间以加载中显示，所以首先需要确定获取数据的流程，在获取数据之后，将加载中的div抹去，显示由数据绘制的图形，即可成功。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">               url:</span><br><span class="line">                   &quot;***&quot;,</span><br><span class="line">               type: &quot;get&quot;,</span><br><span class="line">               data: &#123; type: &quot;model&quot;, text: &quot;swat&quot;, sTime: year, eTime: year &#125;,</span><br><span class="line">               success: function(graph) &#123;</span><br><span class="line">                       //载入页面时才执行等待中，其他不执行</span><br><span class="line">                       let loadingMask = document.getElementById(&apos;loadingDiv&apos;);</span><br><span class="line">                       loadingMask.parentNode.removeChild(loadingMask);//当数据获取之后，清除掉数据加载div</span><br><span class="line">                       that.createGraph(graph);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>获取数据成功后，将嵌入到网页的加载中div抹去，那么，如何将我们需要的加载中div嵌入到网页中呢？下面来介绍。</p>
+<p>###以在网页中嵌入div的形式加“加载中”在网页上</p>
+<p>####网页中嵌入加载中div<br>有两种方式嵌入到网页中实现加载中这一功能。</p>
 <ul>
-<li>v-show<br>我们也可以使用 v-show 指令来根据条件展示元素<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;h1 v-show=&quot;ok&quot;&gt;Hello!&lt;/h1&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<li>方式一：利用document.write（）来实现<br>首先定义一个变量var _loadinghtml，然后利用document.write(_LoadingHtml);将_loadinghtml这个div格式的变量值嵌入到网页中。但是该方法不能够很好的实现再次读取数据获取加载中这个div，因为document.write（）方法在二次加载，即网页已经完全加载完成后再获取数据加载时，嵌入网页的div会将所有网页元素清空，只剩下嵌入的加载中这一个div，所以不适用于多次获取数据的情况。</li>
+<li>方式二：利用innerHTML来实现往网页中嵌入加载中div</li>
+<li><ul>
+<li>在js中使用网页拼接，拼接出一个加载中div<br>拼接出一个可以嵌入网页的div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let html=&apos;&apos;;</span><br><span class="line">html+=&apos;&lt;div id=&quot;loadingDiv&quot; style=&quot;position: absolute; z-index:1; cursor1: wait; left: &apos;;</span><br><span class="line">html+=_LoadingLeft;</span><br><span class="line">html+=&apos;px; top:&apos; ;</span><br><span class="line">html+=_LoadingTop;</span><br><span class="line">html+=&apos;px; width: auto; height: 57px; line-height: 57px; &apos;;</span><br><span class="line">html+=&apos;padding-left: 50px; padding-right: 5px; background: no-repeat scroll 5px 10px;color: #696969; &apos;;</span><br><span class="line">html+= &apos;font-family:\&apos;Microsoft YaHei\&apos;;&quot;&gt;Loading......&lt;/div&gt;&apos;;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>###四、循环语句</p>
-<ul>
-<li>循环使用 v-for 指令。<br>v-for 指令需要以 site in sites 形式的特殊语法， sites 是源数据数组并且 site 是数组元素迭代的别名<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&quot;site in sites&quot;&gt;</span><br><span class="line">      &#123;&#123; site.name &#125;&#125;</span><br><span class="line">    &lt;/li&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><ul>
+<li>将拼接的div嵌入到网页中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&apos;loading&apos;).innerHTML =html ;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    sites: [</span><br><span class="line">      &#123; name: &apos;Runoob&apos; &#125;,</span><br><span class="line">      &#123; name: &apos;Google&apos; &#125;,</span><br><span class="line">      &#123; name: &apos;Taobao&apos; &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>v-for 可以通过一个对象的属性来迭代数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&quot;value in object&quot;&gt;</span><br><span class="line">    &#123;&#123; value &#125;&#125;</span><br><span class="line">    &lt;/li&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><ul>
+<li>将这两部分封进一个加载函数中,在必要的地方直接调用函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">baseloading()&#123;</span><br><span class="line">            //获取浏览器页面可见高度和宽度</span><br><span class="line">            let _PageHeight = document.documentElement.clientHeight,</span><br><span class="line">                _PageWidth = document.documentElement.clientWidth;</span><br><span class="line">            //计算loading框距离顶部和左部的距离（loading框的宽度为215px，高度为61px）</span><br><span class="line">            let _LoadingTop = _PageHeight &gt; 61 ? (_PageHeight - 61) / 2 : 0,</span><br><span class="line">                _LoadingLeft = _PageWidth &gt; 215 ? (_PageWidth - 215) / 2 : 0;</span><br><span class="line">            //利用innerhtml把拼接的加载div放到网页中</span><br><span class="line">            let html=&apos;&apos;;</span><br><span class="line">            html+=&apos;&lt;div id=&quot;loadingDiv&quot; style=&quot;position: absolute; z-index:1; cursor1: wait; left: &apos;;</span><br><span class="line">            html+=_LoadingLeft;</span><br><span class="line">            html+=&apos;px; top:&apos; ;</span><br><span class="line">            html+=_LoadingTop;</span><br><span class="line">            html+=&apos;px; width: auto; height: 57px; line-height: 57px; &apos;;</span><br><span class="line">            html+=&apos;padding-left: 50px; padding-right: 5px; background: no-repeat scroll 5px 10px;color: #696969; &apos;;</span><br><span class="line">            html+= &apos;font-family:\&apos;Microsoft YaHei\&apos;;&quot;&gt;Loading......&lt;/div&gt;&apos;;</span><br><span class="line">            console.log(html);</span><br><span class="line">            document.getElementById(&apos;loading&apos;).innerHTML =html ;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">   object: &#123;</span><br><span class="line">     name: &apos;菜鸟教程&apos;,</span><br><span class="line">     url: &apos;http://www.runoob.com&apos;,</span><br><span class="line">     slogan: &apos;学的不仅是技术，更是梦想！&apos;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>###五、计算属性<br>    可用于处理一些负责的逻辑</p>
-<ul>
-<li>反转字符串<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &#123;&#123; message.split(&apos;&apos;).reverse().join(&apos;&apos;) &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &lt;p&gt;原始字符串: &#123;&#123; message &#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;计算后反转字符串: &#123;&#123; reversedMessage &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var vm = new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: &apos;Runoob!&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    // 计算属性的 getter</span><br><span class="line">    reversedMessage: function () &#123;</span><br><span class="line">      // `this` 指向 vm 实例</span><br><span class="line">      return this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>computed vs methods<br>我们可以使用 methods 来替代 computed，效果上两个都是一样的，但是 computed 是基于它的依赖缓存，只有相关依赖发生改变时才会重新取值。而使用 methods ，在重新渲染的时候，函数总会重新调用执行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  reversedMessage2: function () &#123;</span><br><span class="line">    return this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>computed 属性默认只有 getter ，不过在需要时你也可以提供一个 setter </p>
-<pre><code>computed: {
-  site: {
-    // getter
-    get: function () {
-      return this.name + &apos; &apos; + this.url
-    },
-    // setter
-    set: function (newValue) {
-      var names = newValue.split(&apos; &apos;)
-      this.name = names[0]
-      this.url = names[names.length - 1]
-    }
-  }
-</code></pre></li>
-</ul>
+<p>通过这几个方式，即可完美解决在网页中添加加载中div</p>
 
       
 
@@ -301,7 +275,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/27/vue2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/15/add loading/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -315,18 +289,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/31/springbootmongodb/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          spring boot学习
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/26/resolve npm install speed/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">npm速度问题解决</div>
+    <a href="/2019/08/31/springbootmongodb/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring boot学习</div>
       <i class="icon-circle-right"></i>
     </a>
   

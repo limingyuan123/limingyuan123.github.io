@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>在网页中加入“加载中提示”的方法 | Mingyuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##在网页中加入“加载中提示”的方法在一些我们做的网页中，有时候需要加载一些东西，如果加载的东西数据量比较大，比较费时，例如加载一个大的图片或者我下面写的例子中需要从数据库中读取很多的数据绘制图形，这时候加载图形就会比较慢。那么，为了避免用户在使用我们网页时因加载过慢而急躁，甚至以为网页崩溃，所以在一些加载过慢的网页上加上一层“加载中”则是很有必要的。 ###确定需要加“加载中”的时机 通过网页执">
+  <meta name="description" content="在网页中加入“加载中提示”的方法在一些我们做的网页中，有时候需要加载一些东西，如果加载的东西数据量比较大，比较费时，例如加载一个大的图片或者我下面写的例子中需要从数据库中读取很多的数据绘制图形，这时候加载图形就会比较慢。那么，为了避免用户在使用我们网页时因加载过慢而急躁，甚至以为网页崩溃，所以在一些加载过慢的网页上加上一层“加载中”则是很有必要的。 确定需要加“加载中”的时机通过网页执行流程，找到">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在网页中加入“加载中提示”的方法">
 <meta property="og:url" content="http://yoursite.com/2019/09/15/add loading/index.html">
 <meta property="og:site_name" content="Mingyuan">
-<meta property="og:description" content="##在网页中加入“加载中提示”的方法在一些我们做的网页中，有时候需要加载一些东西，如果加载的东西数据量比较大，比较费时，例如加载一个大的图片或者我下面写的例子中需要从数据库中读取很多的数据绘制图形，这时候加载图形就会比较慢。那么，为了避免用户在使用我们网页时因加载过慢而急躁，甚至以为网页崩溃，所以在一些加载过慢的网页上加上一层“加载中”则是很有必要的。 ###确定需要加“加载中”的时机 通过网页执">
+<meta property="og:description" content="在网页中加入“加载中提示”的方法在一些我们做的网页中，有时候需要加载一些东西，如果加载的东西数据量比较大，比较费时，例如加载一个大的图片或者我下面写的例子中需要从数据库中读取很多的数据绘制图形，这时候加载图形就会比较慢。那么，为了避免用户在使用我们网页时因加载过慢而急躁，甚至以为网页崩溃，所以在一些加载过慢的网页上加上一层“加载中”则是很有必要的。 确定需要加“加载中”的时机通过网页执行流程，找到">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-15T02:59:35.478Z">
+<meta property="og:updated_time" content="2019-09-16T13:31:30.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在网页中加入“加载中提示”的方法">
-<meta name="twitter:description" content="##在网页中加入“加载中提示”的方法在一些我们做的网页中，有时候需要加载一些东西，如果加载的东西数据量比较大，比较费时，例如加载一个大的图片或者我下面写的例子中需要从数据库中读取很多的数据绘制图形，这时候加载图形就会比较慢。那么，为了避免用户在使用我们网页时因加载过慢而急躁，甚至以为网页崩溃，所以在一些加载过慢的网页上加上一层“加载中”则是很有必要的。 ###确定需要加“加载中”的时机 通过网页执">
+<meta name="twitter:description" content="在网页中加入“加载中提示”的方法在一些我们做的网页中，有时候需要加载一些东西，如果加载的东西数据量比较大，比较费时，例如加载一个大的图片或者我下面写的例子中需要从数据库中读取很多的数据绘制图形，这时候加载图形就会比较慢。那么，为了避免用户在使用我们网页时因加载过慢而急躁，甚至以为网页崩溃，所以在一些加载过慢的网页上加上一层“加载中”则是很有必要的。 确定需要加“加载中”的时机通过网页执行流程，找到">
   
     <link rel="alternative" href="/atom.xml" title="Mingyuan" type="application/atom+xml">
   
@@ -170,12 +170,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##在网页中加入“加载中提示”的方法<br>在一些我们做的网页中，有时候需要加载一些东西，如果加载的东西数据量比较大，比较费时，例如加载一个大的图片或者我下面写的例子中需要从数据库中读取很多的数据绘制图形，这时候加载图形就会比较慢。那么，为了避免用户在使用我们网页时因加载过慢而急躁，甚至以为网页崩溃，所以在一些加载过慢的网页上加上一层“加载中”则是很有必要的。</p>
-<p>###确定需要加“加载中”的时机</p>
-<h4 id="通过网页执行流程，找到加载慢的点"><a href="#通过网页执行流程，找到加载慢的点" class="headerlink" title="通过网页执行流程，找到加载慢的点"></a>通过网页执行流程，找到加载慢的点</h4><p>本例中，需要将从数据库中获取数据的时间以加载中显示，所以首先需要确定获取数据的流程，在获取数据之后，将加载中的div抹去，显示由数据绘制的图形，即可成功。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">               url:</span><br><span class="line">                   &quot;***&quot;,</span><br><span class="line">               type: &quot;get&quot;,</span><br><span class="line">               data: &#123; type: &quot;model&quot;, text: &quot;swat&quot;, sTime: year, eTime: year &#125;,</span><br><span class="line">               success: function(graph) &#123;</span><br><span class="line">                       //载入页面时才执行等待中，其他不执行</span><br><span class="line">                       let loadingMask = document.getElementById(&apos;loadingDiv&apos;);</span><br><span class="line">                       loadingMask.parentNode.removeChild(loadingMask);//当数据获取之后，清除掉数据加载div</span><br><span class="line">                       that.createGraph(graph);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;);</span><br></pre></td></tr></table></figure></p>
+        <h2 id="在网页中加入“加载中提示”的方法"><a href="#在网页中加入“加载中提示”的方法" class="headerlink" title="在网页中加入“加载中提示”的方法"></a>在网页中加入“加载中提示”的方法</h2><p>在一些我们做的网页中，有时候需要加载一些东西，如果加载的东西数据量比较大，比较费时，例如加载一个大的图片或者我下面写的例子中需要从数据库中读取很多的数据绘制图形，这时候加载图形就会比较慢。那么，为了避免用户在使用我们网页时因加载过慢而急躁，甚至以为网页崩溃，所以在一些加载过慢的网页上加上一层“加载中”则是很有必要的。</p>
+<h3 id="确定需要加“加载中”的时机"><a href="#确定需要加“加载中”的时机" class="headerlink" title="确定需要加“加载中”的时机"></a>确定需要加“加载中”的时机</h3><h4 id="通过网页执行流程，找到加载慢的点"><a href="#通过网页执行流程，找到加载慢的点" class="headerlink" title="通过网页执行流程，找到加载慢的点"></a>通过网页执行流程，找到加载慢的点</h4><p>本例中，需要将从数据库中获取数据的时间以加载中显示，所以首先需要确定获取数据的流程，在获取数据之后，将加载中的div抹去，显示由数据绘制的图形，即可成功。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">               url:</span><br><span class="line">                   &quot;***&quot;,</span><br><span class="line">               type: &quot;get&quot;,</span><br><span class="line">               data: &#123; type: &quot;model&quot;, text: &quot;swat&quot;, sTime: year, eTime: year &#125;,</span><br><span class="line">               success: function(graph) &#123;</span><br><span class="line">                       //载入页面时才执行等待中，其他不执行</span><br><span class="line">                       let loadingMask = document.getElementById(&apos;loadingDiv&apos;);</span><br><span class="line">                       loadingMask.parentNode.removeChild(loadingMask);//当数据获取之后，清除掉数据加载div</span><br><span class="line">                       that.createGraph(graph);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;);</span><br></pre></td></tr></table></figure></p>
 <p>获取数据成功后，将嵌入到网页的加载中div抹去，那么，如何将我们需要的加载中div嵌入到网页中呢？下面来介绍。</p>
-<p>###以在网页中嵌入div的形式加“加载中”在网页上</p>
-<p>####网页中嵌入加载中div<br>有两种方式嵌入到网页中实现加载中这一功能。</p>
+<h3 id="以在网页中嵌入div的形式加“加载中”在网页上"><a href="#以在网页中嵌入div的形式加“加载中”在网页上" class="headerlink" title="以在网页中嵌入div的形式加“加载中”在网页上"></a>以在网页中嵌入div的形式加“加载中”在网页上</h3><h4 id="网页中嵌入加载中div"><a href="#网页中嵌入加载中div" class="headerlink" title="网页中嵌入加载中div"></a>网页中嵌入加载中div</h4><p>有两种方式嵌入到网页中实现加载中这一功能。</p>
 <ul>
 <li>方式一：利用document.write（）来实现<br>首先定义一个变量var _loadinghtml，然后利用document.write(_LoadingHtml);将_loadinghtml这个div格式的变量值嵌入到网页中。但是该方法不能够很好的实现再次读取数据获取加载中这个div，因为document.write（）方法在二次加载，即网页已经完全加载完成后再获取数据加载时，嵌入网页的div会将所有网页元素清空，只剩下嵌入的加载中这一个div，所以不适用于多次获取数据的情况。</li>
 <li>方式二：利用innerHTML来实现往网页中嵌入加载中div</li>
@@ -288,6 +286,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/09/16/mysql read error/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          读取外部mysql脚本出现乱码问题解决
+        
+      </div>
+    </a>
   
   
     <a href="/2019/08/31/springbootmongodb/" id="article-nav-older" class="article-nav-link-wrap">

@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Mingyuan</title>
+  <title>数据集 | Mingyuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mingyuan">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="常用数据集汇总（汇总找到的汇总链接）一、常用的公共数据集（一）https://blog.csdn.net/m0_37570854/article/details/88734695  二、常用的公共数据集（二）https://blog.csdn.net/m0_37570854/article/details/88736189 三、最强数据集集合：50个最佳机器学习公共数据集https://blog.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据集">
+<meta property="og:url" content="http://yoursite.com/2019/09/25/data set/index.html">
 <meta property="og:site_name" content="Mingyuan">
+<meta property="og:description" content="常用数据集汇总（汇总找到的汇总链接）一、常用的公共数据集（一）https://blog.csdn.net/m0_37570854/article/details/88734695  二、常用的公共数据集（二）https://blog.csdn.net/m0_37570854/article/details/88736189 三、最强数据集集合：50个最佳机器学习公共数据集https://blog.">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-25T07:38:34.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mingyuan">
+<meta name="twitter:title" content="数据集">
+<meta name="twitter:description" content="常用数据集汇总（汇总找到的汇总链接）一、常用的公共数据集（一）https://blog.csdn.net/m0_37570854/article/details/88734695  二、常用的公共数据集（二）https://blog.csdn.net/m0_37570854/article/details/88736189 三、最强数据集集合：50个最佳机器学习公共数据集https://blog.">
   
     <link rel="alternative" href="/atom.xml" title="Mingyuan" type="application/atom+xml">
   
@@ -146,112 +150,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Semantic segmentation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-data set" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/25/Semantic segmentation/">语义分割模型</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/25/Semantic segmentation/" class="archive-article-date">
-  	<time datetime="2019-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="语义分割模型"><a href="#语义分割模型" class="headerlink" title="语义分割模型"></a>语义分割模型</h2><h4 id="一、FCN"><a href="#一、FCN" class="headerlink" title="一、FCN"></a>一、FCN</h4><ul>
-<li>源码：<a href="https://github.com/shelhamer/fcn.berkeleyvision.org" target="_blank" rel="noopener">https://github.com/shelhamer/fcn.berkeleyvision.org</a>  </li>
-<li>解释：<br>FCN对图像进行像素级的分类，从而解决了语义级别的图像分割问题。与经典的CNN在卷积层使用全连接层得到固定长度的特征向量进行分类不同，FCN可以接受任意尺寸的输入图像，采用反卷积层对最后一个卷基层的特征图（feature map）进行上采样，使它恢复到输入图像相同的尺寸，从而可以对每一个像素都产生一个预测，同时保留了原始输入图像中的空间信息，最后奇偶在上采样的特征图进行像素的分类。<br>-全卷积网络(FCN)是从抽象的特征中恢复出每个像素所属的类别。即从图像级别的分类进一步延伸到像素级别的分类。<br>FCN将传统CNN中的全连接层转化成一个个的卷积层，在传统的CNN结构中，前5层是卷积层，第6层和第7层分别是一个长度为4096的一维向量，第8层是长度为1000的一维向量，分别对应1000个类别的概率。FCN将这3层表示为卷积层，卷积核的大小(通道数，宽，高)分别为（4096,1,1）、（4096,1,1）、（1000,1,1）。所有的层都是卷积层，故称为全卷积网络。<br>————————————————<br>版权声明：本文为CSDN博主「moonuke」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/qq_36269513/article/details/80420363" target="_blank" rel="noopener">https://blog.csdn.net/qq_36269513/article/details/80420363</a><h4 id="二、SegNet"><a href="#二、SegNet" class="headerlink" title="二、SegNet"></a>二、SegNet</h4></li>
-<li>源码：<a href="https://github.com/alexgkendall/caffe-segnet" target="_blank" rel="noopener">https://github.com/alexgkendall/caffe-segnet</a> </li>
-<li>数据集：SegNet (3.5K dataset training - 140K)</li>
-<li>paper link：<a href="https://arxiv.org/pdf/1511.00561.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1511.00561.pdf</a> </li>
-<li><p>特点：<br>SegNet的编码器部分使用的是VGG16的前13层卷积网络,每个编码器层都对应一个解码器层,最终解码器的输出被送入soft-max分类器以独立的为每个像素产生类概率。</p>
-<p>  每个编码器由数个蓝色层(卷积层,批归一化层,RELU层)以及一个Pooling层(2x2窗口,步进2,最大池化)组成,输出相当于系数为2的下采样。</p>
-<p>  最大池化过程中会损失一些信息，因此这里储存了max-pooling indices，保存最大池化过程中的位置信息，用于在上采样的时候进行恢复。</p>
-<p>  与FCN相比，训练精度更高也更快。</p>
-<p>  可在<a href="http://mi.eng.cam.ac.uk/projects/segnet/进行实验" target="_blank" rel="noopener">http://mi.eng.cam.ac.uk/projects/segnet/进行实验</a></p>
-<h4 id="三、U-Net"><a href="#三、U-Net" class="headerlink" title="三、U-Net"></a>三、U-Net</h4></li>
-<li>源码：<a href="https://github.com/milesial/Pytorch-UNet" target="_blank" rel="noopener">https://github.com/milesial/Pytorch-UNet</a> </li>
-<li>paper link:<a href="https://arxiv.org/pdf/1505.04597v1.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1505.04597v1.pdf</a></li>
-<li>特点：<br>（1）改进了FCN，把扩展路径完善了很多，多通道卷积与类似FPN（特征金字塔网络）的结构相结合。<br>（2）利用少量数据集进行训练测试，为医学图像分割做出很大贡献。<h4 id="四、DeepLab"><a href="#四、DeepLab" class="headerlink" title="四、DeepLab"></a>四、DeepLab</h4></li>
-<li>paper link：<br><a href="https://arxiv.org/pdf/1412.7062v3.pdf" target="_blank" rel="noopener">deeplab v1</a><br><a href="https://arxiv.org/pdf/1412.7062v3.pdf" target="_blank" rel="noopener">deeplab v2</a><br><a href="https://arxiv.org/abs/1706.05587" target="_blank" rel="noopener">deeplab v3</a><br><a href="http://cn.arxiv.org/abs/1802.02611" target="_blank" rel="noopener">deeplab v3+</a></li>
-<li>源码：<br><a href="https://github.com/NanqingD/DeepLabV3-Tensorflow" target="_blank" rel="noopener">deeplab v3</a><br><a href="https://github.com/jfzhang95/pytorch-deeplab-xception" target="_blank" rel="noopener">deeplab v3+</a></li>
-<li>特点：DeepLabv3进一步探讨空洞卷积，这是一个在语义分割任务中：可以调整滤波器视野、控制卷积神经网络计算的特征响应分辨率的强大工具。为了解决多尺度下的目标分割问题，我们设计了空洞卷积级联或不同采样率空洞卷积并行架构。此外，我们强调了ASPP(Atrous Spatial Pyramid Pooling)模块，该模块可以在获取多个尺度上卷积特征，进一步提升性能。同时，我们分享了实施细节和训练方法，此次提出的DeepLabv3相比先前的版本有显著的效果提升，在PASCAL VOC 2012上获得了先进的性能。<h4 id="五、PSPNet"><a href="#五、PSPNet" class="headerlink" title="五、PSPNet"></a>五、PSPNet</h4></li>
-<li>源码：<br><a href="https://github.com/hszhao/PSPNet" target="_blank" rel="noopener">pspnet-github</a><br><a href="https://github.com/Vladkryvoruchko/PSPNet-Keras-tensorflow" target="_blank" rel="noopener">Keras</a><br><a href="https://github.com/hellochick/PSPNet-tensorflow" target="_blank" rel="noopener">tensorflow</a></li>
-<li>数据集：<br>LMO dataset [22]<br>PASCAL context datasets [8, 29]<br>ADE20K dataset [43]</li>
-<li>paper link：<a href="https://arxiv.org/pdf/1612.01105.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1612.01105.pdf</a></li>
-<li>特点：<br>1.提出pyramid scene parsing network<br>2.提出effective optimization strategy for deep ResNet [13] based on deeply supervised loss<br>3.建立一个系统</li>
-<li>blog资源：<a href="https://www.jianshu.com/p/57329a0b7a2d" target="_blank" rel="noopener">https://www.jianshu.com/p/57329a0b7a2d</a> <h4 id="六、HRNet"><a href="#六、HRNet" class="headerlink" title="六、HRNet"></a>六、HRNet</h4></li>
-<li>源码：<br><a href="https://github.com/leoxiaobin/deep-high-resolution-net.pytorch" target="_blank" rel="noopener">Pose estimation</a><br><a href="https://github.com/HRNet/HRNet-Semantic-Segmentation" target="_blank" rel="noopener">Semantic segmentation</a><br><a href="https://github.com/HRNet/HRNet-Facial-Landmark-Detection" target="_blank" rel="noopener">Face alignment</a><br><a href="https://github.com/HRNet/HRNet-Image-Classification" target="_blank" rel="noopener">Image classification</a><br><a href="https://github.com/HRNet/HRNet-Object-Detection" target="_blank" rel="noopener">Object detection</a></li>
-<li>特点：<br>分类网络在视觉识别中占据主导地位，从图像级分类到区域级分类(目标检测)和像素级分类(语义分割、人体姿态估计和人脸地标检测)<br>这个名叫HRNet的神经网络，拥有与众不同的并联结构，可以随时保持高分辨率表征，不只靠从低分辨率表征里，恢复高分辨率表征。如此一来，姿势识别的效果明显提升：<br>在COCO数据集的关键点检测、姿态估计、多人姿态估计这三项任务里，HRNet都超越了所有前辈。</li>
-<li>blog资源：<a href="https://blog.csdn.net/weixin_37993251/article/details/88043650" target="_blank" rel="noopener">https://blog.csdn.net/weixin_37993251/article/details/88043650</a> </li>
-</ul>
-<h4 id="另：实例分割、语义分割网络大全-https-blog-csdn-net-qq-41007606-article-details-84025902"><a href="#另：实例分割、语义分割网络大全-https-blog-csdn-net-qq-41007606-article-details-84025902" class="headerlink" title="另：实例分割、语义分割网络大全 https://blog.csdn.net/qq_41007606/article/details/84025902"></a>另：实例分割、语义分割网络大全 <a href="https://blog.csdn.net/qq_41007606/article/details/84025902" target="_blank" rel="noopener">https://blog.csdn.net/qq_41007606/article/details/84025902</a></h4><p>包括：</p>
-<ul>
-<li>数据集<br>2D数据集、2.5D数据集、3D数据集</li>
-<li>图像标注工具</li>
-<li>papers</li>
-<li>blog资源</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/25/Semantic segmentation/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-data set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/25/data set/">数据集</a>
+    <h1 class="article-title" itemprop="name">
+      数据集
     </h1>
   
 
@@ -276,6 +182,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -283,16 +210,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/25/data set/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/25/data set/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/09/25/Semantic segmentation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          语义分割模型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/20/Arithmetic Arrangement/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法整理之2</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -312,1077 +307,14 @@
 
 
 
-
-  
-    <article id="post-Arithmetic Arrangement" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/20/Arithmetic Arrangement/">算法整理之2</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/20/Arithmetic Arrangement/" class="archive-article-date">
-  	<time datetime="2019-09-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="算法整理"><a href="#算法整理" class="headerlink" title="算法整理"></a>算法整理</h2><ol>
-<li>A3C算法：深度强化学习算法 <a href="https://www.cnblogs.com/wangxiaocvpr/p/8110120.html" target="_blank" rel="noopener">https://www.cnblogs.com/wangxiaocvpr/p/8110120.html</a></li>
-<li>adv_imagenet_models：Imagenet数据集的处理 <a href="https://blog.csdn.net/gzroy/article/details/85954329" target="_blank" rel="noopener">https://blog.csdn.net/gzroy/article/details/85954329</a></li>
-<li>adversarial_crypto：密钥算法模块 <a href="https://blog.csdn.net/sunhuansheng/article/details/82223170" target="_blank" rel="noopener">https://blog.csdn.net/sunhuansheng/article/details/82223170</a></li>
-<li>adversarial_logit_pairing：对抗性logit配对。Adversarial logit配对文件的实现，以及在ImageNet和Tiny ImageNet上预训练的少数模型。<a href="https://arxiv.org/pdf/1803.06373.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1803.06373.pdf</a></li>
-<li>adversarial_text：对抗性训练方法的半监督文本分类和半监督序列学习。</li>
-<li>exoplanet-ml：用于系外行星科学的机器学习模型和实用程序。</li>
-<li>attention_ocr：TensorFlow模型，用于实际图像文本提取问题。此文件夹包含在FSNS数据集数据集上训练新的Attention OCR模型以转录法国街道名称所需的代码 。您也可以使用它来训练您自己的数据。</li>
-<li>audioset：该存储库提供与AudioSet相关的模型和支持代码， AudioSet是一个包含超过200万个人类标记的10秒YouTube视频音轨的数据集，其标签取自600多个音频事件类的本体。AudioSet被 发布 在2017年3月被谷歌的声音了解团队提供音频事件检测常见的大范围的评估任务以及声音事件的全面词汇的起点。</li>
-<li>autoaugment：使用AutoAugment在CIFAR-10和CIFAR-100数据集上训练Wide-ResNet，Shake-Shake和ShakeDrop模型。CIFAR-10 / CIFAR-100数据可从以下网址下载：https：//<a href="http://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="noopener">www.cs.toronto.edu/~kriz/cifar.html</a> 。该代码使用以下模型复制了CIFAR-10/100上表1和表2的结果：Wide-ResNet-28-10，Shake-Shake（26 2x32d），Shake-Shake（26 2x96d）和PyramidNet + ShakeDrop。</li>
-<li>autoencoder：autoencoder是一种无监督的学习算法，主要用于数据的降维或者特征的抽取，在深度学习中，autoencoder可用于在训练阶段开始前，确定权重矩阵的初始值。<a href="https://blog.csdn.net/qq_39521554/article/details/80697882" target="_blank" rel="noopener">https://blog.csdn.net/qq_39521554/article/details/80697882</a></li>
-<li>brain_coder：脑编码器是一种代码合成实验环境。</li>
-<li>cognitive_mapping_and_planning：<a href="https://blog.csdn.net/c602273091/article/details/78819362" target="_blank" rel="noopener">https://blog.csdn.net/c602273091/article/details/78819362</a></li>
-<li>cognitive_planning：Arsalan Mousavian，Alexander Toshev，Marek Fiser，Jana Kosecka，James Davidson这是在Active Vision数据集上实现语义目标驱动的导航训练和评估。ECCV模拟环境中的视觉学习和实体代理研讨会2018。</li>
-<li>compression：这是一个TensorFlow模型repo，包含有关神经网络压缩的研究。此repo目前包含以下文件的代码：采用递归神经网络的全分辨率图像压缩</li>
-<li>cvt_text：该存储库包含使用跨视图训练的半监督序列建模的代码。目前支持序列标记和依赖性解析任务。</li>
-<li>deep_contextual_bandits：<a href="https://blog.csdn.net/qq_32690999/article/details/78996398" target="_blank" rel="noopener">https://blog.csdn.net/qq_32690999/article/details/78996398</a></li>
-<li>deep_speech：这是DeepSpeech2模型的实现。当前的实现基于作者的DeepSpeech代码中的代码和MLPerf Repo中的实现。DeepSpeech2是一种用于自动语音识别（ASR）的端到端深度神经网络。它由2个卷积层，5个双向RNN层和一个完全连接层组成。使用的特征是从音频输入中提取的线性频谱图。网络使用连接主义时间分类CTC作为损失函数。<a href="https://www.jianshu.com/p/e48437fcf246" target="_blank" rel="noopener">https://www.jianshu.com/p/e48437fcf246</a></li>
-<li>DeepLab：语义图像分割的深度标注DeepLab是用于语义图像分割的最先进的深度学习模型，其目标是将语义标签（例如，人，狗，猫等）分配给输入图像中的每个像素。当前的实现包括以下功能：1.DeepLabv1 [1]：我们使用atrous卷积来明确控制在深度卷积神经网络中计算特征响应的分辨率。2.DeepLabv2 [2]：我们使用不稳定的空间金字塔池（ASPP）来使用多个采样率和有效视野的过滤器在多个尺度上稳健地分割对象。3.DeepLabv3 [3]：我们使用图像级功能 [5,6 ]扩充ASPP模块以捕获更长距离的信息。我们还包括批量标准化 [7]参数，以促进培训。特别是，我们应用激流卷积在训练和评估期间提取不同输出步幅的输出特征，这有效地使得在输出步幅= 16时训练BN并在评估期间在输出步幅= 8时获得高性能。4.DeepLabv3 + [4]：我们扩展DeepLabv3以包含一个简单而有效的解码器模块，以优化细分结果，特别是沿着对象边界。此外，在这种编码器 - 解码器结构中，可以通过迂回卷积任意地控制所提取的编码器特征的分辨率，以折衷精度和运行时间。<a href="https://www.jianshu.com/p/b5f5cdc0ba9d" target="_blank" rel="noopener">https://www.jianshu.com/p/b5f5cdc0ba9d</a></li>
-<li>Delf：DELF对于大规模实例级图像识别特别有用。它检测并描述语义局部特征，这些特征可以在显示相同对象实例的图像之间进行几何验证。此处发布的预先训练的模型已针对地标识别进行了优化，因此期望它在该领域中运行良好。我们还提供了用于构建DELF模型的张量流代码，然后可以使用该代码来训练其他类型对象的模型。<a href="https://blog.csdn.net/sparkexpert/article/details/80590452" target="_blank" rel="noopener">https://blog.csdn.net/sparkexpert/article/details/80590452</a></li>
-<li>differential_privacy：ensorFlow Privacy是一个Python库，其中包含用于培训具有差异隐私的机器学习模型的TensorFlow优化器的实现。该库附带了教程和分析工具，用于计算所提供的隐私保证。<a href="https://blog.csdn.net/forest_open/article/details/81429458" target="_blank" rel="noopener">https://blog.csdn.net/forest_open/article/details/81429458</a></li>
-<li>domain_adaptation：在经典的机器学习问题中，我们往往假设训练集和测试集分布一致，在训练集上训练模型，在测试集上测试。然而在实际问题中，测试场景往往非可控，测试集和训练集分布有很大差异，这时候就会出现所谓过拟合问题：模型在测试集上效果不理想。 以人脸识别为例，如果用东方人人脸数据训练，用于识别西方人，相比东方人识别性能会明显下降。 当训练集和测试集分布不一致的情况下，通过在训练数据上按经验误差最小准则训练的模型在测试上性能不好，因此出现了迁移学习技术。<a href="https://blog.csdn.net/u013841196/article/details/80956828" target="_blank" rel="noopener">https://blog.csdn.net/u013841196/article/details/80956828</a></li>
-<li>efficient-hrl：端到端训练实体和关系抽取<a href="https://blog.csdn.net/juanjuan1314/article/details/90296866" target="_blank" rel="noopener">https://blog.csdn.net/juanjuan1314/article/details/90296866</a></li>
-<li>FEELVOS：用于视频对象分割的快速端到端嵌入式学习<a href="https://blog.csdn.net/qq_34914551/article/details/88596860" target="_blank" rel="noopener">https://blog.csdn.net/qq_34914551/article/details/88596860</a></li>
-<li>Fivo: 过滤用于训练生成序列模型的变分目标。该代码实现了训练顺序潜变量模型的3个不同界限：证据下界（ELBO），重要性加权自动编码器界限（IWAE）和我们的界限，过滤变分目标（FIVO）。此外，它包含几个连续的潜在变量模型实现：1.变分递归神经网络（VRNN）2.随机递归神经网络（SRNN）3.具有线性条件的高斯隐马尔可夫模型（GHMM）  可以训练VRNN和SRNN用于钢琴和语音数据的序列建模。GHMM可在合成数据集上训练，可用作分析易处理模型的简单示例。<a href="https://blog.csdn.net/weixin_42749767/article/details/82986650" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42749767/article/details/82986650</a></li>
-<li>gan：生成对抗网络。<a href="https://www.jianshu.com/p/0fc4c696e409" target="_blank" rel="noopener">https://www.jianshu.com/p/0fc4c696e409</a></li>
-<li>global_objectives:全球目标Global Objectives库提供TensorFlow损失功能，可直接针对各种目标进行优化，包括AUC，精确调用等。全局目标损失可用作TensorFlow标准多标签丢失功能的直接替代品： tf.nn.sigmoid_cross_entropy_with_logits和tf.losses.sigmoid_cross_entropy。</li>
-<li>im2txt：用于图像字幕的图像到文本神经网络。这个模型的作用跟它的名字一样，image-to-text，把图像转为文字，也就是图片描述。<a href="https://blog.51cto.com/12340098/2337731" target="_blank" rel="noopener">https://blog.51cto.com/12340098/2337731</a></li>
-<li>inception：用于计算机视觉的深度卷积网络。<a href="https://blog.csdn.net/loveliuzz/article/details/79135583" target="_blank" rel="noopener">https://blog.csdn.net/loveliuzz/article/details/79135583</a></li>
-<li>KeypointNet：这是“通过端到端几何推理发现潜在3D关键点[ pdf ]”中提出的关键点网络的实现。给定已知类的单个2D图像，该网络可以预测一组3D关键点，这些关键点在同一对象的视角和对象实例之间是一致的。这些关键点及其探测器在没有关键点位置监控的情况下自动发现和学习[ demo ]。<a href="https://blog.csdn.net/buyan4395/article/details/82890825" target="_blank" rel="noopener">https://blog.csdn.net/buyan4395/article/details/82890825</a></li>
-<li>learned_optimizer：学到的优化器。在顶级目录中，metaopt.py包含用于训练和测试学习优化器的代码。metarun.py将实际的训练过程打包到一个文件中，定义并公开许多标志以调整过程，从选择优化器类型和问题集到更精细的超参数设置。没有测试二进制文件; metaopt.test_optimizer通过传递优化器对象和带有检查点的目录，可以临时完成测试。</li>
-<li>learning_to_remember_rare_events：用于深度学习的大型终身内存模块。</li>
-<li>learning_unsupervised_learning：学习无监督学习规则。此存储库包含“学习无监督学习规则”中提供的学习更新规则的代码和权重。此时，此代码无法对更新规则进行元编辑。<a href="https://blog.csdn.net/qq_34859482/article/details/80261323+" target="_blank" rel="noopener">https://blog.csdn.net/qq_34859482/article/details/80261323+</a></li>
-<li>lexnet_nc：名词复合关系分类的分布式模型。这是用于对关系进行分类的LexNET算法的Tensorflow实现，特别适用于对名词化合物之间的关系进行分类</li>
-<li>lfads：动力系统的潜在因子分析。是一个专为调查神经科学数据而设计的顺序变分自动编码器，但可广泛应用于任何时间序列数据。在无监督设置中，LFADS能够将时间序列数据分解为各种因素，例如初始条件，生成动力系统，控制输入到该生成器，以及观察数据的低维描述，称为因子。另外，观察模型是概率分布的损失，因此当LFADS处理数据集时，去噪的版本例如，如果数据集是原始峰值计数，那么在泊松分布下的负对数类似损失下，去噪数据将是推断的泊松率。</li>
-<li>lm_1b：十亿字基准的语言模型。这是十亿字基准的预训练模型。这是一个2013年发布的英语大型语料库。这个数据集包含大约10亿字，并且词汇量大约为800K字。它主要包含新闻数据。由于训练集中的句子是混洗的，因此模型可以忽略上下文并专注于句子级语言建模。</li>
-<li>lm_commonsense：一种简单的常识推理方法，包含用于从常规推理的简单方法重现结果的代码。</li>
-<li>lstm_object_detection：Tensorflow移动视频对象检测。<a href="https://blog.csdn.net/gdengden/article/details/86527251" target="_blank" rel="noopener">https://blog.csdn.net/gdengden/article/details/86527251</a></li>
-<li>marco: 这是本文中描述的预训练模型：使用深度卷积神经网络分类结晶结果。该模型将结晶实验图像作为输入：水晶样品,它将其归类为属于四种类别之一：晶体，沉淀物，透明物质或“其他物种”。该模型是对来自MARCO存储库的数据进行过训练的Inception-v3的变体。</li>
-<li>maskgan: 通过填写<strong>__</strong>更好的文本生成. 谷歌大脑让AI学做完形填空的新尝试. <a href="https://blog.csdn.net/c2a2o2/article/details/79193978" target="_blank" rel="noopener">https://blog.csdn.net/c2a2o2/article/details/79193978</a></li>
-<li>minigo. 这是基于作者提供的代码MiniGo的简化实现：MiniGo。MiniGo是一款极简主义的Go引擎，模仿AlphaGo Zero，“掌握没有人类知识的游戏”。Alphago Zero的有用单图概述可以在备忘单中找到。MiniGo的实现包括三个主要组件：DualNet模型，蒙特卡罗树搜索（MCTS）和Go域知识。目前，DualNet模型是我们的重点。<a href="https://baike.baidu.com/item/Minigo/22742691?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/Minigo/22742691?fr=aladdin</a></li>
-<li>morph-net: MorphNet是一种在培训过程中学习深层网络结构的方法。关键原则是不断放松网络结构学习问题。具体而言，通过添加针对特定资源（例如FLOP或模型大小）的消耗的正则化器来诱导激活稀疏性。当将正则化器损失添加到训练损失并且通过随机梯度下降或类似的优化器使其总和最小化时，在由正则化器表示的约束下，学习问题变为网络结构的约束优化。该方法首次在我们的CVPR 2018中引入，论文“ MorphNet：深度网络结构的快速和简单资源约束学习”“。该方法的概述以及新设备特定的延迟正则化器在 GTC 2019中出现<a href="https://baijiahao.baidu.com/s?id=1631145546340380378&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1631145546340380378&amp;wfr=spider&amp;for=pc</a></li>
-<li>Namignizer: 使用变化的PTB模型使用Kaggle婴儿名称数据库识别和生成名称。</li>
-<li>neural_gpu: <a href="http://arxiv.org/abs/1511.08228中描述的神经GPU模型的代码。扩展版本在https://arxiv.org/abs/1610.08613中描述。" target="_blank" rel="noopener">http://arxiv.org/abs/1511.08228中描述的神经GPU模型的代码。扩展版本在https://arxiv.org/abs/1610.08613中描述。</a></li>
-<li>neural_programmer: 用逻辑和数学运算增强的神经网络。</li>
-<li>next_frame_prediction: 视觉动力学：通过交叉卷积网络进行概率未来帧合成。</li>
-<li>nst_blogpost:</li>
-<li>object_detection: Tensorflow对象检测API. 创建能够在单个图像中定位和识别多个对象的精确机器学习模型仍然是计算机视觉中的核心挑战。TensorFlow对象检测API是一个基于TensorFlow构建的开源框架，可以轻松构建，训练和部署对象检测模型。在谷歌，我们确实发现这个代码库对我们的计算机视觉需求很有用，我们希望你也能这样做。</li>
-<li>pcl_rl: 几种强化学习算法的代码，包括路径一致性学习。</li>
-<li>ptn: 透视变压器网. 这是NIPS 2016作品的TensorFlow实现“透视变换器网络：学习单视图3D对象重建而无需3D监督”</li>
-<li>qa_kg: 用于在知识图上回答问题的模块网络. 此代码存储库包含TensorFlow模型，用于在具有端到端模块网络的知识图上进行问题回答。</li>
-<li>real_nvp: TensorFlow中的真实NVP,使用Real NVP进行密度估算的训练程序的Tensorflow实现，由Laurent Dinh，Jascha Sohl-Dickstein和Samy Bengio，Imagenet（32x32和64x64），CelebA和LSUN包括将数据集放入.tfrecords格式的脚本。<a href="https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/82112222" target="_blank" rel="noopener">https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/82112222</a></li>
-<li>rebar: 用REBAR加固混凝土</li>
-<li>resnet:  ResNet（Residual Neural Network）由微软研究院的Kaiming He等四名华人提出，通过使用ResNet Unit成功训练出了152层的神经网络，并在ILSVRC2015比赛中取得冠军，在top5上的错误率为3.57%，同时参数量比VGGNet低，效果非常突出。ResNet的结构可以极快的加速神经网络的训练，模型的准确率也有比较大的提升。同时ResNet的推广性非常好，甚至可以直接用到InceptionNet网络中。<a href="https://blog.csdn.net/u013181595/article/details/80990930" target="_blank" rel="noopener">https://blog.csdn.net/u013181595/article/details/80990930</a></li>
-<li>sentiment_analysis: 这是在描述的情感分析模型的实现本文。实现是参考paddle版本。该模型使用具有不同内核大小的两个CNN层的串联。批量标准化和丢失层用于防止过度拟合。<a href="https://blog.csdn.net/weixin_32614651/article/details/80579758" target="_blank" rel="noopener">https://blog.csdn.net/weixin_32614651/article/details/80579758</a></li>
-<li>seq2species: 物种分类的神经网络模型.</li>
-<li>skip_thoughts: 递归神经网络句子到矢量编码器。<a href="https://www.jianshu.com/p/a60a46ed50de" target="_blank" rel="noopener">https://www.jianshu.com/p/a60a46ed50de</a></li>
-<li>slim: TensorFlow-Slim图像分类模型库.TF-slim 是TensorFlow（tensorflow.contrib.slim）的一个新的轻量级高级API，用于定义，训练和评估复杂模型。该目录包含用于训练和评估使用TF-slim的几种广泛使用的卷积神经网络（CNN）图像分类模型的代码。它包含的脚本允许您从头开始训练模型或从预先训练的网络权重中对其进行微调。它还包含用于下载标准图像数据集的代码，将它们转换为TensorFlow的本机TFRecord格式，并使用TF-Slim的数据读取和排队实用程序读取它们。您可以轻松地在任何这些数据集上训练任何模型，如下所示。我们还包括了一个 jupyter笔记本，提供了如何使用TF-Slim进行图像分类的工作示例。有关开发或修改自己的模型. <a href="https://www.cnblogs.com/hejunlin1992/p/8082535.html" target="_blank" rel="noopener">https://www.cnblogs.com/hejunlin1992/p/8082535.html</a></li>
-<li>steve: 随机集合价值扩张.</li>
-<li>Street: StreetView Tensorflow循环端到端转录（STREET）模型。</li>
-<li>struct2depth: 这是一种用于无监督学习单眼视频的深度和运动的方法，通过明确地建模3D物体运动，在线细化和通过新的损失公式改善运动物体的质量，在两个任务上实现新的最先进的结果。<a href="https://www.cnblogs.com/shepherd2015/p/10577788.html" target="_blank" rel="noopener">https://www.cnblogs.com/shepherd2015/p/10577788.html</a></li>
-<li>swivel: 在Tensorflow中旋转.这是用于生成字嵌入的Swivel算法的TensorFlow实现 。</li>
-<li>syntaxnet: SyntaxNet：语法的神经模型。TensorFlow工具包，用于深度学习，支持自然语言理解（NLU）<a href="https://www.cnblogs.com/kmsfan/p/5538730.html" target="_blank" rel="noopener">https://www.cnblogs.com/kmsfan/p/5538730.html</a></li>
-<li>tcn: 时间对比网络.这实现了“时间对比网络”，这是更大的自我监督模仿学习项目的一部分。<a href="https://blog.csdn.net/Kuo_Jun_Lin/article/details/80602776" target="_blank" rel="noopener">https://blog.csdn.net/Kuo_Jun_Lin/article/details/80602776</a></li>
-<li>tensorrt: TensorRT是NVIDIA的深度学习推理优化器。简而言之，TensorRT重写执行图的部分以允许更快的预测时间。<a href="https://blog.csdn.net/IAMoldpan/article/details/86604290" target="_blank" rel="noopener">https://blog.csdn.net/IAMoldpan/article/details/86604290</a></li>
-<li>textsum: 这篇文章中我们将基于Tensorflow的Seq2Seq+Attention模型，介绍如何训练一个中文的自动生成新闻标题的模型。自动总结(Automatic Summarization)类型的模型一直是研究热点。 <a href="https://blog.csdn.net/c2a2o2/article/details/79140021" target="_blank" rel="noopener">https://blog.csdn.net/c2a2o2/article/details/79140021</a></li>
-<li>transformer: 空间变换器网络[1]允许空间操纵网络内的数据。<a href="https://blog.csdn.net/YQMind/article/details/80864133" target="_blank" rel="noopener">https://blog.csdn.net/YQMind/article/details/80864133</a></li>
-<li>vid2depth: 利用三维几何约束从单目视频无监督学习深度和自我运动. <a href="http://www.qukaa.com/TXTRF107327XASYYT1==1.html" target="_blank" rel="noopener">http://www.qukaa.com/TXTRF107327XASYYT1==1.html</a></li>
-<li>video_prediction: 基于神经平流的视频预测. 该视频预测模型可选地以动作为条件，通过内部预测如何将最后图像（可能已被预测）变换成下一图像来预测未来视频。因此，它可以重用前一帧中的外观信息，并且可以更好地推广到训练集中未见的对象。
- </li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/20/Arithmetic Arrangement/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Deep Learning Arithmetic Arrangement" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/19/Deep Learning Arithmetic Arrangement/">算法整理</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/19/Deep Learning Arithmetic Arrangement/" class="archive-article-date">
-  	<time datetime="2019-09-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="目标识别算法整理"><a href="#目标识别算法整理" class="headerlink" title="目标识别算法整理"></a>目标识别算法整理</h2><ul>
-<li>一、adv_imagenet_models</li>
-<li><ul>
-<li>算法名称：经过对抗训练的ImageNet模型</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：如果要运行提供的示例，还需要ImageNet数据集的副本。按照 准备 TF-Slim库中的数据集（<a href="https://github.com/tensorflow/models/tree/master/research/slim#Data）" target="_blank" rel="noopener">https://github.com/tensorflow/models/tree/master/research/slim#Data）</a> 指令来获取和预处理ImageNet数据。<br>imagenet数据集：<br><a href="http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_img_train.tar" target="_blank" rel="noopener">http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_img_train.tar</a><br><a href="http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_img_val.tar" target="_blank" rel="noopener">http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_img_val.tar</a></li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：图像识别</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://blog.csdn.net/gzroy/article/details/85954329" target="_blank" rel="noopener">https://blog.csdn.net/gzroy/article/details/85954329</a> </li>
-</ul>
-</li>
-<li>二、adversarial_logit_pairing</li>
-<li><ul>
-<li>算法名称：对抗性logit配对</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：支持以下几个数据集<br>ImageNet（<a href="http://www.image-net.org/）" target="_blank" rel="noopener">http://www.image-net.org/）</a> 。按照 准备 TF-Slim文档中的数据集（<a href="https://github.com/tensorflow/models/tree/master/research/slim#Data）" target="_blank" rel="noopener">https://github.com/tensorflow/models/tree/master/research/slim#Data）</a> 说明，下载ImageNet数据集并将其转换为TFRecord格式。<br>微小的ImageNet（<a href="https://tiny-imagenet.herokuapp.com/）" target="_blank" rel="noopener">https://tiny-imagenet.herokuapp.com/）</a> 。要获取Tiny ImageNet数据集，请执行以下操作：</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：图像识别</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://github.com/tensorflow/models/tree/master/research/adversarial_logit_pairing" target="_blank" rel="noopener">https://github.com/tensorflow/models/tree/master/research/adversarial_logit_pairing</a> </li>
-</ul>
-</li>
-<li>三、attention_ocr</li>
-<li><ul>
-<li>算法名称：用于实际图像文本提取的模型</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：TensorFlow模型，用于实际图像文本提取问题。</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：FSNS数据集（<a href="https://github.com/tensorflow/models/tree/master/research/street）" target="_blank" rel="noopener">https://github.com/tensorflow/models/tree/master/research/street）</a> 数据集上训练新的Attention OCR模型以转录法国街道名称所需的代码。</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：</li>
-</ul>
-</li>
-<li>四、cognitive_mapping_and_planning</li>
-<li><ul>
-<li>算法名称：认知型地图构建器和规划器，用于视觉导航的基于空间存储器的映射和规划架构的实现</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<br><a href="https://blog.csdn.net/c602273091/article/details/78819362" target="_blank" rel="noopener">https://blog.csdn.net/c602273091/article/details/78819362</a><br><a href="https://blog.csdn.net/weixin_37251044/article/details/78569428" target="_blank" rel="noopener">https://blog.csdn.net/weixin_37251044/article/details/78569428</a></li>
-</ul>
-</li>
-<li>五、DeepLab</li>
-<li><ul>
-<li>算法名称：语义图像分割的深度标注</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：可以自己制作。如数据需要标注，则可以使用labelme进行数据标注</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：图像分割</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://www.jianshu.com/p/b5f5cdc0ba9d" target="_blank" rel="noopener">https://www.jianshu.com/p/b5f5cdc0ba9d</a></li>
-</ul>
-</li>
-<li>六、Delf</li>
-<li><ul>
-<li>算法名称：用于图像匹配和检索的深层局部特征</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：DELF对于大规模实例级图像识别特别有用。它检测并描述语义局部特征，这些特征可以在显示相同对象实例的图像之间进行几何验证。此处发布的预先训练的模型已针对地标识别进行了优化，因此期望它在该领域中运行良好。</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：基于Google标志性数据集的预训练模型<br><a href="https://www.kaggle.com/google/google-landmarks-dataset" target="_blank" rel="noopener">https://www.kaggle.com/google/google-landmarks-dataset</a><br>有两个Google-Landmarks数据集版本：<br>初始版本（v1）可以在这里（<a href="https://www.kaggle.com/google/google-landmarks-dataset" target="_blank" rel="noopener">https://www.kaggle.com/google/google-landmarks-dataset</a> ）找到 。包含“检测到检索”文件中描述的Google Landmark Box。<br>第二版（v2）已作为两个Kaggle挑战的一部分发布： 地标识别（<a href="https://www.kaggle.com/c/landmark-recognition-2019" target="_blank" rel="noopener">https://www.kaggle.com/c/landmark-recognition-2019</a> ） 和地标检索（<a href="https://www.kaggle.com/c/landmark-retrieval-2019" target="_blank" rel="noopener">https://www.kaggle.com/c/landmark-retrieval-2019</a> )。它可以在这里从CVDF(<a href="https://github.com/cvdfoundation/google-landmark" target="_blank" rel="noopener">https://github.com/cvdfoundation/google-landmark</a> )下载 。</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：大规模实例级图像识别</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://blog.csdn.net/sparkexpert/article/details/80590452" target="_blank" rel="noopener">https://blog.csdn.net/sparkexpert/article/details/80590452</a></li>
-</ul>
-</li>
-<li>七、im2txt</li>
-<li><ul>
-<li>算法名称：图像字幕的图像到文本神经网络</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：这个模型的作用跟它的名字一样，image-to-text，把图像转为文字，也就是图片描述</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：图像编码器是深度卷积神经网络。这种类型的网络广泛用于图像任务，并且目前是用于对象识别和检测的最先进技术。我们特别选择的网络是在ILSVRC-2012-CLS（<a href="http://www.image-net.org/challenges/LSVRC/2012/" target="_blank" rel="noopener">http://www.image-net.org/challenges/LSVRC/2012/</a> ）图像分类数据集上预先训练的 Inception v3（<a href="https://arxiv.org/abs/1512.00567" target="_blank" rel="noopener">https://arxiv.org/abs/1512.00567</a> ）图像识别模型 。</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：在NVIDIA Tesla K20m GPU上的经验，初始培训阶段需要1-2周。第二个培训阶段可能需要几个星期才能达到最佳性能（但您可以提前停止此阶段并仍然获得合理的结果）。</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://blog.51cto.com/12340098/2337731" target="_blank" rel="noopener">https://blog.51cto.com/12340098/2337731</a></li>
-</ul>
-</li>
-<li>八、inception</li>
-<li><ul>
-<li>算法名称：用于计算机视觉的深度卷积网络</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：ImageNet（<a href="http://www.image-net.org/" target="_blank" rel="noopener">http://www.image-net.org/</a> ）是用于训练图像识别系统的机器学习中的常见学术数据集。</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：图像识别</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://blog.csdn.net/loveliuzz/article/details/79135583" target="_blank" rel="noopener">https://blog.csdn.net/loveliuzz/article/details/79135583</a></li>
-</ul>
-</li>
-<li>九、KeypointNet</li>
-<li><ul>
-<li>算法名称：通过端到端几何eeasoning [ demo ] 发现潜在的3D关键点。</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：给定已知类的单个2D图像，该网络可以预测一组3D关键点，这些关键点在同一对象的视角和对象实例之间是一致的。这些关键点及其探测器在没有关键点位置监控的情况下自动发现和学习</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：ShapeNet的汽车（<a href="https://storage.googleapis.com/discovery-3dkeypoints-data/cars_with_keypoints.zip" target="_blank" rel="noopener">https://storage.googleapis.com/discovery-3dkeypoints-data/cars_with_keypoints.zip</a> ）， 飞机（<a href="https://storage.googleapis.com/discovery-3dkeypoints-data/planes_with_keypoints.zip" target="_blank" rel="noopener">https://storage.googleapis.com/discovery-3dkeypoints-data/planes_with_keypoints.zip</a> ）， 椅子（<a href="https://storage.googleapis.com/discovery-3dkeypoints-data/chairs_with_keypoints.zip" target="_blank" rel="noopener">https://storage.googleapis.com/discovery-3dkeypoints-data/chairs_with_keypoints.zip</a> ）渲染 。<br>每组包含：<br>tfrecords<br>train.txt，用于培训的tfrecords列表。<br>dev.txt，用于验证的tfrecords列表。<br>test.txt，用于测试的tfrecords列表。<br>projection.txt，存储全局4x4相机投影矩阵。<br>job.txt，在每个tfrecord中存储ShapeNet的对象ID。</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://blog.csdn.net/buyan4395/article/details/82890825" target="_blank" rel="noopener">https://blog.csdn.net/buyan4395/article/details/82890825</a></li>
-</ul>
-</li>
-<li>十、Marco</li>
-<li><ul>
-<li>算法名称：自动化结晶实验的评估</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：该模型将结晶实验图像作为输入：水晶样品,它将其归类为属于四种类别之一：晶体，沉淀物，透明物质或“其他物种”。</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：该模型可以从以下位置下载：<br><a href="https://storage.googleapis.com/marco-168219-model/savedmodel.zip" target="_blank" rel="noopener">https://storage.googleapis.com/marco-168219-model/savedmodel.zip</a><br>可以从以下位置下载示例图像：<br><a href="https://storage.googleapis.com/marco-168219-model/002s_C6_ImagerDefaults_9.jpg" target="_blank" rel="noopener">https://storage.googleapis.com/marco-168219-model/002s_C6_ImagerDefaults_9.jpg</a> </li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：</li>
-</ul>
-</li>
-<li>十一、object_detection</li>
-<li><ul>
-<li>算法名称：在单个图像中本地化和识别多个对象</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：我们发布了更快的R-CNN探测器，其中ResNet-50 / ResNet-101特征提取器在iNaturalist物种检测数据集（<a href="https://github.com/visipedia/inat_comp/blob/master/2017/README.md#bounding-boxes" target="_blank" rel="noopener">https://github.com/visipedia/inat_comp/blob/master/2017/README.md#bounding-boxes</a> )上进行了训练。对于4M迭代的iNaturalist数据的训练拆分训练模型，它们分别在2854个类中达到55％和58％的平均AP @ .5</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：对象检测</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：</li>
-</ul>
-</li>
-<li>十二、slim</li>
-<li><ul>
-<li>算法名称：TF-Slim中的图像分类模型</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：<br>作为该库的一部分，我们已经包含了下载几个流行图像数据集（下面列出）的脚本，并将它们转换为超薄格式。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">数据集	训练集大小	测试集大小	课程数量	评论</span><br><span class="line">花卉	2500	        2500	            五	各种尺寸（来源：Flickr）</span><br><span class="line">Cifar10	60K	            10K	            10	32x32颜色</span><br><span class="line">MNIST	60K	            10K	            10	28x28灰色</span><br><span class="line">ImageNet1.2M	        50K         	    1000各种大小</span><br><span class="line">VisualWakeWords	82783	40504	            2	各种尺寸（来源：MS COCO）</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cifar10（https://www.cs.toronto.edu/~kriz/cifar.html ）</span><br><span class="line">mnist（http://yann.lecun.com/exdb/mnist/ ）</span><br><span class="line">imagenet（http://www.image-net.org/challenges/LSVRC/2012/ ）</span><br></pre></td></tr></table></figure>
-<ul>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://www.cnblogs.com/hejunlin1992/p/8082535.html" target="_blank" rel="noopener">https://www.cnblogs.com/hejunlin1992/p/8082535.html</a> </li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/19/Deep Learning Arithmetic Arrangement/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysql read error" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/16/mysql read error/">读取外部mysql脚本出现乱码问题解决</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/16/mysql read error/" class="archive-article-date">
-  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="读取外部mysql脚本出现乱码问题解决"><a href="#读取外部mysql脚本出现乱码问题解决" class="headerlink" title="读取外部mysql脚本出现乱码问题解决"></a>读取外部mysql脚本出现乱码问题解决</h3><p>在配置前后端分离项目时需要为项目配置mysql数据库，数据库由.sql后缀的脚本构建，脚本中写了构建数据库需要的数据库语言。在mysql中执行脚本时可能会出现未设定utf8导致导入数据出现乱码的问题，本文对这个问题提出一些解决办法，特此记录。</p>
-<ul>
-<li>检查mysql的my.ini文件<br>首先检查mysql的my.ini文件，一般位于C盘的programData\MySQL\MySQL Server 8.0文件夹下，如果找不到可以使用小工具everything进行搜索。设置my.ini文件里default-character-set=utf8。</li>
-<li>在脚本文件中insert语句前插入语句set character set utf8;</li>
-<li>在创建表格语句的最后添加语句DEFAULT CHARSET=utf8;</li>
-</ul>
-<p>一般经过以上三步可以解决脚本读取出现乱码的问题。如果发生数据无法读取的问题，可能是脚本存放的路径存在中文，更改到英文路径即可解决。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/16/mysql read error/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-add loading" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/15/add loading/">在网页中加入“加载中提示”的方法</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/15/add loading/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="在网页中加入“加载中提示”的方法"><a href="#在网页中加入“加载中提示”的方法" class="headerlink" title="在网页中加入“加载中提示”的方法"></a>在网页中加入“加载中提示”的方法</h2><p>在一些我们做的网页中，有时候需要加载一些东西，如果加载的东西数据量比较大，比较费时，例如加载一个大的图片或者我下面写的例子中需要从数据库中读取很多的数据绘制图形，这时候加载图形就会比较慢。那么，为了避免用户在使用我们网页时因加载过慢而急躁，甚至以为网页崩溃，所以在一些加载过慢的网页上加上一层“加载中”则是很有必要的。</p>
-<h3 id="确定需要加“加载中”的时机"><a href="#确定需要加“加载中”的时机" class="headerlink" title="确定需要加“加载中”的时机"></a>确定需要加“加载中”的时机</h3><h4 id="通过网页执行流程，找到加载慢的点"><a href="#通过网页执行流程，找到加载慢的点" class="headerlink" title="通过网页执行流程，找到加载慢的点"></a>通过网页执行流程，找到加载慢的点</h4><p>本例中，需要将从数据库中获取数据的时间以加载中显示，所以首先需要确定获取数据的流程，在获取数据之后，将加载中的div抹去，显示由数据绘制的图形，即可成功。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">               url:</span><br><span class="line">                   &quot;***&quot;,</span><br><span class="line">               type: &quot;get&quot;,</span><br><span class="line">               data: &#123; type: &quot;model&quot;, text: &quot;swat&quot;, sTime: year, eTime: year &#125;,</span><br><span class="line">               success: function(graph) &#123;</span><br><span class="line">                       //载入页面时才执行等待中，其他不执行</span><br><span class="line">                       let loadingMask = document.getElementById(&apos;loadingDiv&apos;);</span><br><span class="line">                       loadingMask.parentNode.removeChild(loadingMask);//当数据获取之后，清除掉数据加载div</span><br><span class="line">                       that.createGraph(graph);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;);</span><br></pre></td></tr></table></figure></p>
-<p>获取数据成功后，将嵌入到网页的加载中div抹去，那么，如何将我们需要的加载中div嵌入到网页中呢？下面来介绍。</p>
-<h3 id="以在网页中嵌入div的形式加“加载中”在网页上"><a href="#以在网页中嵌入div的形式加“加载中”在网页上" class="headerlink" title="以在网页中嵌入div的形式加“加载中”在网页上"></a>以在网页中嵌入div的形式加“加载中”在网页上</h3><h4 id="网页中嵌入加载中div"><a href="#网页中嵌入加载中div" class="headerlink" title="网页中嵌入加载中div"></a>网页中嵌入加载中div</h4><p>有两种方式嵌入到网页中实现加载中这一功能。</p>
-<ul>
-<li>方式一：利用document.write（）来实现<br>首先定义一个变量var _loadinghtml，然后利用document.write(_LoadingHtml);将_loadinghtml这个div格式的变量值嵌入到网页中。但是该方法不能够很好的实现再次读取数据获取加载中这个div，因为document.write（）方法在二次加载，即网页已经完全加载完成后再获取数据加载时，嵌入网页的div会将所有网页元素清空，只剩下嵌入的加载中这一个div，所以不适用于多次获取数据的情况。</li>
-<li>方式二：利用innerHTML来实现往网页中嵌入加载中div</li>
-<li><ul>
-<li>在js中使用网页拼接，拼接出一个加载中div<br>拼接出一个可以嵌入网页的div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let html=&apos;&apos;;</span><br><span class="line">html+=&apos;&lt;div id=&quot;loadingDiv&quot; style=&quot;position: absolute; z-index:1; cursor1: wait; left: &apos;;</span><br><span class="line">html+=_LoadingLeft;</span><br><span class="line">html+=&apos;px; top:&apos; ;</span><br><span class="line">html+=_LoadingTop;</span><br><span class="line">html+=&apos;px; width: auto; height: 57px; line-height: 57px; &apos;;</span><br><span class="line">html+=&apos;padding-left: 50px; padding-right: 5px; background: no-repeat scroll 5px 10px;color: #696969; &apos;;</span><br><span class="line">html+= &apos;font-family:\&apos;Microsoft YaHei\&apos;;&quot;&gt;Loading......&lt;/div&gt;&apos;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><ul>
-<li>将拼接的div嵌入到网页中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&apos;loading&apos;).innerHTML =html ;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><ul>
-<li>将这两部分封进一个加载函数中,在必要的地方直接调用函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">baseloading()&#123;</span><br><span class="line">            //获取浏览器页面可见高度和宽度</span><br><span class="line">            let _PageHeight = document.documentElement.clientHeight,</span><br><span class="line">                _PageWidth = document.documentElement.clientWidth;</span><br><span class="line">            //计算loading框距离顶部和左部的距离（loading框的宽度为215px，高度为61px）</span><br><span class="line">            let _LoadingTop = _PageHeight &gt; 61 ? (_PageHeight - 61) / 2 : 0,</span><br><span class="line">                _LoadingLeft = _PageWidth &gt; 215 ? (_PageWidth - 215) / 2 : 0;</span><br><span class="line">            //利用innerhtml把拼接的加载div放到网页中</span><br><span class="line">            let html=&apos;&apos;;</span><br><span class="line">            html+=&apos;&lt;div id=&quot;loadingDiv&quot; style=&quot;position: absolute; z-index:1; cursor1: wait; left: &apos;;</span><br><span class="line">            html+=_LoadingLeft;</span><br><span class="line">            html+=&apos;px; top:&apos; ;</span><br><span class="line">            html+=_LoadingTop;</span><br><span class="line">            html+=&apos;px; width: auto; height: 57px; line-height: 57px; &apos;;</span><br><span class="line">            html+=&apos;padding-left: 50px; padding-right: 5px; background: no-repeat scroll 5px 10px;color: #696969; &apos;;</span><br><span class="line">            html+= &apos;font-family:\&apos;Microsoft YaHei\&apos;;&quot;&gt;Loading......&lt;/div&gt;&apos;;</span><br><span class="line">            console.log(html);</span><br><span class="line">            document.getElementById(&apos;loading&apos;).innerHTML =html ;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<p>通过这几个方式，即可完美解决在网页中添加加载中div</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/15/add loading/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-springbootmongodb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/31/springbootmongodb/">spring boot学习</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/31/springbootmongodb/" class="archive-article-date">
-  	<time datetime="2019-08-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="spring-boot学习1"><a href="#spring-boot学习1" class="headerlink" title="spring boot学习1"></a>spring boot学习1</h2><h3 id="整合mongodb数据库"><a href="#整合mongodb数据库" class="headerlink" title="整合mongodb数据库"></a>整合mongodb数据库</h3><ul>
-<li>安装mongodb数据库</li>
-<li>整合Spring Boot</li>
-</ul>
-<p><em>创建springboot工程
-</em>在application.properties中配置mongodb的连接信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring.data.mongodb.authentication-database=admin</span><br><span class="line">spring.data.mongodb.database=test</span><br><span class="line">spring.data.mongodb.host=127.0.0.1</span><br><span class="line">spring.data.mongodb.port=27017</span><br><span class="line">spring.data.mongodb.username=sang</span><br><span class="line">spring.data.mongodb.password=123</span><br></pre></td></tr></table></figure></p>
-<p>*创建实体类Book：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">public class Book &#123;</span><br><span class="line">    private Integer id;</span><br><span class="line">    private String name;</span><br><span class="line">    private String author;</span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;Book&#123;&quot; +</span><br><span class="line">                &quot;id=&quot; + id +</span><br><span class="line">                &quot;, name=&apos;&quot; + name + &apos;\&apos;&apos; +</span><br><span class="line">                &quot;, author=&apos;&quot; + author + &apos;\&apos;&apos; +</span><br><span class="line">                &apos;&#125;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Integer getId() &#123;</span><br><span class="line">        return id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setId(Integer id) &#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getAuthor() &#123;</span><br><span class="line">        return author;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setAuthor(String author) &#123;</span><br><span class="line">        this.author = author;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>实体类中包含各种实体名称，以及操作实体的一些函数，一般放到bean文件夹中<br>*创建BookDao<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import java.util.List;</span><br><span class="line">public interface BookDao extends MongoRepository&lt;Book,Integer&gt; &#123;</span><br><span class="line">    List&lt;Book&gt; findByAuthorContains(String author);</span><br><span class="line">    Book findByNameEquals(String name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Dao一般放到dao文件夹下<br>*创建Controller<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class BookController &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    BookDao bookDao;</span><br><span class="line">    @Autowired</span><br><span class="line">    MongoTemplate mongoTemplate;</span><br><span class="line">    @GetMapping(&quot;/test1&quot;)</span><br><span class="line">    public void test1()&#123;</span><br><span class="line">        List&lt;Book&gt; books = new ArrayList&lt;&gt;();</span><br><span class="line">        Book b1= new Book();</span><br><span class="line">        b1.setId(1);</span><br><span class="line">        b1.setName(&quot;朝花夕拾&quot;);</span><br><span class="line">        b1.setAuthor(&quot;鲁迅&quot;);</span><br><span class="line">        books.add(b1);</span><br><span class="line">        Book b2 = new Book();</span><br><span class="line">        b2.setId(2);</span><br><span class="line">        b2.setName(&quot;呐喊&quot;);</span><br><span class="line">        b2.setAuthor(&quot;鲁迅&quot;);</span><br><span class="line">        books.add(b2);</span><br><span class="line">        bookDao.insert(books);</span><br><span class="line">        List&lt;Book&gt; books1 = bookDao.findByAuthorContains(&quot;鲁迅&quot;);</span><br><span class="line">        System.out.println(books1);</span><br><span class="line">        Book book = bookDao.findByNameEquals(&quot;朝花夕拾&quot;);</span><br><span class="line">        System.out.println(book);</span><br><span class="line">    &#125;</span><br><span class="line">    @GetMapping(&quot;/test2&quot;)</span><br><span class="line">    public void test2() &#123;</span><br><span class="line">        List&lt;Book&gt; books = new ArrayList&lt;&gt;();</span><br><span class="line">        Book b1=new Book();</span><br><span class="line">        b1.setId(3);</span><br><span class="line">        b1.setName(&quot;围城&quot;);</span><br><span class="line">        b1.setAuthor(&quot;钱钟书&quot;);</span><br><span class="line">        books.add(b1);</span><br><span class="line">        Book b2=new Book();</span><br><span class="line">        b2.setId(4);</span><br><span class="line">        b2.setName(&quot;宋诗选注&quot;);</span><br><span class="line">        b2.setAuthor(&quot;钱钟书&quot;);</span><br><span class="line">        books.add(b2);</span><br><span class="line">        mongoTemplate.insertAll(books);</span><br><span class="line">        List&lt;Book&gt; list = mongoTemplate.findAll(Book.class);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        Book book = mongoTemplate.findById(3,Book.class);</span><br><span class="line">        System.out.println(book);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>两种方式将数据导入到test数据库中。test1方式是使用BookDao方式。BookDao继承自MongoRepository，在MongoRepository中可以实现对mongodb数据库进行插入数据以及查找数据。test2 方式采用mongoTemplate来对mongodb数据库进行操作。在spring boot中，添加了mongodb相关依赖mongoTemplate就已经默认注册到了spring容器中，可以直接到controller中使用。<br>controller文件一般放到controller文件夹中。controller文件要加上@RestController注释，以及 @GetMapping(“/test”)注释， @GetMapping(“/test”)可用于定位网页打开网址</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/31/springbootmongodb/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/27/vue2/">VUE学习2</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/27/vue2/" class="archive-article-date">
-  	<time datetime="2019-08-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="VUE学习笔记"><a href="#VUE学习笔记" class="headerlink" title="VUE学习笔记"></a>VUE学习笔记</h2><h3 id="三、Vue-js条件与循环"><a href="#三、Vue-js条件与循环" class="headerlink" title="三、Vue.js条件与循环"></a>三、Vue.js条件与循环</h3><ul>
-<li>条件判断使用 v-if 指令</li>
-<li><p>v-else<br>可以用 v-else 指令给 v-if 添加一个 “else” 块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">	&lt;div v-if=&quot;Math.random() &gt; 0.5&quot;&gt;</span><br><span class="line">	  Sorry</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div v-else&gt;</span><br><span class="line">	  Not sorry</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>v-else-if<br>v-else-if 在 2.1.0 新增，顾名思义，用作 v-if 的 else-if 块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;div v-if=&quot;type === &apos;A&apos;&quot;&gt;</span><br><span class="line">      A</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div v-else-if=&quot;type === &apos;B&apos;&quot;&gt;</span><br><span class="line">	  B</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div v-else-if=&quot;type === &apos;C&apos;&quot;&gt;</span><br><span class="line">	  C</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div v-else&gt;</span><br><span class="line">	  Not A/B/C</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>ps:v-else 、v-else-if 必须跟在 v-if 或者 v-else-if之后</p>
-<ul>
-<li>v-show<br>我们也可以使用 v-show 指令来根据条件展示元素<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;h1 v-show=&quot;ok&quot;&gt;Hello!&lt;/h1&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="四、循环语句"><a href="#四、循环语句" class="headerlink" title="四、循环语句"></a>四、循环语句</h3><ul>
-<li>循环使用 v-for 指令。<br>v-for 指令需要以 site in sites 形式的特殊语法， sites 是源数据数组并且 site 是数组元素迭代的别名<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&quot;site in sites&quot;&gt;</span><br><span class="line">      &#123;&#123; site.name &#125;&#125;</span><br><span class="line">    &lt;/li&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    sites: [</span><br><span class="line">      &#123; name: &apos;Runoob&apos; &#125;,</span><br><span class="line">      &#123; name: &apos;Google&apos; &#125;,</span><br><span class="line">      &#123; name: &apos;Taobao&apos; &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>v-for 可以通过一个对象的属性来迭代数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&quot;value in object&quot;&gt;</span><br><span class="line">    &#123;&#123; value &#125;&#125;</span><br><span class="line">    &lt;/li&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">   object: &#123;</span><br><span class="line">     name: &apos;菜鸟教程&apos;,</span><br><span class="line">     url: &apos;http://www.runoob.com&apos;,</span><br><span class="line">     slogan: &apos;学的不仅是技术，更是梦想！&apos;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="五、计算属性"><a href="#五、计算属性" class="headerlink" title="五、计算属性"></a>五、计算属性</h3><pre><code>可用于处理一些负责的逻辑
-</code></pre><ul>
-<li>反转字符串<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &#123;&#123; message.split(&apos;&apos;).reverse().join(&apos;&apos;) &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &lt;p&gt;原始字符串: &#123;&#123; message &#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;计算后反转字符串: &#123;&#123; reversedMessage &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var vm = new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: &apos;Runoob!&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    // 计算属性的 getter</span><br><span class="line">    reversedMessage: function () &#123;</span><br><span class="line">      // `this` 指向 vm 实例</span><br><span class="line">      return this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>computed vs methods<br>我们可以使用 methods 来替代 computed，效果上两个都是一样的，但是 computed 是基于它的依赖缓存，只有相关依赖发生改变时才会重新取值。而使用 methods ，在重新渲染的时候，函数总会重新调用执行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  reversedMessage2: function () &#123;</span><br><span class="line">    return this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>computed 属性默认只有 getter ，不过在需要时你也可以提供一个 setter </p>
-<pre><code>computed: {
-  site: {
-    // getter
-    get: function () {
-      return this.name + &apos; &apos; + this.url
-    },
-    // setter
-    set: function (newValue) {
-      var names = newValue.split(&apos; &apos;)
-      this.name = names[0]
-      this.url = names[names.length - 1]
-    }
-  }
-</code></pre></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/27/vue2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/26/vue1/">VUE学习</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/26/vue1/" class="archive-article-date">
-  	<time datetime="2019-08-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="VUE学习笔记"><a href="#VUE学习笔记" class="headerlink" title="VUE学习笔记"></a>VUE学习笔记</h2><h3 id="一、总体结构"><a href="#一、总体结构" class="headerlink" title="一、总体结构"></a>一、总体结构</h3><ul>
-<li>el：’#id’ el为DOM元素中的id,id表示为div中的id名<br>(JavaScript是代码，HTML是标记，这是两种完全不同的东西，通过DOM使得二者可以进行交互） </li>
-</ul>
-<ul>
-<li>data,data中数据为vue中用到的数据，个人理解类似于js中的各个变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    x: &quot;***&quot;,</span><br><span class="line">    y: &quot;***&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>methods,methods中聚集了js中的函数，可以通过return返回函数值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    a: function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    bfunction(c)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vue_det&quot;&gt;</span><br><span class="line">    &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;/h1&gt;</span><br><span class="line">    &lt;h1&gt;url : &#123;&#123;url&#125;&#125;&lt;/h1&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;details()&#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var vm = new Vue(&#123;</span><br><span class="line">        el: &apos;#vue_det&apos;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            site: &quot;菜鸟教程&quot;,</span><br><span class="line">            url: &quot;www.runoob.com&quot;,</span><br><span class="line">            alexa: &quot;10000&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            details: function() &#123;</span><br><span class="line">                return  this.site + &quot; - 学的不仅是技术，更是梦想！&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>结果为：<br><img src="/2019/08/26/vue1/1.png" alt="运行截图"><br>另：Vue 实例还提供了一些有用的实例属性与方法。它们都有前缀 $</p>
-<h3 id="二、Vue模板语法"><a href="#二、Vue模板语法" class="headerlink" title="二、Vue模板语法"></a>二、Vue模板语法</h3><ul>
-<li>文本插值<br>数据绑定最常见的形式就是使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;...&#125;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>的文本插值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &lt;p&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>message在data中定义</p>
-<ul>
-<li>html<br>使用 v-html 指令用于输出 html 代码，即data中的message可以为html格式的语句</li>
-<li><p>属性<br>HTML 属性中的值应使用 v-bind 指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:class=&quot;&#123;&apos;class1&apos;: use&#125;&quot;&gt;</span><br><span class="line">   v-bind:class 指令</span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>  use 为data中元素</p>
-</li>
-<li>表达式<br>Vue.js 都提供了完全的 JavaScript 表达式支持</li>
-<li><p>指令<br>指令是带有 v- 前缀的特殊属性。<br>指令用于在表达式的值改变时，将某些行为应用到 DOM 上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p v-if=&quot;seen&quot;&gt;现在你看到我了&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>  v-if 指令将根据表达式 seen 的值(true 或 false )来决定是否插入 p 元素</p>
-</li>
-<li><p>参数<br>参数在指令后以冒号指明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;pre&gt;&lt;a v-bind:href=&quot;url&quot;&gt;菜鸟教程&lt;/a&gt;&lt;/pre&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>过滤器<br>Vue.js 允许你自定义过滤器，被用作一些常见的文本格式化,下面是将首字母大写的例子</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &#123;&#123; message | capitalize &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: &apos;runoob&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  filters: &#123;</span><br><span class="line">    capitalize: function (value) &#123;</span><br><span class="line">      if (!value) return &apos;&apos;</span><br><span class="line">      value = value.toString()</span><br><span class="line">      return value.charAt(0).toUpperCase() + value.slice(1)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>缩写<br>Vue.js 为两个最为常用的指令v-bind与v-on提供了特别的缩写：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a v-bind:href=&quot;url&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;a :href=&quot;url&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;a v-on:click=&quot;doSomething&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;a @click=&quot;doSomething&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>未完待续~~~</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/26/vue1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-resolve npm install speed" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/26/resolve npm install speed/">npm速度问题解决</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/26/resolve npm install speed/" class="archive-article-date">
-  	<time datetime="2019-08-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="利用npm-install安装速度过慢解决"><a href="#利用npm-install安装速度过慢解决" class="headerlink" title="利用npm install安装速度过慢解决"></a>利用npm install安装速度过慢解决</h3><p>今天为了解决博客图片上传问题，需要在博客源文件夹中安装一个插件，但是利用npm install因为一些原因速度太慢，所以使用淘宝镜像方式（一个非常有效的方式）进行加速npm install。特此记录。</p>
-<ul>
-<li><p>首先在命令行中输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后输入安装语句即可。因为我是需要配置博客图片存到GitHub本地的问题，我的安装代码为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>一般可以完美解决问题</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/26/resolve npm install speed/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1405,8 +337,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

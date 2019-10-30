@@ -186,16 +186,25 @@
 <ul>
 <li>定位到指定的class下的要素</li>
 </ul>
-<p>有时需要对指定的class下的各种要素，例如<figure class="highlight plain"><figcaption><span><span></span> <button></button>```等要素进行操作，则需要进行定位。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">本例：</span><br><span class="line">```$(&quot;.model&quot;).find(&quot;button&quot;).eq(0).html(&quot;&quot;).remove();//定位到class为model的div下的第一个button进行移除，可保证不会串div</span><br></pre></td></tr></table></figure></p>
+<p>有时需要对指定的class下的各种要素，例如li、button等要素进行操作，则需要进行定位。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.model&quot;).find(&quot;button&quot;).eq(0).html(&quot;&quot;).remove();//定位到class为model的div下的第一个button进行移除，可保证不会串div</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><p>按钮的各种操作</p>
 <ul>
 <li>改变按钮value</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">可写在按钮的click触发事件中，改变按钮显示值</span><br><span class="line">* 通过改变按钮class值来改变按钮颜色</span><br></pre></td></tr></table></figure>
-<p>$(“#addmodel”).remove(“btn-success”);<br>$(“#addmodel”).addClass(“btn-warning”);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">如图，原先为绿色的class为btn-success，点击click后改变为黄色的class为btn-warning的按钮。</span><br><span class="line">![1](jquery learning/button1.png)</span><br><span class="line">![2](jquery learning/button2.png)</span><br><span class="line"> * 改变按钮属性</span><br></pre></td></tr></table></figure>
-<p> $(‘#addmodel’).attr(‘id’, ‘addpast’);<br> <code>`</code><br> 通过这句代码，将id值addmodel改变为addpast，同样可以改变其他的一些属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#addmodel&quot;).html(&quot;ok&quot;);</span><br></pre></td></tr></table></figure>
+<p>可写在按钮的click触发事件中，改变按钮显示值</p>
+<ul>
+<li>通过改变按钮class值来改变按钮颜色</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#addmodel&quot;).remove(&quot;btn-success&quot;);</span><br><span class="line">$(&quot;#addmodel&quot;).addClass(&quot;btn-warning&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>  如图，原先为绿色的class为btn-success，点击click后改变为黄色的class为btn-warning的按钮。<br>  <img src="/2019/10/31/jquery learning/button1.png" alt="1"><br>  <img src="/2019/10/31/jquery learning/button2.png" alt="2"></p>
+<ul>
+<li><p>改变按钮属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#addmodel&apos;).attr(&apos;id&apos;, &apos;addpast&apos;);</span><br></pre></td></tr></table></figure>
+<p>通过这句代码，将id值addmodel改变为addpast，同样可以改变其他的一些属性。</p>
 </li>
 </ul>
 <p>jquery的各种操作很多，在以后的学习工作中继续学习吧！</p>

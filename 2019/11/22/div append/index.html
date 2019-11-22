@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Mingyuan</title>
+  <title>div追加 | Mingyuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mingyuan">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+  <meta name="description" content="给指定的div追加div在以前的博客中，曾经写过一个给网页嵌入loading，用到了innerHtml进行div的嵌入本文中利用js的append函数来给指定 的div嵌入指定的div。  指定div12$(&amp;quot;.applications-add&amp;quot;).click(function () &amp;#123;           var content_box = $(this).pare">
+<meta property="og:type" content="article">
+<meta property="og:title" content="div追加">
+<meta property="og:url" content="http://yoursite.com/2019/11/22/div append/index.html">
 <meta property="og:site_name" content="Mingyuan">
+<meta property="og:description" content="给指定的div追加div在以前的博客中，曾经写过一个给网页嵌入loading，用到了innerHtml进行div的嵌入本文中利用js的append函数来给指定 的div嵌入指定的div。  指定div12$(&amp;quot;.applications-add&amp;quot;).click(function () &amp;#123;           var content_box = $(this).pare">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/11/22/div%20append/1.png">
+<meta property="og:updated_time" content="2019-11-22T03:21:30.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mingyuan">
+<meta name="twitter:title" content="div追加">
+<meta name="twitter:description" content="给指定的div追加div在以前的博客中，曾经写过一个给网页嵌入loading，用到了innerHtml进行div的嵌入本文中利用js的append函数来给指定 的div嵌入指定的div。  指定div12$(&amp;quot;.applications-add&amp;quot;).click(function () &amp;#123;           var content_box = $(this).pare">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/22/div%20append/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingyuan" type="application/atom+xml">
   
@@ -146,73 +152,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-vue1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-div append" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/26/vue1/">VUE学习</a>
+    <h1 class="article-title" itemprop="name">
+      div追加
     </h1>
   
 
         
-        <a href="/2019/08/26/vue1/" class="archive-article-date">
-  	<time datetime="2019-08-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
+        <a href="/2019/11/22/div append/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="VUE学习笔记"><a href="#VUE学习笔记" class="headerlink" title="VUE学习笔记"></a>VUE学习笔记</h2><h3 id="一、总体结构"><a href="#一、总体结构" class="headerlink" title="一、总体结构"></a>一、总体结构</h3><ul>
-<li>el：’#id’ el为DOM元素中的id,id表示为div中的id名<br>(JavaScript是代码，HTML是标记，这是两种完全不同的东西，通过DOM使得二者可以进行交互） </li>
-</ul>
+        <h3 id="给指定的div追加div"><a href="#给指定的div追加div" class="headerlink" title="给指定的div追加div"></a>给指定的div追加div</h3><p>在以前的博客中，曾经写过一个给网页嵌入loading，用到了innerHtml进行div的嵌入<br>本文中利用js的append函数来给指定 的div嵌入指定的div。</p>
 <ul>
-<li>data,data中数据为vue中用到的数据，个人理解类似于js中的各个变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    x: &quot;***&quot;,</span><br><span class="line">    y: &quot;***&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>指定div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.applications-add&quot;).click(function () &#123;</span><br><span class="line">           var content_box = $(this).parent().children(&apos;div&apos;);&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>当点击class为applications-add，触发点击函数。<br>content-box用来指定哪个div是用来追加的，下文还会写到利用str拼接div<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var content_box = $(this).parent().children(&apos;div&apos;);</span><br></pre></td></tr></table></figure></p>
+<p> 这一句中指定了在哪个div下追加新的div。</p>
 <ul>
-<li>methods,methods中聚集了js中的函数，可以通过return返回函数值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    a: function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    bfunction(c)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>追加div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;&lt;div class=&apos;panel panel-primary&apos;&gt;&lt;div class=&apos;panel-heading info-head&apos;&gt;&lt;h4 class=&apos;panel-title&apos;&gt;&lt;a class=&apos;accordion-toggle collapsed&apos; style=\&quot;color:white\&quot; &quot; +</span><br><span class="line">              &quot;data-toggle=&apos;collapse&apos; data-target=&apos;#applications1&apos; href=\&quot;javascript:;\&quot;&gt; &quot;;</span><br><span class="line">          str += &quot;NEW&quot;;</span><br><span class="line">          str += &quot;&lt;/a&gt;&lt;/h4&gt; &lt;a href=\&quot;javascript:;\&quot;class=\&quot;fa fa-times author_close\&quot;style=\&quot;float:right;margin-top:8px;color:white\&quot;&gt;&lt;/a&gt;&lt;/div&gt; &quot; +</span><br><span class="line">              &quot;&lt;div id=&apos;applications1&apos;class=&apos;panel-collapse collapse in&apos;&gt;&lt;div class=&apos;panel-body user-contents&apos;&gt; &lt;div class=&apos;user-attr&apos;&gt;&lt;div&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Name&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;name\&quot; id=\&quot;applicationname\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=\&quot;margin-top:10px\&quot;&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Link:&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;ins\&quot; id=\&quot;applicationlink\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          str +=&quot;    &lt;div style=\&quot;margin-top:10px\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;lable class=&apos;control-label col-sm-2 text-center&apos;\n&quot; +</span><br><span class="line">              &quot;                                                                                                               style=&apos;font-weight: bold;&apos;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            Image:\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/lable&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;div class=\&quot;col-sm-10\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;img id=\&quot;imgShow1\&quot; src=\&quot;\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;div id=\&quot;imgChange1\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                &lt;i class=\&quot;fa fa-plus fa-5x\&quot;&gt;&lt;/i&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;input id=\&quot;imgFile1\&quot; type=\&quot;file\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   style=\&quot;display: none\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   accept=\&quot;image/*\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                    &lt;/div&gt;&quot;</span><br><span class="line">          str +=&quot;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          content_box.append(str);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vue_det&quot;&gt;</span><br><span class="line">    &lt;h1&gt;site : &#123;&#123;site&#125;&#125;&lt;/h1&gt;</span><br><span class="line">    &lt;h1&gt;url : &#123;&#123;url&#125;&#125;&lt;/h1&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;details()&#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var vm = new Vue(&#123;</span><br><span class="line">        el: &apos;#vue_det&apos;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            site: &quot;菜鸟教程&quot;,</span><br><span class="line">            url: &quot;www.runoob.com&quot;,</span><br><span class="line">            alexa: &quot;10000&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            details: function() &#123;</span><br><span class="line">                return  this.site + &quot; - 学的不仅是技术，更是梦想！&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>结果为：<br><img src="/2019/08/26/vue1/1.png" alt="运行截图"><br>另：Vue 实例还提供了一些有用的实例属性与方法。它们都有前缀 $</p>
-<h3 id="二、Vue模板语法"><a href="#二、Vue模板语法" class="headerlink" title="二、Vue模板语法"></a>二、Vue模板语法</h3><ul>
-<li>文本插值<br>数据绑定最常见的形式就是使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;...&#125;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>的文本插值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &lt;p&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>message在data中定义</p>
-<ul>
-<li>html<br>使用 v-html 指令用于输出 html 代码，即data中的message可以为html格式的语句</li>
-<li><p>属性<br>HTML 属性中的值应使用 v-bind 指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:class=&quot;&#123;&apos;class1&apos;: use&#125;&quot;&gt;</span><br><span class="line">   v-bind:class 指令</span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>  use 为data中元素</p>
-</li>
-<li>表达式<br>Vue.js 都提供了完全的 JavaScript 表达式支持</li>
-<li><p>指令<br>指令是带有 v- 前缀的特殊属性。<br>指令用于在表达式的值改变时，将某些行为应用到 DOM 上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p v-if=&quot;seen&quot;&gt;现在你看到我了&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>  v-if 指令将根据表达式 seen 的值(true 或 false )来决定是否插入 p 元素</p>
-</li>
-<li><p>参数<br>参数在指令后以冒号指明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;pre&gt;&lt;a v-bind:href=&quot;url&quot;&gt;菜鸟教程&lt;/a&gt;&lt;/pre&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>过滤器<br>Vue.js 允许你自定义过滤器，被用作一些常见的文本格式化,下面是将首字母大写的例子</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &#123;&#123; message | capitalize &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: &apos;runoob&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  filters: &#123;</span><br><span class="line">    capitalize: function (value) &#123;</span><br><span class="line">      if (!value) return &apos;&apos;</span><br><span class="line">      value = value.toString()</span><br><span class="line">      return value.charAt(0).toUpperCase() + value.slice(1)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>缩写<br>Vue.js 为两个最为常用的指令v-bind与v-on提供了特别的缩写：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a v-bind:href=&quot;url&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;a :href=&quot;url&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;a v-on:click=&quot;doSomething&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;a @click=&quot;doSomething&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>未完待续~~~</p>
+<p>将利用str拼接好的str的div追加到content-box中。</p>
+<p>效果类似于我那篇jquery的效果图<br><img src="/2019/11/22/div append/1.png" alt="效果图"></p>
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -221,16 +217,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/26/vue1/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/22/div append/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/11/22/Front and back interaction/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          前后端交互学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/30/jquery learning/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jquery学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -250,105 +314,14 @@
 
 
 
-
-  
-    <article id="post-create blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/14/create blog/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/14/create blog/" class="archive-article-date">
-  	<time datetime="2019-08-14T03:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h1><p>搭建自己的博客，可以在博客上记录自己学习生活的点滴。所以我的第一篇博客就用来记录博客的搭建。</p>
-<h2 id="一、下载Node-js"><a href="#一、下载Node-js" class="headerlink" title="一、下载Node.js"></a>一、下载Node.js</h2><p>Node.js官方网站：<a href="https://nodejs.org，在官方网站上下载适合版本的Node.js，我下载的时10.15.3" target="_blank" rel="noopener">https://nodejs.org，在官方网站上下载适合版本的Node.js，我下载的时10.15.3</a> LTS.在Gitbash中查看版本：node -v（注意，如果使用命令行，用管理员权限打开）</p>
-<h2 id="二、下载Git"><a href="#二、下载Git" class="headerlink" title="二、下载Git"></a>二、下载Git</h2><p>同样在官方网站上下载Git，官网：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
-<h2 id="三、安装hexo"><a href="#三、安装hexo" class="headerlink" title="三、安装hexo"></a>三、安装hexo</h2><p>因为用Gitbash，自动定位在C:\Users\用户名文件夹处，所以在此文件夹下建立新文件夹blog。先来安装个cnpm提高速度.</p>
-<ul>
-<li><p>安装淘宝镜像源：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>验证是否成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure></p>
-<p>出现一大串没出现错误就没问题</p>
-<ul>
-<li>下一步是hexo init，初始化hexo。但是我安装了淘宝的镜像仍然在这一步遭遇困境，一直无法成功，查看了一些博文，使用以下这些命令即可解决hexo的初始化：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br><span class="line">npm install hexo-cli -g</span><br><span class="line">git clone https://git.oschina.net/neoFelhz/hexokit.git</span><br><span class="line">rm install.sh</span><br><span class="line">cd hexokit</span><br><span class="line">npm install</span><br><span class="line">npm config set registry https://registry.npmjs.org/</span><br><span class="line">hexo version</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>PS:这几步与上面的一些步骤重复<br>执行完成后在blog文件夹下生成hexokit文件夹，里面包含所有初始化文件</p>
-<ul>
-<li>测试博客是否可以使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>打开<a href="http://localhost:4000，如果可以打开，则搭建完成。" target="_blank" rel="noopener">http://localhost:4000，如果可以打开，则搭建完成。</a><br>这一步也可能出现初始化博客后打不开博客问题，查资料显示4000端口被占用，故无法显示，所以可以指定端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure></p>
-<p>打开<a href="http://localhost:5000" target="_blank" rel="noopener">http://localhost:5000</a> 看到博客正常显示即博客搭建成功。</p>
-<ul>
-<li>其他的一些常用的命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean #用来清理缓存文件</span><br><span class="line">hexo g      #生成文件</span><br><span class="line">hexo  s     #运行本地服务器</span><br><span class="line">hexo  d   #上传到服务器</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>我一般在博客本地源文件夹右键选择“git bash here”用git进行操作。</p>
-<p>每次写完.md文件后，将文件放到本地的\source_posts文件夹下，用“hexo d”命令上传到服务器，我是推到GitHub上，即可实现博客的推送。<br>具体如何在GitHub上推hexo博客本文就不讲了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/14/create blog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -371,8 +344,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

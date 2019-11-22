@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>thymeleaf学习 | Mingyuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###thymeleaf学习之fragment 在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。  写模板网页图片中1* 在其他网页中链接">
+  <meta name="description" content="thymeleaf学习之fragment在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。  写模板网页图片中1th:fragment=&amp;q">
 <meta property="og:type" content="article">
 <meta property="og:title" content="thymeleaf学习">
 <meta property="og:url" content="http://yoursite.com/2019/11/22/thymeleaf learning1/index.html">
 <meta property="og:site_name" content="Mingyuan">
-<meta property="og:description" content="###thymeleaf学习之fragment 在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。  写模板网页图片中1* 在其他网页中链接">
+<meta property="og:description" content="thymeleaf学习之fragment在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。  写模板网页图片中1th:fragment=&amp;q">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/11/22/thymeleaf%20learning1/1.png">
-<meta property="og:updated_time" content="2019-11-22T02:01:44.468Z">
+<meta property="og:updated_time" content="2019-11-22T02:06:15.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="thymeleaf学习">
-<meta name="twitter:description" content="###thymeleaf学习之fragment 在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。  写模板网页图片中1* 在其他网页中链接">
+<meta name="twitter:description" content="thymeleaf学习之fragment在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。  写模板网页图片中1th:fragment=&amp;q">
 <meta name="twitter:image" content="http://yoursite.com/2019/11/22/thymeleaf%20learning1/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingyuan" type="application/atom+xml">
@@ -172,11 +172,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###thymeleaf学习之fragment</p>
-<p>在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。</p>
+        <h3 id="thymeleaf学习之fragment"><a href="#thymeleaf学习之fragment" class="headerlink" title="thymeleaf学习之fragment"></a>thymeleaf学习之fragment</h3><p>在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。</p>
 <ul>
-<li><p>写模板网页<br><img src="/2019/11/22/thymeleaf learning1/1.png" alt="模板页结构"><br>图片中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 在其他网页中链接需要的div</span><br></pre></td></tr></table></figure></p>
-<p><div th:replace="fragments/sidebar :: side"></div><br><code>`</code><br>在这一句中，这个div将会被sidebar.html中的side这个div替换掉</p>
+<li>写模板网页<br><img src="/2019/11/22/thymeleaf learning1/1.png" alt="模板页结构"><br>图片中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">th:fragment=&quot;side&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>side为与其他网页链接的关键词。</p>
+<ul>
+<li><p>在其他网页中链接需要的div</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:replace=&quot;fragments/sidebar :: side&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>在这一句中，这个div将会被sidebar.html中的side这个div替换掉</p>
 </li>
 </ul>
 

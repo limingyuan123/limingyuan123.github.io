@@ -148,6 +148,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql read error" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/16/mysql read error/">读取外部mysql脚本出现乱码问题解决</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/16/mysql read error/" class="archive-article-date">
+  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="读取外部mysql脚本出现乱码问题解决"><a href="#读取外部mysql脚本出现乱码问题解决" class="headerlink" title="读取外部mysql脚本出现乱码问题解决"></a>读取外部mysql脚本出现乱码问题解决</h3><p>在配置前后端分离项目时需要为项目配置mysql数据库，数据库由.sql后缀的脚本构建，脚本中写了构建数据库需要的数据库语言。在mysql中执行脚本时可能会出现未设定utf8导致导入数据出现乱码的问题，本文对这个问题提出一些解决办法，特此记录。</p>
+<ul>
+<li>检查mysql的my.ini文件<br>首先检查mysql的my.ini文件，一般位于C盘的programData\MySQL\MySQL Server 8.0文件夹下，如果找不到可以使用小工具everything进行搜索。设置my.ini文件里default-character-set=utf8。</li>
+<li>在脚本文件中insert语句前插入语句set character set utf8;</li>
+<li>在创建表格语句的最后添加语句DEFAULT CHARSET=utf8;</li>
+</ul>
+<p>一般经过以上三步可以解决脚本读取出现乱码的问题。如果发生数据无法读取的问题，可能是脚本存放的路径存在中文，更改到英文路径即可解决。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/16/mysql read error/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-add loading" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -419,78 +488,6 @@
 
 
   
-    <article id="post-resolve npm install speed" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/26/resolve npm install speed/">npm速度问题解决</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/26/resolve npm install speed/" class="archive-article-date">
-  	<time datetime="2019-08-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="利用npm-install安装速度过慢解决"><a href="#利用npm-install安装速度过慢解决" class="headerlink" title="利用npm install安装速度过慢解决"></a>利用npm install安装速度过慢解决</h3><p>今天为了解决博客图片上传问题，需要在博客源文件夹中安装一个插件，但是利用npm install因为一些原因速度太慢，所以使用淘宝镜像方式（一个非常有效的方式）进行加速npm install。特此记录。</p>
-<ul>
-<li><p>首先在命令行中输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后输入安装语句即可。因为我是需要配置博客图片存到GitHub本地的问题，我的安装代码为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>一般可以完美解决问题</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/26/resolve npm install speed/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-vue1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -566,6 +563,78 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/08/26/vue1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-resolve npm install speed" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/26/resolve npm install speed/">npm速度问题解决</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/26/resolve npm install speed/" class="archive-article-date">
+  	<time datetime="2019-08-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="利用npm-install安装速度过慢解决"><a href="#利用npm-install安装速度过慢解决" class="headerlink" title="利用npm install安装速度过慢解决"></a>利用npm install安装速度过慢解决</h3><p>今天为了解决博客图片上传问题，需要在博客源文件夹中安装一个插件，但是利用npm install因为一些原因速度太慢，所以使用淘宝镜像方式（一个非常有效的方式）进行加速npm install。特此记录。</p>
+<ul>
+<li><p>首先在命令行中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后输入安装语句即可。因为我是需要配置博客图片存到GitHub本地的问题，我的安装代码为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>一般可以完美解决问题</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/26/resolve npm install speed/">展开全文 >></a>
         </p>
       
 

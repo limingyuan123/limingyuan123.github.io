@@ -148,6 +148,107 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Front and back interaction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/22/Front and back interaction/">前后端交互学习</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/22/Front and back interaction/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前后端交互学习"><a href="#前后端交互学习" class="headerlink" title="前后端交互学习"></a>前后端交互学习</h2><h4 id="前后端数据传输"><a href="#前后端数据传输" class="headerlink" title="前后端数据传输"></a>前后端数据传输</h4><ul>
+<li>Dao层：<br><img src="/2019/11/22/Front and back interaction/1.png" alt="运行截图"></li>
+<li>JS代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.finish&quot;).click(()=&gt; &#123;</span><br><span class="line">    conceptObj.classifications = this.cls;</span><br><span class="line">    conceptObj.name = $(&quot;#nameInput&quot;).val();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>(获取数据存储到conceptObj中)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let formData=new FormData();</span><br></pre></td></tr></table></figure></p>
+<p>（定义formData，用于存储获取的数据）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if ((oid === &quot;0&quot;) || (oid === &quot;&quot;) || (oid == null)) &#123;</span><br><span class="line">    let file = new File([JSON.stringify(conceptObj)],&apos;ant.txt&apos;,&#123;</span><br><span class="line">        type: &apos;text/plain&apos;,</span><br><span class="line">    &#125;);</span><br><span class="line">    formData.append(&quot;info&quot;, file);</span><br></pre></td></tr></table></figure></p>
+<p>（将conceptObj转为string放到file中，然后追加到formData中存起来）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url: &quot;/repository/addConcept&quot;,</span><br><span class="line">    type: &quot;POST&quot;,</span><br><span class="line">    cache: false,</span><br><span class="line">    processData: false,</span><br><span class="line">    contentType: false,</span><br><span class="line">    async: false,</span><br><span class="line">    data: formData,</span><br><span class="line">    success: function (result) &#123;</span><br><span class="line"></span><br><span class="line">        if (result.code == &quot;0&quot;) &#123;</span><br><span class="line">            alert(&quot;Create Success&quot;);</span><br><span class="line"></span><br><span class="line">            window.location.href = &quot;/repository/concept/&quot; + result.data;</span><br><span class="line">            //window.location.reload();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>（ajax代码，url中/repository/addConcept为与controller进行连接的语句）</p>
+<ul>
+<li>Controller接口<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value = &quot;/addConcept&quot;,method = RequestMethod.POST)</span><br><span class="line">public JsonResult addConcept(HttpServletRequest request) throws IOException &#123;</span><br><span class="line"></span><br><span class="line">    MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;</span><br><span class="line">    MultipartFile file=multipartRequest.getFile(&quot;info&quot;);</span><br><span class="line">    String model=IOUtils.toString(file.getInputStream(),&quot;utf-8&quot;);</span><br><span class="line">    JSONObject jsonObject=JSONObject.parseObject(model);</span><br><span class="line">    ConceptAddDTO conceptAddDTO=JSONObject.toJavaObject(jsonObject,ConceptAddDTO.class);</span><br><span class="line"></span><br><span class="line">    HttpSession session=request.getSession();</span><br><span class="line"></span><br><span class="line">    if(session.getAttribute(&quot;uid&quot;)==null)&#123;</span><br><span class="line">        return ResultUtils.error(-1,&quot;no login&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    String uid=session.getAttribute(&quot;uid&quot;).toString();</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;add concept &amp; semantic&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Concept concept = repositoryService.insertConcept(conceptAddDTO,uid);</span><br><span class="line">    userService.conceptPlusPlus(uid);</span><br><span class="line">    return ResultUtils.success(concept.getOid());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>（HttpServletRequest request中的request为js中传输来的formdata，第一句将request进行强制类型转换，转换为MultipartHttpServletRequest类型的数据，下面仍是几个转换）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Concept concept = repositoryService.insertConcept(conceptAddDTO,uid);</span><br></pre></td></tr></table></figure></p>
+<p>（这一句将数据按照conceptAddDTO的格式插入到数据库中，利用insertConcept）</p>
+<h4 id="利用thymeleaf来实现按照id生成不同的页面"><a href="#利用thymeleaf来实现按照id生成不同的页面" class="headerlink" title="利用thymeleaf来实现按照id生成不同的页面"></a>利用thymeleaf来实现按照id生成不同的页面</h4><ul>
+<li>Create-concept.js<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">success: function (result) &#123;</span><br><span class="line"></span><br><span class="line">    if (result.code == &quot;0&quot;) &#123;</span><br><span class="line">        alert(&quot;Create Success&quot;);</span><br><span class="line"></span><br><span class="line">        window.location.href = &quot;/repository/concept/&quot; + result.data;</span><br><span class="line">        //window.location.reload();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当创建成功后弹出创建成功对话框，并跳转到上面那个链接，链接位于controller中</p>
+<ul>
+<li>RepositoryRestController.java<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value=&quot;/concept/&#123;id&#125;&quot;,method = RequestMethod.GET)</span><br><span class="line">public ModelAndView getConceptPage(@PathVariable(&quot;id&quot;) String id,HttpServletRequest req)&#123;</span><br><span class="line">    return repositoryService.getConceptPage(id,req);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在这个controller中调用service中的getconceptpage方法，在这个方法中绑定从js中拿到的并在各个后台文件中规定的数据</p>
+<ul>
+<li>RepositoryService.java<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modelAndView.setViewName(&quot;conceptInfo&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>首先将后台与前台页面绑定，通过设置View的name这样在conceptInfo页面拿到的数据就是从这个service里的数据，然后再设置model的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">modelAndView.addObject(&quot;classifications&quot;, classResult);</span><br><span class="line">modelAndView.addObject(&quot;image&quot;, htmlLoadPath+concept.getImage());</span><br><span class="line">modelAndView.addObject(&quot;year&quot;, Calendar.getInstance().getWeekYear());</span><br><span class="line">modelAndView.addObject(&quot;date&quot;, sdf.format(concept.getCreateTime()));</span><br><span class="line">modelAndView.addObject(&quot;related&quot;, relateArray);</span><br><span class="line">modelAndView.addObject(&quot;user&quot;, userJson);</span><br><span class="line">modelAndView.addObject(&quot;lastModifier&quot;, modifierJson);</span><br><span class="line">modelAndView.addObject(&quot;lastModifyTime&quot;, lastModifyTime);</span><br></pre></td></tr></table></figure></p>
+<p>绑定需要的数据，在html中使用</p>
+<ul>
+<li>conceptInfo.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;title th:text=&quot;$&#123;info.name&#125;+&apos; | C | OpenGMS&apos;&quot;&gt;Concept &amp; Semantic | OpenGMS&lt;/title&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>通过在通过th:text+”${info.name}”绑定拿到的数据</p>
+<ul>
+<li>注：js与后台enetity绑定中数组的绑定<br>就是写包含多个属性的对象，赋值后push到包含多个属性的对象中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/*classinfo 类似于reference,将选择的model的oid放到classinfo中*/</span><br><span class="line">themeObj.classinfo = new Array();</span><br><span class="line">var cla = &#123;&#125;;</span><br><span class="line">cla.mcname = $(&quot;#catagoryname&quot;).val();</span><br><span class="line">cla.modelsoid = this.moid;</span><br><span class="line">themeObj.classinfo.push(cla);</span><br><span class="line"></span><br><span class="line">/*dataclassinfo 类似于reference,将选择的model的oid放到dataclassinfo中*/</span><br><span class="line">themeObj.dataclassinfo = new Array();</span><br><span class="line">var dcla = &#123;&#125;;</span><br><span class="line">cla.dcname = $(&quot;#categoryname2&quot;).val();</span><br><span class="line">cla.datasoid = this.doid;</span><br><span class="line">themeObj.dataclassinfo.push(dcla);</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/22/Front and back interaction/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jquery learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -542,6 +643,76 @@
 
 
   
+    <article id="post-data set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/25/data set/">数据集</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/25/data set/" class="archive-article-date">
+  	<time datetime="2019-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="常用数据集汇总（汇总找到的汇总链接）"><a href="#常用数据集汇总（汇总找到的汇总链接）" class="headerlink" title="常用数据集汇总（汇总找到的汇总链接）"></a>常用数据集汇总（汇总找到的汇总链接）</h2><h4 id="一、常用的公共数据集（一）"><a href="#一、常用的公共数据集（一）" class="headerlink" title="一、常用的公共数据集（一）"></a>一、常用的公共数据集（一）</h4><p><a href="https://blog.csdn.net/m0_37570854/article/details/88734695" target="_blank" rel="noopener">https://blog.csdn.net/m0_37570854/article/details/88734695</a> </p>
+<h4 id="二、常用的公共数据集（二）"><a href="#二、常用的公共数据集（二）" class="headerlink" title="二、常用的公共数据集（二）"></a>二、常用的公共数据集（二）</h4><p><a href="https://blog.csdn.net/m0_37570854/article/details/88736189" target="_blank" rel="noopener">https://blog.csdn.net/m0_37570854/article/details/88736189</a></p>
+<h4 id="三、最强数据集集合：50个最佳机器学习公共数据集"><a href="#三、最强数据集集合：50个最佳机器学习公共数据集" class="headerlink" title="三、最强数据集集合：50个最佳机器学习公共数据集"></a>三、最强数据集集合：50个最佳机器学习公共数据集</h4><p><a href="https://blog.csdn.net/weixin_42137700/article/details/83855588" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42137700/article/details/83855588</a></p>
+<h4 id="四、机器学习免费数据集"><a href="#四、机器学习免费数据集" class="headerlink" title="四、机器学习免费数据集"></a>四、机器学习免费数据集</h4><p><a href="https://blog.csdn.net/wwtwinter/article/details/85992227" target="_blank" rel="noopener">https://blog.csdn.net/wwtwinter/article/details/85992227</a> </p>
+<h4 id="五、100款机器学习数据集"><a href="#五、100款机器学习数据集" class="headerlink" title="五、100款机器学习数据集"></a>五、100款机器学习数据集</h4><p><a href="https://blog.csdn.net/Touch_Dream/article/details/77847057" target="_blank" rel="noopener">https://blog.csdn.net/Touch_Dream/article/details/77847057</a></p>
+<h4 id="六、公开的海量数据集-Public-Research-Quality-Datasets"><a href="#六、公开的海量数据集-Public-Research-Quality-Datasets" class="headerlink" title="六、公开的海量数据集 Public Research-Quality Datasets"></a>六、公开的海量数据集 Public Research-Quality Datasets</h4><p><a href="https://blog.csdn.net/dcxhun3/article/details/51647753" target="_blank" rel="noopener">https://blog.csdn.net/dcxhun3/article/details/51647753</a> </p>
+<h4 id="七、人工智能公开数据集汇总"><a href="#七、人工智能公开数据集汇总" class="headerlink" title="七、人工智能公开数据集汇总"></a>七、人工智能公开数据集汇总</h4><p><a href="https://blog.csdn.net/jinghongluexia/article/details/81019010" target="_blank" rel="noopener">https://blog.csdn.net/jinghongluexia/article/details/81019010</a> </p>
+<h4 id="八、最全数据集网站汇总，绝对是一个金矿请查收！"><a href="#八、最全数据集网站汇总，绝对是一个金矿请查收！" class="headerlink" title="八、最全数据集网站汇总，绝对是一个金矿请查收！"></a>八、最全数据集网站汇总，绝对是一个金矿请查收！</h4><p><a href="https://blog.csdn.net/r6Auo52bK/article/details/80105751" target="_blank" rel="noopener">https://blog.csdn.net/r6Auo52bK/article/details/80105751</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/25/data set/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Semantic segmentation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -609,76 +780,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/25/Semantic segmentation/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-data set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/25/data set/">数据集</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/25/data set/" class="archive-article-date">
-  	<time datetime="2019-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="常用数据集汇总（汇总找到的汇总链接）"><a href="#常用数据集汇总（汇总找到的汇总链接）" class="headerlink" title="常用数据集汇总（汇总找到的汇总链接）"></a>常用数据集汇总（汇总找到的汇总链接）</h2><h4 id="一、常用的公共数据集（一）"><a href="#一、常用的公共数据集（一）" class="headerlink" title="一、常用的公共数据集（一）"></a>一、常用的公共数据集（一）</h4><p><a href="https://blog.csdn.net/m0_37570854/article/details/88734695" target="_blank" rel="noopener">https://blog.csdn.net/m0_37570854/article/details/88734695</a> </p>
-<h4 id="二、常用的公共数据集（二）"><a href="#二、常用的公共数据集（二）" class="headerlink" title="二、常用的公共数据集（二）"></a>二、常用的公共数据集（二）</h4><p><a href="https://blog.csdn.net/m0_37570854/article/details/88736189" target="_blank" rel="noopener">https://blog.csdn.net/m0_37570854/article/details/88736189</a></p>
-<h4 id="三、最强数据集集合：50个最佳机器学习公共数据集"><a href="#三、最强数据集集合：50个最佳机器学习公共数据集" class="headerlink" title="三、最强数据集集合：50个最佳机器学习公共数据集"></a>三、最强数据集集合：50个最佳机器学习公共数据集</h4><p><a href="https://blog.csdn.net/weixin_42137700/article/details/83855588" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42137700/article/details/83855588</a></p>
-<h4 id="四、机器学习免费数据集"><a href="#四、机器学习免费数据集" class="headerlink" title="四、机器学习免费数据集"></a>四、机器学习免费数据集</h4><p><a href="https://blog.csdn.net/wwtwinter/article/details/85992227" target="_blank" rel="noopener">https://blog.csdn.net/wwtwinter/article/details/85992227</a> </p>
-<h4 id="五、100款机器学习数据集"><a href="#五、100款机器学习数据集" class="headerlink" title="五、100款机器学习数据集"></a>五、100款机器学习数据集</h4><p><a href="https://blog.csdn.net/Touch_Dream/article/details/77847057" target="_blank" rel="noopener">https://blog.csdn.net/Touch_Dream/article/details/77847057</a></p>
-<h4 id="六、公开的海量数据集-Public-Research-Quality-Datasets"><a href="#六、公开的海量数据集-Public-Research-Quality-Datasets" class="headerlink" title="六、公开的海量数据集 Public Research-Quality Datasets"></a>六、公开的海量数据集 Public Research-Quality Datasets</h4><p><a href="https://blog.csdn.net/dcxhun3/article/details/51647753" target="_blank" rel="noopener">https://blog.csdn.net/dcxhun3/article/details/51647753</a> </p>
-<h4 id="七、人工智能公开数据集汇总"><a href="#七、人工智能公开数据集汇总" class="headerlink" title="七、人工智能公开数据集汇总"></a>七、人工智能公开数据集汇总</h4><p><a href="https://blog.csdn.net/jinghongluexia/article/details/81019010" target="_blank" rel="noopener">https://blog.csdn.net/jinghongluexia/article/details/81019010</a> </p>
-<h4 id="八、最全数据集网站汇总，绝对是一个金矿请查收！"><a href="#八、最全数据集网站汇总，绝对是一个金矿请查收！" class="headerlink" title="八、最全数据集网站汇总，绝对是一个金矿请查收！"></a>八、最全数据集网站汇总，绝对是一个金矿请查收！</h4><p><a href="https://blog.csdn.net/r6Auo52bK/article/details/80105751" target="_blank" rel="noopener">https://blog.csdn.net/r6Auo52bK/article/details/80105751</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/25/data set/">展开全文 >></a>
         </p>
       
 
@@ -1228,75 +1329,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/19/Deep Learning Arithmetic Arrangement/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysql read error" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/16/mysql read error/">读取外部mysql脚本出现乱码问题解决</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/16/mysql read error/" class="archive-article-date">
-  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="读取外部mysql脚本出现乱码问题解决"><a href="#读取外部mysql脚本出现乱码问题解决" class="headerlink" title="读取外部mysql脚本出现乱码问题解决"></a>读取外部mysql脚本出现乱码问题解决</h3><p>在配置前后端分离项目时需要为项目配置mysql数据库，数据库由.sql后缀的脚本构建，脚本中写了构建数据库需要的数据库语言。在mysql中执行脚本时可能会出现未设定utf8导致导入数据出现乱码的问题，本文对这个问题提出一些解决办法，特此记录。</p>
-<ul>
-<li>检查mysql的my.ini文件<br>首先检查mysql的my.ini文件，一般位于C盘的programData\MySQL\MySQL Server 8.0文件夹下，如果找不到可以使用小工具everything进行搜索。设置my.ini文件里default-character-set=utf8。</li>
-<li>在脚本文件中insert语句前插入语句set character set utf8;</li>
-<li>在创建表格语句的最后添加语句DEFAULT CHARSET=utf8;</li>
-</ul>
-<p>一般经过以上三步可以解决脚本读取出现乱码的问题。如果发生数据无法读取的问题，可能是脚本存放的路径存在中文，更改到英文路径即可解决。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/16/mysql read error/">展开全文 >></a>
         </p>
       
 

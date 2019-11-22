@@ -218,6 +218,102 @@
 
 
   
+    <article id="post-Semantic segmentation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/25/Semantic segmentation/">语义分割模型</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/25/Semantic segmentation/" class="archive-article-date">
+  	<time datetime="2019-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="语义分割模型"><a href="#语义分割模型" class="headerlink" title="语义分割模型"></a>语义分割模型</h2><h4 id="一、FCN"><a href="#一、FCN" class="headerlink" title="一、FCN"></a>一、FCN</h4><ul>
+<li>源码：<a href="https://github.com/shelhamer/fcn.berkeleyvision.org" target="_blank" rel="noopener">https://github.com/shelhamer/fcn.berkeleyvision.org</a>  </li>
+<li>解释：<br>FCN对图像进行像素级的分类，从而解决了语义级别的图像分割问题。与经典的CNN在卷积层使用全连接层得到固定长度的特征向量进行分类不同，FCN可以接受任意尺寸的输入图像，采用反卷积层对最后一个卷基层的特征图（feature map）进行上采样，使它恢复到输入图像相同的尺寸，从而可以对每一个像素都产生一个预测，同时保留了原始输入图像中的空间信息，最后奇偶在上采样的特征图进行像素的分类。<br>-全卷积网络(FCN)是从抽象的特征中恢复出每个像素所属的类别。即从图像级别的分类进一步延伸到像素级别的分类。<br>FCN将传统CNN中的全连接层转化成一个个的卷积层，在传统的CNN结构中，前5层是卷积层，第6层和第7层分别是一个长度为4096的一维向量，第8层是长度为1000的一维向量，分别对应1000个类别的概率。FCN将这3层表示为卷积层，卷积核的大小(通道数，宽，高)分别为（4096,1,1）、（4096,1,1）、（1000,1,1）。所有的层都是卷积层，故称为全卷积网络。<br>————————————————<br>版权声明：本文为CSDN博主「moonuke」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/qq_36269513/article/details/80420363" target="_blank" rel="noopener">https://blog.csdn.net/qq_36269513/article/details/80420363</a><h4 id="二、SegNet"><a href="#二、SegNet" class="headerlink" title="二、SegNet"></a>二、SegNet</h4></li>
+<li>源码：<a href="https://github.com/alexgkendall/caffe-segnet" target="_blank" rel="noopener">https://github.com/alexgkendall/caffe-segnet</a> </li>
+<li>数据集：SegNet (3.5K dataset training - 140K)</li>
+<li>paper link：<a href="https://arxiv.org/pdf/1511.00561.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1511.00561.pdf</a> </li>
+<li><p>特点：<br>SegNet的编码器部分使用的是VGG16的前13层卷积网络,每个编码器层都对应一个解码器层,最终解码器的输出被送入soft-max分类器以独立的为每个像素产生类概率。</p>
+<p>  每个编码器由数个蓝色层(卷积层,批归一化层,RELU层)以及一个Pooling层(2x2窗口,步进2,最大池化)组成,输出相当于系数为2的下采样。</p>
+<p>  最大池化过程中会损失一些信息，因此这里储存了max-pooling indices，保存最大池化过程中的位置信息，用于在上采样的时候进行恢复。</p>
+<p>  与FCN相比，训练精度更高也更快。</p>
+<p>  可在<a href="http://mi.eng.cam.ac.uk/projects/segnet/进行实验" target="_blank" rel="noopener">http://mi.eng.cam.ac.uk/projects/segnet/进行实验</a></p>
+<h4 id="三、U-Net"><a href="#三、U-Net" class="headerlink" title="三、U-Net"></a>三、U-Net</h4></li>
+<li>源码：<a href="https://github.com/milesial/Pytorch-UNet" target="_blank" rel="noopener">https://github.com/milesial/Pytorch-UNet</a> </li>
+<li>paper link:<a href="https://arxiv.org/pdf/1505.04597v1.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1505.04597v1.pdf</a></li>
+<li>特点：<br>（1）改进了FCN，把扩展路径完善了很多，多通道卷积与类似FPN（特征金字塔网络）的结构相结合。<br>（2）利用少量数据集进行训练测试，为医学图像分割做出很大贡献。<h4 id="四、DeepLab"><a href="#四、DeepLab" class="headerlink" title="四、DeepLab"></a>四、DeepLab</h4></li>
+<li>paper link：<br><a href="https://arxiv.org/pdf/1412.7062v3.pdf" target="_blank" rel="noopener">deeplab v1</a><br><a href="https://arxiv.org/pdf/1412.7062v3.pdf" target="_blank" rel="noopener">deeplab v2</a><br><a href="https://arxiv.org/abs/1706.05587" target="_blank" rel="noopener">deeplab v3</a><br><a href="http://cn.arxiv.org/abs/1802.02611" target="_blank" rel="noopener">deeplab v3+</a></li>
+<li>源码：<br><a href="https://github.com/NanqingD/DeepLabV3-Tensorflow" target="_blank" rel="noopener">deeplab v3</a><br><a href="https://github.com/jfzhang95/pytorch-deeplab-xception" target="_blank" rel="noopener">deeplab v3+</a></li>
+<li>特点：DeepLabv3进一步探讨空洞卷积，这是一个在语义分割任务中：可以调整滤波器视野、控制卷积神经网络计算的特征响应分辨率的强大工具。为了解决多尺度下的目标分割问题，我们设计了空洞卷积级联或不同采样率空洞卷积并行架构。此外，我们强调了ASPP(Atrous Spatial Pyramid Pooling)模块，该模块可以在获取多个尺度上卷积特征，进一步提升性能。同时，我们分享了实施细节和训练方法，此次提出的DeepLabv3相比先前的版本有显著的效果提升，在PASCAL VOC 2012上获得了先进的性能。<h4 id="五、PSPNet"><a href="#五、PSPNet" class="headerlink" title="五、PSPNet"></a>五、PSPNet</h4></li>
+<li>源码：<br><a href="https://github.com/hszhao/PSPNet" target="_blank" rel="noopener">pspnet-github</a><br><a href="https://github.com/Vladkryvoruchko/PSPNet-Keras-tensorflow" target="_blank" rel="noopener">Keras</a><br><a href="https://github.com/hellochick/PSPNet-tensorflow" target="_blank" rel="noopener">tensorflow</a></li>
+<li>数据集：<br>LMO dataset [22]<br>PASCAL context datasets [8, 29]<br>ADE20K dataset [43]</li>
+<li>paper link：<a href="https://arxiv.org/pdf/1612.01105.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1612.01105.pdf</a></li>
+<li>特点：<br>1.提出pyramid scene parsing network<br>2.提出effective optimization strategy for deep ResNet [13] based on deeply supervised loss<br>3.建立一个系统</li>
+<li>blog资源：<a href="https://www.jianshu.com/p/57329a0b7a2d" target="_blank" rel="noopener">https://www.jianshu.com/p/57329a0b7a2d</a> <h4 id="六、HRNet"><a href="#六、HRNet" class="headerlink" title="六、HRNet"></a>六、HRNet</h4></li>
+<li>源码：<br><a href="https://github.com/leoxiaobin/deep-high-resolution-net.pytorch" target="_blank" rel="noopener">Pose estimation</a><br><a href="https://github.com/HRNet/HRNet-Semantic-Segmentation" target="_blank" rel="noopener">Semantic segmentation</a><br><a href="https://github.com/HRNet/HRNet-Facial-Landmark-Detection" target="_blank" rel="noopener">Face alignment</a><br><a href="https://github.com/HRNet/HRNet-Image-Classification" target="_blank" rel="noopener">Image classification</a><br><a href="https://github.com/HRNet/HRNet-Object-Detection" target="_blank" rel="noopener">Object detection</a></li>
+<li>特点：<br>分类网络在视觉识别中占据主导地位，从图像级分类到区域级分类(目标检测)和像素级分类(语义分割、人体姿态估计和人脸地标检测)<br>这个名叫HRNet的神经网络，拥有与众不同的并联结构，可以随时保持高分辨率表征，不只靠从低分辨率表征里，恢复高分辨率表征。如此一来，姿势识别的效果明显提升：<br>在COCO数据集的关键点检测、姿态估计、多人姿态估计这三项任务里，HRNet都超越了所有前辈。</li>
+<li>blog资源：<a href="https://blog.csdn.net/weixin_37993251/article/details/88043650" target="_blank" rel="noopener">https://blog.csdn.net/weixin_37993251/article/details/88043650</a> </li>
+</ul>
+<h4 id="另：实例分割、语义分割网络大全-https-blog-csdn-net-qq-41007606-article-details-84025902"><a href="#另：实例分割、语义分割网络大全-https-blog-csdn-net-qq-41007606-article-details-84025902" class="headerlink" title="另：实例分割、语义分割网络大全 https://blog.csdn.net/qq_41007606/article/details/84025902"></a>另：实例分割、语义分割网络大全 <a href="https://blog.csdn.net/qq_41007606/article/details/84025902" target="_blank" rel="noopener">https://blog.csdn.net/qq_41007606/article/details/84025902</a></h4><p>包括：</p>
+<ul>
+<li>数据集<br>2D数据集、2.5D数据集、3D数据集</li>
+<li>图像标注工具</li>
+<li>papers</li>
+<li>blog资源</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/25/Semantic segmentation/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Arithmetic Arrangement" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1107,6 +1203,78 @@
 
 
   
+    <article id="post-resolve npm install speed" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/26/resolve npm install speed/">npm速度问题解决</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/26/resolve npm install speed/" class="archive-article-date">
+  	<time datetime="2019-08-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="利用npm-install安装速度过慢解决"><a href="#利用npm-install安装速度过慢解决" class="headerlink" title="利用npm install安装速度过慢解决"></a>利用npm install安装速度过慢解决</h3><p>今天为了解决博客图片上传问题，需要在博客源文件夹中安装一个插件，但是利用npm install因为一些原因速度太慢，所以使用淘宝镜像方式（一个非常有效的方式）进行加速npm install。特此记录。</p>
+<ul>
+<li><p>首先在命令行中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后输入安装语句即可。因为我是需要配置博客图片存到GitHub本地的问题，我的安装代码为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>一般可以完美解决问题</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/26/resolve npm install speed/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1211,174 +1379,9 @@
 
 
   
-    <article id="post-resolve npm install speed" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/26/resolve npm install speed/">npm速度问题解决</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/26/resolve npm install speed/" class="archive-article-date">
-  	<time datetime="2019-08-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="利用npm-install安装速度过慢解决"><a href="#利用npm-install安装速度过慢解决" class="headerlink" title="利用npm install安装速度过慢解决"></a>利用npm install安装速度过慢解决</h3><p>今天为了解决博客图片上传问题，需要在博客源文件夹中安装一个插件，但是利用npm install因为一些原因速度太慢，所以使用淘宝镜像方式（一个非常有效的方式）进行加速npm install。特此记录。</p>
-<ul>
-<li><p>首先在命令行中输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后输入安装语句即可。因为我是需要配置博客图片存到GitHub本地的问题，我的安装代码为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>一般可以完美解决问题</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/26/resolve npm install speed/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-create blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/14/create blog/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/14/create blog/" class="archive-article-date">
-  	<time datetime="2019-08-14T03:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h1><p>搭建自己的博客，可以在博客上记录自己学习生活的点滴。所以我的第一篇博客就用来记录博客的搭建。</p>
-<h2 id="一、下载Node-js"><a href="#一、下载Node-js" class="headerlink" title="一、下载Node.js"></a>一、下载Node.js</h2><p>Node.js官方网站：<a href="https://nodejs.org，在官方网站上下载适合版本的Node.js，我下载的时10.15.3" target="_blank" rel="noopener">https://nodejs.org，在官方网站上下载适合版本的Node.js，我下载的时10.15.3</a> LTS.在Gitbash中查看版本：node -v（注意，如果使用命令行，用管理员权限打开）</p>
-<h2 id="二、下载Git"><a href="#二、下载Git" class="headerlink" title="二、下载Git"></a>二、下载Git</h2><p>同样在官方网站上下载Git，官网：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
-<h2 id="三、安装hexo"><a href="#三、安装hexo" class="headerlink" title="三、安装hexo"></a>三、安装hexo</h2><p>因为用Gitbash，自动定位在C:\Users\用户名文件夹处，所以在此文件夹下建立新文件夹blog。先来安装个cnpm提高速度.</p>
-<ul>
-<li><p>安装淘宝镜像源：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>验证是否成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure></p>
-<p>出现一大串没出现错误就没问题</p>
-<ul>
-<li>下一步是hexo init，初始化hexo。但是我安装了淘宝的镜像仍然在这一步遭遇困境，一直无法成功，查看了一些博文，使用以下这些命令即可解决hexo的初始化：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br><span class="line">npm install hexo-cli -g</span><br><span class="line">git clone https://git.oschina.net/neoFelhz/hexokit.git</span><br><span class="line">rm install.sh</span><br><span class="line">cd hexokit</span><br><span class="line">npm install</span><br><span class="line">npm config set registry https://registry.npmjs.org/</span><br><span class="line">hexo version</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>PS:这几步与上面的一些步骤重复<br>执行完成后在blog文件夹下生成hexokit文件夹，里面包含所有初始化文件</p>
-<ul>
-<li>测试博客是否可以使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>打开<a href="http://localhost:4000，如果可以打开，则搭建完成。" target="_blank" rel="noopener">http://localhost:4000，如果可以打开，则搭建完成。</a><br>这一步也可能出现初始化博客后打不开博客问题，查资料显示4000端口被占用，故无法显示，所以可以指定端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure></p>
-<p>打开<a href="http://localhost:5000" target="_blank" rel="noopener">http://localhost:5000</a> 看到博客正常显示即博客搭建成功。</p>
-<ul>
-<li>其他的一些常用的命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean #用来清理缓存文件</span><br><span class="line">hexo g      #生成文件</span><br><span class="line">hexo  s     #运行本地服务器</span><br><span class="line">hexo  d   #上传到服务器</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>我一般在博客本地源文件夹右键选择“git bash here”用git进行操作。</p>
-<p>每次写完.md文件后，将文件放到本地的\source_posts文件夹下，用“hexo d”命令上传到服务器，我是推到GitHub上，即可实现博客的推送。<br>具体如何在GitHub上推hexo博客本文就不讲了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/14/create blog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 

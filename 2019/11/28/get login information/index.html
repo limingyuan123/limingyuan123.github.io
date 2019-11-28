@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>element ui learning1 | Mingyuan</title>
+  <title>后台获取用户登录信息 | Mingyuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="element ui 学习之菜单的使用element ui组件属于vue中的ui组件，element的使用其实也比较方便，只需要引入element ui的css与js文件即可使用。官网也提供了很多好用的功能，本博客就以菜单的使用为例简要介绍一下element ui的使用。  引入element ui的css 与 js可以下载到本地，然后写链接即可。 12&amp;lt;link rel=&amp;quot;sty">
+  <meta name="description" content="后台获取用户登录信息如何从后台将用户的登录信息拿到，在写一些需要判断是否登录以及获取当前登录者信息时是十分必要的。获取用户登录信息就用到了HttpServletRequest request 123456789101112131415161718192021222324@RequestMapping(value = &amp;quot;/addTheme&amp;quot;, method = RequestMe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="element ui learning1">
-<meta property="og:url" content="http://yoursite.com/2019/11/22/element ui learning1/index.html">
+<meta property="og:title" content="后台获取用户登录信息">
+<meta property="og:url" content="http://yoursite.com/2019/11/28/get login information/index.html">
 <meta property="og:site_name" content="Mingyuan">
-<meta property="og:description" content="element ui 学习之菜单的使用element ui组件属于vue中的ui组件，element的使用其实也比较方便，只需要引入element ui的css与js文件即可使用。官网也提供了很多好用的功能，本博客就以菜单的使用为例简要介绍一下element ui的使用。  引入element ui的css 与 js可以下载到本地，然后写链接即可。 12&amp;lt;link rel=&amp;quot;sty">
+<meta property="og:description" content="后台获取用户登录信息如何从后台将用户的登录信息拿到，在写一些需要判断是否登录以及获取当前登录者信息时是十分必要的。获取用户登录信息就用到了HttpServletRequest request 123456789101112131415161718192021222324@RequestMapping(value = &amp;quot;/addTheme&amp;quot;, method = RequestMe">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/11/22/element%20ui%20learning1/1.png">
-<meta property="og:updated_time" content="2019-11-22T02:48:51.955Z">
+<meta property="og:updated_time" content="2019-11-28T12:38:05.622Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="element ui learning1">
-<meta name="twitter:description" content="element ui 学习之菜单的使用element ui组件属于vue中的ui组件，element的使用其实也比较方便，只需要引入element ui的css与js文件即可使用。官网也提供了很多好用的功能，本博客就以菜单的使用为例简要介绍一下element ui的使用。  引入element ui的css 与 js可以下载到本地，然后写链接即可。 12&amp;lt;link rel=&amp;quot;sty">
-<meta name="twitter:image" content="http://yoursite.com/2019/11/22/element%20ui%20learning1/1.png">
+<meta name="twitter:title" content="后台获取用户登录信息">
+<meta name="twitter:description" content="后台获取用户登录信息如何从后台将用户的登录信息拿到，在写一些需要判断是否登录以及获取当前登录者信息时是十分必要的。获取用户登录信息就用到了HttpServletRequest request 123456789101112131415161718192021222324@RequestMapping(value = &amp;quot;/addTheme&amp;quot;, method = RequestMe">
   
     <link rel="alternative" href="/atom.xml" title="Mingyuan" type="application/atom+xml">
   
@@ -152,39 +150,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-element ui learning1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-get login information" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      element ui learning1
+      后台获取用户登录信息
     </h1>
   
 
         
-        <a href="/2019/11/22/element ui learning1/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+        <a href="/2019/11/28/get login information/" class="archive-article-date">
+  	<time datetime="2019-11-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="element-ui-学习之菜单的使用"><a href="#element-ui-学习之菜单的使用" class="headerlink" title="element ui 学习之菜单的使用"></a>element ui 学习之菜单的使用</h3><p>element ui组件属于vue中的ui组件，element的使用其实也比较方便，只需要引入element ui的css与js文件即可使用。官网也提供了很多好用的功能，本博客就以菜单的使用为例简要介绍一下element ui的使用。</p>
+        <h3 id="后台获取用户登录信息"><a href="#后台获取用户登录信息" class="headerlink" title="后台获取用户登录信息"></a>后台获取用户登录信息</h3><p>如何从后台将用户的登录信息拿到，在写一些需要判断是否登录以及获取当前登录者信息时是十分必要的。获取用户登录信息就用到了HttpServletRequest request</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value = &quot;/addTheme&quot;, method = RequestMethod.POST)</span><br><span class="line">public JsonResult addTheme(HttpServletRequest request) throws IOException &#123;</span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line"></span><br><span class="line">    if(session.getAttribute(&quot;uid&quot;) == null)&#123;</span><br><span class="line">        return ResultUtils.error(-1, &quot;no login&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;</span><br><span class="line">    MultipartFile file = multipartRequest.getFile(&quot;info&quot;);</span><br><span class="line">    String model = IOUtils.toString(file.getInputStream(), &quot;utf-8&quot;);</span><br><span class="line">    JSONObject jsonObject = JSONObject.parseObject(model);</span><br><span class="line">    ThemeAddDTO themeAddDTO = JSONObject.toJavaObject(jsonObject, ThemeAddDTO.class);</span><br><span class="line">    themeAddDTO.setCreator_name(session.getAttribute(&quot;name&quot;).toString());</span><br><span class="line">    themeAddDTO.setCreator_oid(session.getAttribute(&quot;oid&quot;).toString());</span><br><span class="line"></span><br><span class="line">    String uid = session.getAttribute(&quot;uid&quot;).toString();</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;add theme&quot;);</span><br><span class="line"></span><br><span class="line">    Theme theme = repositoryService.insertTheme(themeAddDTO, uid);</span><br><span class="line"></span><br><span class="line">    userService.themePlusPlus(uid);</span><br><span class="line">    return ResultUtils.success(theme.getOid());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先HttpSession session = request.getSession();<br>利用session来获取当前用户的属性，包括uid、name、oid等</p>
 <ul>
-<li><p>引入element ui的css 与 js<br>可以下载到本地，然后写链接即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/static/element-ui/theme-chalk/index.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;/static/element-ui/index.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>以官网代码为例，需要改变的自己更改即可<br>官网链接： <a href="https://element.eleme.cn/#/zh-CN/component/menu" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/menu</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-row class=&quot;tac&quot;&gt;</span><br><span class="line">  &lt;el-col :span=&quot;12&quot;&gt;</span><br><span class="line">    &lt;h5&gt;默认颜色&lt;/h5&gt;</span><br><span class="line">    &lt;el-menu</span><br><span class="line">      default-active=&quot;2&quot;</span><br><span class="line">      class=&quot;el-menu-vertical-demo&quot;</span><br><span class="line">      @open=&quot;handleOpen&quot;</span><br><span class="line">      @close=&quot;handleClose&quot;&gt;</span><br><span class="line">      &lt;el-submenu index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;template slot=&quot;title&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;el-icon-location&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span&gt;导航一&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">        &lt;el-menu-item-group&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;分组一&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-2&quot;&gt;选项2&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-menu-item-group title=&quot;分组2&quot;&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-3&quot;&gt;选项3&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-submenu index=&quot;1-4&quot;&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;选项4&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-4-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-submenu&gt;</span><br><span class="line">      &lt;/el-submenu&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;2&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-menu&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航二&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;3&quot; disabled&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-document&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航三&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;4&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-setting&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航四&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">    &lt;/el-menu&gt;</span><br><span class="line">  &lt;/el-col&gt;</span><br><span class="line">  &lt;el-col :span=&quot;12&quot;&gt;</span><br><span class="line">    &lt;h5&gt;自定义颜色&lt;/h5&gt;</span><br><span class="line">    &lt;el-menu</span><br><span class="line">      default-active=&quot;2&quot;</span><br><span class="line">      class=&quot;el-menu-vertical-demo&quot;</span><br><span class="line">      @open=&quot;handleOpen&quot;</span><br><span class="line">      @close=&quot;handleClose&quot;</span><br><span class="line">      background-color=&quot;#545c64&quot;</span><br><span class="line">      text-color=&quot;#fff&quot;</span><br><span class="line">      active-text-color=&quot;#ffd04b&quot;&gt;</span><br><span class="line">      &lt;el-submenu index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;template slot=&quot;title&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;el-icon-location&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span&gt;导航一&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">        &lt;el-menu-item-group&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;分组一&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-2&quot;&gt;选项2&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-menu-item-group title=&quot;分组2&quot;&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-3&quot;&gt;选项3&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-submenu index=&quot;1-4&quot;&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;选项4&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-4-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-submenu&gt;</span><br><span class="line">      &lt;/el-submenu&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;2&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-menu&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航二&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;3&quot; disabled&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-document&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航三&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;4&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-setting&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航四&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">    &lt;/el-menu&gt;</span><br><span class="line">  &lt;/el-col&gt;</span><br><span class="line">&lt;/el-row&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    methods: &#123;</span><br><span class="line">      handleOpen(key, keyPath) &#123;</span><br><span class="line">        console.log(key, keyPath);</span><br><span class="line">      &#125;,</span><br><span class="line">      handleClose(key, keyPath) &#123;</span><br><span class="line">        console.log(key, keyPath);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<li>获取属性，赋值给DTO<br>String uid =session.getAttribute(“uid”).toString();获取当前登录者的信息，取uid赋值给uid字符串<ul>
+<li>判断是否登录<br>if(session.getAttribute(“uid”) == null)，为null时即可返回-1，未登录状态</li>
+</ul>
 </li>
 </ul>
-<p>script中的函数写到vue中即可<br>显示效果：<br><img src="/2019/11/22/element ui learning1/1.png" alt="显示效果"></p>
-<p>基本格式为el-menu为第一级，包裹其他的选项。el-menu-item为菜单项。如果有的菜单有子菜单的话，使用el-submenu嵌套el-menu-item即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default-active=&quot;2&quot;</span><br></pre></td></tr></table></figure></p>
-<p>此处定义active的菜单项为第二处<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@open=&quot;handleOpen&quot;</span><br><span class="line">@close=&quot;handleClose&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这两处为open与close函数，写道vue的methods里即可</p>
 
       
 
@@ -264,7 +258,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/22/element ui learning1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/28/get login information/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,18 +272,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/22/vue mounted and methods/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          vue学习之mounted与methods
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/22/thymeleaf learning2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">thymeleaf学习2</div>
+    <a href="/2019/11/22/Front and back interaction/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前后端交互学习</div>
       <i class="icon-circle-right"></i>
     </a>
   

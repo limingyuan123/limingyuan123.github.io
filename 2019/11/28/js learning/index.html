@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/8 | Mingyuan</title>
+  <title>前端之javascript学习 | Mingyuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mingyuan">
-<meta property="og:url" content="http://yoursite.com/archives/2019/08/index.html">
+  <meta name="description" content="javascript学习几个注意点：1.在js中经常会用到id与class的绑定。id是唯一的，class不是，所以在绑定时尽量使用class，避免使用id2.利用vue写程序，this与that是指的data中定义的变量，在methods中使用this，在mounted中使用that来拿data中的数据3.熟练使用push来向数组中追加数据，因为在data中定义数组，数组中有很多的属性，[{}]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端之javascript学习">
+<meta property="og:url" content="http://yoursite.com/2019/11/28/js learning/index.html">
 <meta property="og:site_name" content="Mingyuan">
+<meta property="og:description" content="javascript学习几个注意点：1.在js中经常会用到id与class的绑定。id是唯一的，class不是，所以在绑定时尽量使用class，避免使用id2.利用vue写程序，this与that是指的data中定义的变量，在methods中使用this，在mounted中使用that来拿data中的数据3.熟练使用push来向数组中追加数据，因为在data中定义数组，数组中有很多的属性，[{}]">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/11/28/js%20learning/splice.png">
+<meta property="og:updated_time" content="2019-11-28T13:05:40.187Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mingyuan">
+<meta name="twitter:title" content="前端之javascript学习">
+<meta name="twitter:description" content="javascript学习几个注意点：1.在js中经常会用到id与class的绑定。id是唯一的，class不是，所以在绑定时尽量使用class，避免使用id2.利用vue写程序，this与that是指的data中定义的变量，在methods中使用this，在mounted中使用that来拿data中的数据3.熟练使用push来向数组中追加数据，因为在data中定义数组，数组中有很多的属性，[{}]">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/28/js%20learning/splice.png">
   
     <link rel="alternative" href="/atom.xml" title="Mingyuan" type="application/atom+xml">
   
@@ -146,157 +152,158 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js learning" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端之javascript学习
+    </h1>
+  
+
+        
+        <a href="/2019/11/28/js learning/" class="archive-article-date">
+  	<time datetime="2019-11-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="javascript学习"><a href="#javascript学习" class="headerlink" title="javascript学习"></a>javascript学习</h4><p>几个注意点：<br>1.在js中经常会用到id与class的绑定。id是唯一的，class不是，所以在绑定时尽量使用class，避免使用id<br>2.利用vue写程序，this与that是指的data中定义的变量，在methods中使用this，在mounted中使用that来拿data中的数据<br>3.熟练使用push来向数组中追加数据，因为在data中定义数组，数组中有很多的属性，[{}]这种形式只能定义第一个元素，所以灵活使用push往数组中追加各种属性的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this.editableTabs_data.push(&#123;</span><br><span class="line">                    tabledata:[],</span><br><span class="line">                    title: &apos;New Tab&apos;,</span><br><span class="line">                    name: newTabName,</span><br><span class="line">                    content: &apos;New Tab content&apos;</span><br><span class="line">                &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>4.JQuery的ON()方法支持的所有事件罗列<br><a href="https://blog.csdn.net/lookbackward/article/details/78364345?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">https://blog.csdn.net/lookbackward/article/details/78364345?tdsourcetag=s_pctim_aiomsg</a><br>jquery在监听input是否输入值时，用到keyup事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//input的监听值变动的事件</span><br><span class="line">        $(document).on(&apos;keyup&apos;,&apos;.category_name&apos;,function ($event) &#123;</span><br><span class="line">            let category_input=$(&quot;.category_name&quot;);</span><br><span class="line">            let index=0;</span><br><span class="line">            for(;index&lt;category_input.length;index++)&#123;</span><br><span class="line">                if($(this)[0]==category_input.eq(index)[0])&#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            that.editableTabs_model[index].title = $(&quot;.category_name&quot;).eq(index).val();</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>一般，使新增的控件有效，使用document来绑定<br>5.JavaScript splice() 方法<br>splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。<br><img src="/2019/11/28/js learning/splice.png" alt="splice参数"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">table1.splice(index, 1);</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/31/springbootmongodb/" class="archive-article-date">
-  	<time datetime="2019-08-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/31/springbootmongodb/">spring boot学习</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/28/js learning/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/27/vue2/" class="archive-article-date">
-  	<time datetime="2019-08-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/28/get login information/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">后台获取用户登录信息</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/27/vue2/">VUE学习2</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/26/resolve npm install speed/" class="archive-article-date">
-  	<time datetime="2019-08-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/26/resolve npm install speed/">npm速度问题解决</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/26/vue1/" class="archive-article-date">
-  	<time datetime="2019-08-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/26/vue1/">VUE学习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/14/create blog/" class="archive-article-date">
-  	<time datetime="2019-08-14T03:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/14/create blog/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -319,8 +326,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

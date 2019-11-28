@@ -148,6 +148,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/28/js learning/">前端之javascript学习</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/28/js learning/" class="archive-article-date">
+  	<time datetime="2019-11-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="javascript学习"><a href="#javascript学习" class="headerlink" title="javascript学习"></a>javascript学习</h4><p>几个注意点：<br>1.在js中经常会用到id与class的绑定。id是唯一的，class不是，所以在绑定时尽量使用class，避免使用id<br>2.利用vue写程序，this与that是指的data中定义的变量，在methods中使用this，在mounted中使用that来拿data中的数据<br>3.熟练使用push来向数组中追加数据，因为在data中定义数组，数组中有很多的属性，[{}]这种形式只能定义第一个元素，所以灵活使用push往数组中追加各种属性的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this.editableTabs_data.push(&#123;</span><br><span class="line">                    tabledata:[],</span><br><span class="line">                    title: &apos;New Tab&apos;,</span><br><span class="line">                    name: newTabName,</span><br><span class="line">                    content: &apos;New Tab content&apos;</span><br><span class="line">                &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>4.JQuery的ON()方法支持的所有事件罗列<br><a href="https://blog.csdn.net/lookbackward/article/details/78364345?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">https://blog.csdn.net/lookbackward/article/details/78364345?tdsourcetag=s_pctim_aiomsg</a><br>jquery在监听input是否输入值时，用到keyup事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//input的监听值变动的事件</span><br><span class="line">        $(document).on(&apos;keyup&apos;,&apos;.category_name&apos;,function ($event) &#123;</span><br><span class="line">            let category_input=$(&quot;.category_name&quot;);</span><br><span class="line">            let index=0;</span><br><span class="line">            for(;index&lt;category_input.length;index++)&#123;</span><br><span class="line">                if($(this)[0]==category_input.eq(index)[0])&#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            that.editableTabs_model[index].title = $(&quot;.category_name&quot;).eq(index).val();</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>一般，使新增的控件有效，使用document来绑定<br>5.JavaScript splice() 方法<br>splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。<br><img src="/2019/11/28/js learning/splice.png" alt="splice参数"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">table1.splice(index, 1);</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/28/js learning/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-get login information" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -190,6 +255,167 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/11/28/get login information/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-thymeleaf learning2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/22/thymeleaf learning2/">thymeleaf学习2</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/22/thymeleaf learning2/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="thymeleaf学习之各种学习过的绑定"><a href="#thymeleaf学习之各种学习过的绑定" class="headerlink" title="thymeleaf学习之各种学习过的绑定"></a>thymeleaf学习之各种学习过的绑定</h3><p>在上一篇博客中，简单的介绍了thymeleaf的如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。本文就将我目前涉及到的thymeleaf绑定简单罗列一下</p>
+<ul>
+<li><p>th-text<br>文字替换，将此处的文字替换为绑定的值<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span th:text=&quot;$&#123;item.name&#125;&quot;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>th-utext<br>在网页中写文字，相当于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>中间写文字<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:utext=&quot;$&#123;info.themename&#125;&quot; style=&quot;font-size: 24px;color:#444&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>th:src<br>thymeleaf的链接<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;img th:src=&quot;&apos;/static/img/icon/default.png&apos;&quot;</span><br><span class="line">                                            class=&quot;round_icon&quot; style=&quot;width:40px;height: 40px;float:left;&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>th:href<br>thymeleaf的超链接<br>例如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a th:href=&quot;&apos;/user/&apos;+$&#123;info.creator_oid&#125;&quot;&gt;&lt;h4 th:text=&quot;$&#123;info.creator_name&#125;&quot;&gt;Tom Marvolo Riddle&lt;/h4&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>th:each<br>循环执行，类似于vue中的v-for<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:each=&quot;modelClass,index:$&#123;modelClassInfos&#125;&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中，${modelClassInfos}为绑定的model值，index类似于数组中的计数，0、1、2…等，modelClass为数组的值，配合th:each将数组modelClassInfos的值循环取出。</p>
+</li>
+<li>th:id<br>thymeleaf的id，一般用来设置id值</li>
+</ul>
+<p>一个介绍thymeleaf的博客：<br><a href="https://www.cnblogs.com/zjfjava/p/6893486.html" target="_blank" rel="noopener">https://www.cnblogs.com/zjfjava/p/6893486.html</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/22/thymeleaf learning2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-thymeleaf learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/22/thymeleaf learning1/">thymeleaf学习</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/22/thymeleaf learning1/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="thymeleaf学习之fragment"><a href="#thymeleaf学习之fragment" class="headerlink" title="thymeleaf学习之fragment"></a>thymeleaf学习之fragment</h3><p>在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。</p>
+<ul>
+<li>写模板网页<br><img src="/2019/11/22/thymeleaf learning1/1.png" alt="模板页结构"><br>图片中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">th:fragment=&quot;side&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>side为与其他网页链接的关键词。</p>
+<ul>
+<li><p>在其他网页中链接需要的div</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:replace=&quot;fragments/sidebar :: side&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>在这一句中，这个div将会被sidebar.html中的side这个div替换掉</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/22/thymeleaf learning1/">展开全文 >></a>
         </p>
       
 
@@ -291,80 +517,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/11/22/Front and back interaction/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-thymeleaf learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/thymeleaf learning1/">thymeleaf学习</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/22/thymeleaf learning1/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="thymeleaf学习之fragment"><a href="#thymeleaf学习之fragment" class="headerlink" title="thymeleaf学习之fragment"></a>thymeleaf学习之fragment</h3><p>在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。</p>
-<ul>
-<li>写模板网页<br><img src="/2019/11/22/thymeleaf learning1/1.png" alt="模板页结构"><br>图片中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">th:fragment=&quot;side&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>side为与其他网页链接的关键词。</p>
-<ul>
-<li><p>在其他网页中链接需要的div</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:replace=&quot;fragments/sidebar :: side&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>在这一句中，这个div将会被sidebar.html中的side这个div替换掉</p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/thymeleaf learning1/">展开全文 >></a>
         </p>
       
 
@@ -509,93 +661,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/11/22/element ui learning1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-thymeleaf learning2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/thymeleaf learning2/">thymeleaf学习2</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/22/thymeleaf learning2/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="thymeleaf学习之各种学习过的绑定"><a href="#thymeleaf学习之各种学习过的绑定" class="headerlink" title="thymeleaf学习之各种学习过的绑定"></a>thymeleaf学习之各种学习过的绑定</h3><p>在上一篇博客中，简单的介绍了thymeleaf的如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。本文就将我目前涉及到的thymeleaf绑定简单罗列一下</p>
-<ul>
-<li><p>th-text<br>文字替换，将此处的文字替换为绑定的值<br>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span th:text=&quot;$&#123;item.name&#125;&quot;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>th-utext<br>在网页中写文字，相当于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>中间写文字<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:utext=&quot;$&#123;info.themename&#125;&quot; style=&quot;font-size: 24px;color:#444&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>th:src<br>thymeleaf的链接<br>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;img th:src=&quot;&apos;/static/img/icon/default.png&apos;&quot;</span><br><span class="line">                                            class=&quot;round_icon&quot; style=&quot;width:40px;height: 40px;float:left;&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>th:href<br>thymeleaf的超链接<br>例如:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a th:href=&quot;&apos;/user/&apos;+$&#123;info.creator_oid&#125;&quot;&gt;&lt;h4 th:text=&quot;$&#123;info.creator_name&#125;&quot;&gt;Tom Marvolo Riddle&lt;/h4&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>th:each<br>循环执行，类似于vue中的v-for<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:each=&quot;modelClass,index:$&#123;modelClassInfos&#125;&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>其中，${modelClassInfos}为绑定的model值，index类似于数组中的计数，0、1、2…等，modelClass为数组的值，配合th:each将数组modelClassInfos的值循环取出。</p>
-</li>
-<li>th:id<br>thymeleaf的id，一般用来设置id值</li>
-</ul>
-<p>一个介绍thymeleaf的博客：<br><a href="https://www.cnblogs.com/zjfjava/p/6893486.html" target="_blank" rel="noopener">https://www.cnblogs.com/zjfjava/p/6893486.html</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/thymeleaf learning2/">展开全文 >></a>
         </p>
       
 
@@ -854,82 +919,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/10/22/es5-es6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-left click right change" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/17/left click right change/">左点右变</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/17/left click right change/" class="archive-article-date">
-  	<time datetime="2019-10-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="点击左侧div相应的内容在右侧div中显示"><a href="#点击左侧div相应的内容在右侧div中显示" class="headerlink" title="点击左侧div相应的内容在右侧div中显示"></a>点击左侧div相应的内容在右侧div中显示</h4><p>在进行页面制作时，有时会遇到这种需求，在左侧有一系列的菜单选项，当点击其中一个，则在右侧显示详细的内容。点击另一个，在不刷新页面的情况下改变右侧div内容。本文对这一需求进行解答。属于前端范畴。</p>
-<ul>
-<li>网页左侧罗列菜单项，由各个<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">&lt;div class=&quot;navbarPanel&quot;&gt;</span><br><span class="line">    &lt;ul class=&quot;navigation&quot;&gt;</span><br><span class="line">        &lt;ul class=&quot;subNavbar&quot;&gt;</span><br><span class="line">            &lt;li id=&quot;model-Image&quot; class=&quot;modelimage&quot;&gt;</span><br><span class="line">                &lt;a href=&quot;javascript:void(0)&quot; index=1&gt;Image Models&lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li id=&quot;model-Text &quot; class=&quot;modeltext&quot;&gt;</span><br><span class="line">                &lt;a href=&quot;javascript:void(0)&quot; index=2&gt;Text  Models&lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li id=&quot;model-Audio frequency&quot; class=&quot;modelaudio&quot;&gt;</span><br><span class="line">                &lt;a href=&quot;javascript:void(0)&quot; index=3&gt;Audio frequency Models&lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li id=&quot;model-Video &quot; class=&quot;modelvidio&quot;&gt;</span><br><span class="line">                &lt;a href=&quot;javascript:void(0)&quot; index=4&gt;Video  Models&lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li id=&quot;model-Semantic segmentation &quot; class=&quot;modelsemantic&quot;&gt;</span><br><span class="line">                &lt;a href=&quot;javascript:void(0)&quot; index=5&gt;Semantic segmentation  Models&lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>每个菜单项我加上了class名称以及相应的index值，下文中对菜单项进行相关操作的js代码中会使用class名称来绑定事件（通常为点击clcik事件）</p>
-<ul>
-<li><p>左侧的目录树点击事件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.navbarPanel .navigation a&quot;).click(function () &#123;</span><br><span class="line">        index = $(this).attr(&quot;index&quot;)*1;  //获取当前点击的navigation的index</span><br><span class="line">        $(&quot;.infoPanel&quot;).hide();               //隐藏右边的所有页面</span><br><span class="line">        $(&quot;.infoPanel&quot;).eq(index).show();     //显示click的一个</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>右侧的内容可以写函数进行展示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$(classarr[0]).on(&quot;click&quot;, function () &#123;</span><br><span class="line">     initmodel(index);</span><br><span class="line"> &#125;);</span><br><span class="line"> $(classarr[1]).on(&quot;click&quot;, function () &#123;</span><br><span class="line">    initmodel(index);</span><br><span class="line"> &#125;);</span><br><span class="line"> $(classarr[2]).on(&quot;click&quot;, function () &#123;</span><br><span class="line"> initmodel(index);</span><br><span class="line"> &#125;);</span><br><span class="line"> $(classarr[3]).on(&quot;click&quot;, function () &#123;</span><br><span class="line">     initmodel(index);</span><br><span class="line"> &#125;);</span><br><span class="line"> $(classarr[4]).on(&quot;click&quot;, function () &#123;</span><br><span class="line">     initmodel(index);</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>initmodel()为渲染右侧内容函数。用到了.innelHTML将指定的内容嵌入到网页的div中，完成需求。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/17/left click right change/">展开全文 >></a>
         </p>
       
 

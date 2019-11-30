@@ -148,6 +148,77 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-get login information" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/28/get login information/">后台获取用户登录信息</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/28/get login information/" class="archive-article-date">
+  	<time datetime="2019-11-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="后台获取用户登录信息"><a href="#后台获取用户登录信息" class="headerlink" title="后台获取用户登录信息"></a>后台获取用户登录信息</h3><p>如何从后台将用户的登录信息拿到，在写一些需要判断是否登录以及获取当前登录者信息时是十分必要的。获取用户登录信息就用到了HttpServletRequest request</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value = &quot;/addTheme&quot;, method = RequestMethod.POST)</span><br><span class="line">public JsonResult addTheme(HttpServletRequest request) throws IOException &#123;</span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line"></span><br><span class="line">    if(session.getAttribute(&quot;uid&quot;) == null)&#123;</span><br><span class="line">        return ResultUtils.error(-1, &quot;no login&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;</span><br><span class="line">    MultipartFile file = multipartRequest.getFile(&quot;info&quot;);</span><br><span class="line">    String model = IOUtils.toString(file.getInputStream(), &quot;utf-8&quot;);</span><br><span class="line">    JSONObject jsonObject = JSONObject.parseObject(model);</span><br><span class="line">    ThemeAddDTO themeAddDTO = JSONObject.toJavaObject(jsonObject, ThemeAddDTO.class);</span><br><span class="line">    themeAddDTO.setCreator_name(session.getAttribute(&quot;name&quot;).toString());</span><br><span class="line">    themeAddDTO.setCreator_oid(session.getAttribute(&quot;oid&quot;).toString());</span><br><span class="line"></span><br><span class="line">    String uid = session.getAttribute(&quot;uid&quot;).toString();</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;add theme&quot;);</span><br><span class="line"></span><br><span class="line">    Theme theme = repositoryService.insertTheme(themeAddDTO, uid);</span><br><span class="line"></span><br><span class="line">    userService.themePlusPlus(uid);</span><br><span class="line">    return ResultUtils.success(theme.getOid());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先HttpSession session = request.getSession();<br>利用session来获取当前用户的属性，包括uid、name、oid等</p>
+<ul>
+<li>获取属性，赋值给DTO<br>String uid =session.getAttribute(“uid”).toString();获取当前登录者的信息，取uid赋值给uid字符串<ul>
+<li>判断是否登录<br>if(session.getAttribute(“uid”) == null)，为null时即可返回-1，未登录状态</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/28/get login information/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -213,33 +284,105 @@
 
 
   
-    <article id="post-get login information" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue mounted and methods" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/28/get login information/">后台获取用户登录信息</a>
+      <a class="article-title" href="/2019/11/22/vue mounted and methods/">vue学习之mounted与methods</a>
     </h1>
   
 
         
-        <a href="/2019/11/28/get login information/" class="archive-article-date">
-  	<time datetime="2019-11-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
+        <a href="/2019/11/22/vue mounted and methods/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="后台获取用户登录信息"><a href="#后台获取用户登录信息" class="headerlink" title="后台获取用户登录信息"></a>后台获取用户登录信息</h3><p>如何从后台将用户的登录信息拿到，在写一些需要判断是否登录以及获取当前登录者信息时是十分必要的。获取用户登录信息就用到了HttpServletRequest request</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value = &quot;/addTheme&quot;, method = RequestMethod.POST)</span><br><span class="line">public JsonResult addTheme(HttpServletRequest request) throws IOException &#123;</span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line"></span><br><span class="line">    if(session.getAttribute(&quot;uid&quot;) == null)&#123;</span><br><span class="line">        return ResultUtils.error(-1, &quot;no login&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;</span><br><span class="line">    MultipartFile file = multipartRequest.getFile(&quot;info&quot;);</span><br><span class="line">    String model = IOUtils.toString(file.getInputStream(), &quot;utf-8&quot;);</span><br><span class="line">    JSONObject jsonObject = JSONObject.parseObject(model);</span><br><span class="line">    ThemeAddDTO themeAddDTO = JSONObject.toJavaObject(jsonObject, ThemeAddDTO.class);</span><br><span class="line">    themeAddDTO.setCreator_name(session.getAttribute(&quot;name&quot;).toString());</span><br><span class="line">    themeAddDTO.setCreator_oid(session.getAttribute(&quot;oid&quot;).toString());</span><br><span class="line"></span><br><span class="line">    String uid = session.getAttribute(&quot;uid&quot;).toString();</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;add theme&quot;);</span><br><span class="line"></span><br><span class="line">    Theme theme = repositoryService.insertTheme(themeAddDTO, uid);</span><br><span class="line"></span><br><span class="line">    userService.themePlusPlus(uid);</span><br><span class="line">    return ResultUtils.success(theme.getOid());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>首先HttpSession session = request.getSession();<br>利用session来获取当前用户的属性，包括uid、name、oid等</p>
+        <h3 id="vue学习之mounted与methods"><a href="#vue学习之mounted与methods" class="headerlink" title="vue学习之mounted与methods"></a>vue学习之mounted与methods</h3><p>在项目中，会用到vue的数据传输以及函数调用，其中就涉及了vue中的mounted与methods。</p>
 <ul>
-<li>获取属性，赋值给DTO<br>String uid =session.getAttribute(“uid”).toString();获取当前登录者的信息，取uid赋值给uid字符串<ul>
-<li>判断是否登录<br>if(session.getAttribute(“uid”) == null)，为null时即可返回-1，未登录状态</li>
+<li>mounted中如何调用methods中的函数呢？<br>在mounted中加上let that = this;这句，然后在方法前加上that即可。<br>这其中就涉及到了this与that的使用。</li>
+<li>data中定义的变量，在methods中如何使？<br>data中定义的变量，在methods中使用，需要在前面加上this</li>
 </ul>
+<p>所以一般mounted中使用，要加that，methods中使用，需要加this</p>
+<p>接下来明确vue中that、this区别与用法，再明确js中that与this用法</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/22/vue mounted and methods/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-thymeleaf learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/22/thymeleaf learning1/">thymeleaf学习</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/22/thymeleaf learning1/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="thymeleaf学习之fragment"><a href="#thymeleaf学习之fragment" class="headerlink" title="thymeleaf学习之fragment"></a>thymeleaf学习之fragment</h3><p>在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。</p>
+<ul>
+<li>写模板网页<br><img src="/2019/11/22/thymeleaf learning1/1.png" alt="模板页结构"><br>图片中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">th:fragment=&quot;side&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>side为与其他网页链接的关键词。</p>
+<ul>
+<li><p>在其他网页中链接需要的div</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:replace=&quot;fragments/sidebar :: side&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>在这一句中，这个div将会被sidebar.html中的side这个div替换掉</p>
 </li>
 </ul>
 
@@ -254,7 +397,108 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/28/get login information/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/22/thymeleaf learning1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Front and back interaction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/22/Front and back interaction/">前后端交互学习</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/22/Front and back interaction/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前后端交互学习"><a href="#前后端交互学习" class="headerlink" title="前后端交互学习"></a>前后端交互学习</h2><h4 id="前后端数据传输"><a href="#前后端数据传输" class="headerlink" title="前后端数据传输"></a>前后端数据传输</h4><ul>
+<li>Dao层：<br><img src="/2019/11/22/Front and back interaction/1.png" alt="运行截图"></li>
+<li>JS代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.finish&quot;).click(()=&gt; &#123;</span><br><span class="line">    conceptObj.classifications = this.cls;</span><br><span class="line">    conceptObj.name = $(&quot;#nameInput&quot;).val();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>(获取数据存储到conceptObj中)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let formData=new FormData();</span><br></pre></td></tr></table></figure></p>
+<p>（定义formData，用于存储获取的数据）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if ((oid === &quot;0&quot;) || (oid === &quot;&quot;) || (oid == null)) &#123;</span><br><span class="line">    let file = new File([JSON.stringify(conceptObj)],&apos;ant.txt&apos;,&#123;</span><br><span class="line">        type: &apos;text/plain&apos;,</span><br><span class="line">    &#125;);</span><br><span class="line">    formData.append(&quot;info&quot;, file);</span><br></pre></td></tr></table></figure></p>
+<p>（将conceptObj转为string放到file中，然后追加到formData中存起来）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url: &quot;/repository/addConcept&quot;,</span><br><span class="line">    type: &quot;POST&quot;,</span><br><span class="line">    cache: false,</span><br><span class="line">    processData: false,</span><br><span class="line">    contentType: false,</span><br><span class="line">    async: false,</span><br><span class="line">    data: formData,</span><br><span class="line">    success: function (result) &#123;</span><br><span class="line"></span><br><span class="line">        if (result.code == &quot;0&quot;) &#123;</span><br><span class="line">            alert(&quot;Create Success&quot;);</span><br><span class="line"></span><br><span class="line">            window.location.href = &quot;/repository/concept/&quot; + result.data;</span><br><span class="line">            //window.location.reload();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>（ajax代码，url中/repository/addConcept为与controller进行连接的语句）</p>
+<ul>
+<li>Controller接口<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value = &quot;/addConcept&quot;,method = RequestMethod.POST)</span><br><span class="line">public JsonResult addConcept(HttpServletRequest request) throws IOException &#123;</span><br><span class="line"></span><br><span class="line">    MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;</span><br><span class="line">    MultipartFile file=multipartRequest.getFile(&quot;info&quot;);</span><br><span class="line">    String model=IOUtils.toString(file.getInputStream(),&quot;utf-8&quot;);</span><br><span class="line">    JSONObject jsonObject=JSONObject.parseObject(model);</span><br><span class="line">    ConceptAddDTO conceptAddDTO=JSONObject.toJavaObject(jsonObject,ConceptAddDTO.class);</span><br><span class="line"></span><br><span class="line">    HttpSession session=request.getSession();</span><br><span class="line"></span><br><span class="line">    if(session.getAttribute(&quot;uid&quot;)==null)&#123;</span><br><span class="line">        return ResultUtils.error(-1,&quot;no login&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    String uid=session.getAttribute(&quot;uid&quot;).toString();</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;add concept &amp; semantic&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Concept concept = repositoryService.insertConcept(conceptAddDTO,uid);</span><br><span class="line">    userService.conceptPlusPlus(uid);</span><br><span class="line">    return ResultUtils.success(concept.getOid());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>（HttpServletRequest request中的request为js中传输来的formdata，第一句将request进行强制类型转换，转换为MultipartHttpServletRequest类型的数据，下面仍是几个转换）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Concept concept = repositoryService.insertConcept(conceptAddDTO,uid);</span><br></pre></td></tr></table></figure></p>
+<p>（这一句将数据按照conceptAddDTO的格式插入到数据库中，利用insertConcept）</p>
+<h4 id="利用thymeleaf来实现按照id生成不同的页面"><a href="#利用thymeleaf来实现按照id生成不同的页面" class="headerlink" title="利用thymeleaf来实现按照id生成不同的页面"></a>利用thymeleaf来实现按照id生成不同的页面</h4><ul>
+<li>Create-concept.js<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">success: function (result) &#123;</span><br><span class="line"></span><br><span class="line">    if (result.code == &quot;0&quot;) &#123;</span><br><span class="line">        alert(&quot;Create Success&quot;);</span><br><span class="line"></span><br><span class="line">        window.location.href = &quot;/repository/concept/&quot; + result.data;</span><br><span class="line">        //window.location.reload();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当创建成功后弹出创建成功对话框，并跳转到上面那个链接，链接位于controller中</p>
+<ul>
+<li>RepositoryRestController.java<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value=&quot;/concept/&#123;id&#125;&quot;,method = RequestMethod.GET)</span><br><span class="line">public ModelAndView getConceptPage(@PathVariable(&quot;id&quot;) String id,HttpServletRequest req)&#123;</span><br><span class="line">    return repositoryService.getConceptPage(id,req);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在这个controller中调用service中的getconceptpage方法，在这个方法中绑定从js中拿到的并在各个后台文件中规定的数据</p>
+<ul>
+<li>RepositoryService.java<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modelAndView.setViewName(&quot;conceptInfo&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>首先将后台与前台页面绑定，通过设置View的name这样在conceptInfo页面拿到的数据就是从这个service里的数据，然后再设置model的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">modelAndView.addObject(&quot;classifications&quot;, classResult);</span><br><span class="line">modelAndView.addObject(&quot;image&quot;, htmlLoadPath+concept.getImage());</span><br><span class="line">modelAndView.addObject(&quot;year&quot;, Calendar.getInstance().getWeekYear());</span><br><span class="line">modelAndView.addObject(&quot;date&quot;, sdf.format(concept.getCreateTime()));</span><br><span class="line">modelAndView.addObject(&quot;related&quot;, relateArray);</span><br><span class="line">modelAndView.addObject(&quot;user&quot;, userJson);</span><br><span class="line">modelAndView.addObject(&quot;lastModifier&quot;, modifierJson);</span><br><span class="line">modelAndView.addObject(&quot;lastModifyTime&quot;, lastModifyTime);</span><br></pre></td></tr></table></figure></p>
+<p>绑定需要的数据，在html中使用</p>
+<ul>
+<li>conceptInfo.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;title th:text=&quot;$&#123;info.name&#125;+&apos; | C | OpenGMS&apos;&quot;&gt;Concept &amp; Semantic | OpenGMS&lt;/title&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>通过在通过th:text+”${info.name}”绑定拿到的数据</p>
+<ul>
+<li>注：js与后台enetity绑定中数组的绑定<br>就是写包含多个属性的对象，赋值后push到包含多个属性的对象中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/*classinfo 类似于reference,将选择的model的oid放到classinfo中*/</span><br><span class="line">themeObj.classinfo = new Array();</span><br><span class="line">var cla = &#123;&#125;;</span><br><span class="line">cla.mcname = $(&quot;#catagoryname&quot;).val();</span><br><span class="line">cla.modelsoid = this.moid;</span><br><span class="line">themeObj.classinfo.push(cla);</span><br><span class="line"></span><br><span class="line">/*dataclassinfo 类似于reference,将选择的model的oid放到dataclassinfo中*/</span><br><span class="line">themeObj.dataclassinfo = new Array();</span><br><span class="line">var dcla = &#123;&#125;;</span><br><span class="line">cla.dcname = $(&quot;#categoryname2&quot;).val();</span><br><span class="line">cla.datasoid = this.doid;</span><br><span class="line">themeObj.dataclassinfo.push(dcla);</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/22/Front and back interaction/">展开全文 >></a>
         </p>
       
 
@@ -492,250 +736,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/11/22/div append/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue mounted and methods" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/vue mounted and methods/">vue学习之mounted与methods</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/22/vue mounted and methods/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="vue学习之mounted与methods"><a href="#vue学习之mounted与methods" class="headerlink" title="vue学习之mounted与methods"></a>vue学习之mounted与methods</h3><p>在项目中，会用到vue的数据传输以及函数调用，其中就涉及了vue中的mounted与methods。</p>
-<ul>
-<li>mounted中如何调用methods中的函数呢？<br>在mounted中加上let that = this;这句，然后在方法前加上that即可。<br>这其中就涉及到了this与that的使用。</li>
-<li>data中定义的变量，在methods中如何使？<br>data中定义的变量，在methods中使用，需要在前面加上this</li>
-</ul>
-<p>所以一般mounted中使用，要加that，methods中使用，需要加this</p>
-<p>接下来明确vue中that、this区别与用法，再明确js中that与this用法</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/vue mounted and methods/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Front and back interaction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/Front and back interaction/">前后端交互学习</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/22/Front and back interaction/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前后端交互学习"><a href="#前后端交互学习" class="headerlink" title="前后端交互学习"></a>前后端交互学习</h2><h4 id="前后端数据传输"><a href="#前后端数据传输" class="headerlink" title="前后端数据传输"></a>前后端数据传输</h4><ul>
-<li>Dao层：<br><img src="/2019/11/22/Front and back interaction/1.png" alt="运行截图"></li>
-<li>JS代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.finish&quot;).click(()=&gt; &#123;</span><br><span class="line">    conceptObj.classifications = this.cls;</span><br><span class="line">    conceptObj.name = $(&quot;#nameInput&quot;).val();</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>(获取数据存储到conceptObj中)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let formData=new FormData();</span><br></pre></td></tr></table></figure></p>
-<p>（定义formData，用于存储获取的数据）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if ((oid === &quot;0&quot;) || (oid === &quot;&quot;) || (oid == null)) &#123;</span><br><span class="line">    let file = new File([JSON.stringify(conceptObj)],&apos;ant.txt&apos;,&#123;</span><br><span class="line">        type: &apos;text/plain&apos;,</span><br><span class="line">    &#125;);</span><br><span class="line">    formData.append(&quot;info&quot;, file);</span><br></pre></td></tr></table></figure></p>
-<p>（将conceptObj转为string放到file中，然后追加到formData中存起来）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url: &quot;/repository/addConcept&quot;,</span><br><span class="line">    type: &quot;POST&quot;,</span><br><span class="line">    cache: false,</span><br><span class="line">    processData: false,</span><br><span class="line">    contentType: false,</span><br><span class="line">    async: false,</span><br><span class="line">    data: formData,</span><br><span class="line">    success: function (result) &#123;</span><br><span class="line"></span><br><span class="line">        if (result.code == &quot;0&quot;) &#123;</span><br><span class="line">            alert(&quot;Create Success&quot;);</span><br><span class="line"></span><br><span class="line">            window.location.href = &quot;/repository/concept/&quot; + result.data;</span><br><span class="line">            //window.location.reload();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>（ajax代码，url中/repository/addConcept为与controller进行连接的语句）</p>
-<ul>
-<li>Controller接口<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value = &quot;/addConcept&quot;,method = RequestMethod.POST)</span><br><span class="line">public JsonResult addConcept(HttpServletRequest request) throws IOException &#123;</span><br><span class="line"></span><br><span class="line">    MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;</span><br><span class="line">    MultipartFile file=multipartRequest.getFile(&quot;info&quot;);</span><br><span class="line">    String model=IOUtils.toString(file.getInputStream(),&quot;utf-8&quot;);</span><br><span class="line">    JSONObject jsonObject=JSONObject.parseObject(model);</span><br><span class="line">    ConceptAddDTO conceptAddDTO=JSONObject.toJavaObject(jsonObject,ConceptAddDTO.class);</span><br><span class="line"></span><br><span class="line">    HttpSession session=request.getSession();</span><br><span class="line"></span><br><span class="line">    if(session.getAttribute(&quot;uid&quot;)==null)&#123;</span><br><span class="line">        return ResultUtils.error(-1,&quot;no login&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    String uid=session.getAttribute(&quot;uid&quot;).toString();</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;add concept &amp; semantic&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Concept concept = repositoryService.insertConcept(conceptAddDTO,uid);</span><br><span class="line">    userService.conceptPlusPlus(uid);</span><br><span class="line">    return ResultUtils.success(concept.getOid());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>（HttpServletRequest request中的request为js中传输来的formdata，第一句将request进行强制类型转换，转换为MultipartHttpServletRequest类型的数据，下面仍是几个转换）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Concept concept = repositoryService.insertConcept(conceptAddDTO,uid);</span><br></pre></td></tr></table></figure></p>
-<p>（这一句将数据按照conceptAddDTO的格式插入到数据库中，利用insertConcept）</p>
-<h4 id="利用thymeleaf来实现按照id生成不同的页面"><a href="#利用thymeleaf来实现按照id生成不同的页面" class="headerlink" title="利用thymeleaf来实现按照id生成不同的页面"></a>利用thymeleaf来实现按照id生成不同的页面</h4><ul>
-<li>Create-concept.js<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">success: function (result) &#123;</span><br><span class="line"></span><br><span class="line">    if (result.code == &quot;0&quot;) &#123;</span><br><span class="line">        alert(&quot;Create Success&quot;);</span><br><span class="line"></span><br><span class="line">        window.location.href = &quot;/repository/concept/&quot; + result.data;</span><br><span class="line">        //window.location.reload();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>当创建成功后弹出创建成功对话框，并跳转到上面那个链接，链接位于controller中</p>
-<ul>
-<li>RepositoryRestController.java<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value=&quot;/concept/&#123;id&#125;&quot;,method = RequestMethod.GET)</span><br><span class="line">public ModelAndView getConceptPage(@PathVariable(&quot;id&quot;) String id,HttpServletRequest req)&#123;</span><br><span class="line">    return repositoryService.getConceptPage(id,req);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>在这个controller中调用service中的getconceptpage方法，在这个方法中绑定从js中拿到的并在各个后台文件中规定的数据</p>
-<ul>
-<li>RepositoryService.java<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modelAndView.setViewName(&quot;conceptInfo&quot;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>首先将后台与前台页面绑定，通过设置View的name这样在conceptInfo页面拿到的数据就是从这个service里的数据，然后再设置model的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">modelAndView.addObject(&quot;classifications&quot;, classResult);</span><br><span class="line">modelAndView.addObject(&quot;image&quot;, htmlLoadPath+concept.getImage());</span><br><span class="line">modelAndView.addObject(&quot;year&quot;, Calendar.getInstance().getWeekYear());</span><br><span class="line">modelAndView.addObject(&quot;date&quot;, sdf.format(concept.getCreateTime()));</span><br><span class="line">modelAndView.addObject(&quot;related&quot;, relateArray);</span><br><span class="line">modelAndView.addObject(&quot;user&quot;, userJson);</span><br><span class="line">modelAndView.addObject(&quot;lastModifier&quot;, modifierJson);</span><br><span class="line">modelAndView.addObject(&quot;lastModifyTime&quot;, lastModifyTime);</span><br></pre></td></tr></table></figure></p>
-<p>绑定需要的数据，在html中使用</p>
-<ul>
-<li>conceptInfo.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;title th:text=&quot;$&#123;info.name&#125;+&apos; | C | OpenGMS&apos;&quot;&gt;Concept &amp; Semantic | OpenGMS&lt;/title&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>通过在通过th:text+”${info.name}”绑定拿到的数据</p>
-<ul>
-<li>注：js与后台enetity绑定中数组的绑定<br>就是写包含多个属性的对象，赋值后push到包含多个属性的对象中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/*classinfo 类似于reference,将选择的model的oid放到classinfo中*/</span><br><span class="line">themeObj.classinfo = new Array();</span><br><span class="line">var cla = &#123;&#125;;</span><br><span class="line">cla.mcname = $(&quot;#catagoryname&quot;).val();</span><br><span class="line">cla.modelsoid = this.moid;</span><br><span class="line">themeObj.classinfo.push(cla);</span><br><span class="line"></span><br><span class="line">/*dataclassinfo 类似于reference,将选择的model的oid放到dataclassinfo中*/</span><br><span class="line">themeObj.dataclassinfo = new Array();</span><br><span class="line">var dcla = &#123;&#125;;</span><br><span class="line">cla.dcname = $(&quot;#categoryname2&quot;).val();</span><br><span class="line">cla.datasoid = this.doid;</span><br><span class="line">themeObj.dataclassinfo.push(dcla);</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/Front and back interaction/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-thymeleaf learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/thymeleaf learning1/">thymeleaf学习</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/22/thymeleaf learning1/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="thymeleaf学习之fragment"><a href="#thymeleaf学习之fragment" class="headerlink" title="thymeleaf学习之fragment"></a>thymeleaf学习之fragment</h3><p>在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。</p>
-<ul>
-<li>写模板网页<br><img src="/2019/11/22/thymeleaf learning1/1.png" alt="模板页结构"><br>图片中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">th:fragment=&quot;side&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>side为与其他网页链接的关键词。</p>
-<ul>
-<li><p>在其他网页中链接需要的div</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:replace=&quot;fragments/sidebar :: side&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>在这一句中，这个div将会被sidebar.html中的side这个div替换掉</p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/thymeleaf learning1/">展开全文 >></a>
         </p>
       
 

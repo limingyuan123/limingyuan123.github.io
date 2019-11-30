@@ -148,77 +148,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-get login information" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/28/get login information/">后台获取用户登录信息</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/28/get login information/" class="archive-article-date">
-  	<time datetime="2019-11-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="后台获取用户登录信息"><a href="#后台获取用户登录信息" class="headerlink" title="后台获取用户登录信息"></a>后台获取用户登录信息</h3><p>如何从后台将用户的登录信息拿到，在写一些需要判断是否登录以及获取当前登录者信息时是十分必要的。获取用户登录信息就用到了HttpServletRequest request</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value = &quot;/addTheme&quot;, method = RequestMethod.POST)</span><br><span class="line">public JsonResult addTheme(HttpServletRequest request) throws IOException &#123;</span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line"></span><br><span class="line">    if(session.getAttribute(&quot;uid&quot;) == null)&#123;</span><br><span class="line">        return ResultUtils.error(-1, &quot;no login&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;</span><br><span class="line">    MultipartFile file = multipartRequest.getFile(&quot;info&quot;);</span><br><span class="line">    String model = IOUtils.toString(file.getInputStream(), &quot;utf-8&quot;);</span><br><span class="line">    JSONObject jsonObject = JSONObject.parseObject(model);</span><br><span class="line">    ThemeAddDTO themeAddDTO = JSONObject.toJavaObject(jsonObject, ThemeAddDTO.class);</span><br><span class="line">    themeAddDTO.setCreator_name(session.getAttribute(&quot;name&quot;).toString());</span><br><span class="line">    themeAddDTO.setCreator_oid(session.getAttribute(&quot;oid&quot;).toString());</span><br><span class="line"></span><br><span class="line">    String uid = session.getAttribute(&quot;uid&quot;).toString();</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;add theme&quot;);</span><br><span class="line"></span><br><span class="line">    Theme theme = repositoryService.insertTheme(themeAddDTO, uid);</span><br><span class="line"></span><br><span class="line">    userService.themePlusPlus(uid);</span><br><span class="line">    return ResultUtils.success(theme.getOid());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>首先HttpSession session = request.getSession();<br>利用session来获取当前用户的属性，包括uid、name、oid等</p>
-<ul>
-<li>获取属性，赋值给DTO<br>String uid =session.getAttribute(“uid”).toString();获取当前登录者的信息，取uid赋值给uid字符串<ul>
-<li>判断是否登录<br>if(session.getAttribute(“uid”) == null)，为null时即可返回-1，未登录状态</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/28/get login information/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-js learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -284,36 +213,33 @@
 
 
   
-    <article id="post-thymeleaf learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-get login information" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/thymeleaf learning1/">thymeleaf学习</a>
+      <a class="article-title" href="/2019/11/28/get login information/">后台获取用户登录信息</a>
     </h1>
   
 
         
-        <a href="/2019/11/22/thymeleaf learning1/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+        <a href="/2019/11/28/get login information/" class="archive-article-date">
+  	<time datetime="2019-11-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="thymeleaf学习之fragment"><a href="#thymeleaf学习之fragment" class="headerlink" title="thymeleaf学习之fragment"></a>thymeleaf学习之fragment</h3><p>在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。</p>
+        <h3 id="后台获取用户登录信息"><a href="#后台获取用户登录信息" class="headerlink" title="后台获取用户登录信息"></a>后台获取用户登录信息</h3><p>如何从后台将用户的登录信息拿到，在写一些需要判断是否登录以及获取当前登录者信息时是十分必要的。获取用户登录信息就用到了HttpServletRequest request</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value = &quot;/addTheme&quot;, method = RequestMethod.POST)</span><br><span class="line">public JsonResult addTheme(HttpServletRequest request) throws IOException &#123;</span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line"></span><br><span class="line">    if(session.getAttribute(&quot;uid&quot;) == null)&#123;</span><br><span class="line">        return ResultUtils.error(-1, &quot;no login&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;</span><br><span class="line">    MultipartFile file = multipartRequest.getFile(&quot;info&quot;);</span><br><span class="line">    String model = IOUtils.toString(file.getInputStream(), &quot;utf-8&quot;);</span><br><span class="line">    JSONObject jsonObject = JSONObject.parseObject(model);</span><br><span class="line">    ThemeAddDTO themeAddDTO = JSONObject.toJavaObject(jsonObject, ThemeAddDTO.class);</span><br><span class="line">    themeAddDTO.setCreator_name(session.getAttribute(&quot;name&quot;).toString());</span><br><span class="line">    themeAddDTO.setCreator_oid(session.getAttribute(&quot;oid&quot;).toString());</span><br><span class="line"></span><br><span class="line">    String uid = session.getAttribute(&quot;uid&quot;).toString();</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;add theme&quot;);</span><br><span class="line"></span><br><span class="line">    Theme theme = repositoryService.insertTheme(themeAddDTO, uid);</span><br><span class="line"></span><br><span class="line">    userService.themePlusPlus(uid);</span><br><span class="line">    return ResultUtils.success(theme.getOid());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先HttpSession session = request.getSession();<br>利用session来获取当前用户的属性，包括uid、name、oid等</p>
 <ul>
-<li>写模板网页<br><img src="/2019/11/22/thymeleaf learning1/1.png" alt="模板页结构"><br>图片中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">th:fragment=&quot;side&quot;</span><br></pre></td></tr></table></figure>
-</li>
+<li>获取属性，赋值给DTO<br>String uid =session.getAttribute(“uid”).toString();获取当前登录者的信息，取uid赋值给uid字符串<ul>
+<li>判断是否登录<br>if(session.getAttribute(“uid”) == null)，为null时即可返回-1，未登录状态</li>
 </ul>
-<p>side为与其他网页链接的关键词。</p>
-<ul>
-<li><p>在其他网页中链接需要的div</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:replace=&quot;fragments/sidebar :: side&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>在这一句中，这个div将会被sidebar.html中的side这个div替换掉</p>
 </li>
 </ul>
 
@@ -328,151 +254,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/thymeleaf learning1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-element ui learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/element ui learning1/">element ui learning1</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/22/element ui learning1/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="element-ui-学习之菜单的使用"><a href="#element-ui-学习之菜单的使用" class="headerlink" title="element ui 学习之菜单的使用"></a>element ui 学习之菜单的使用</h3><p>element ui组件属于vue中的ui组件，element的使用其实也比较方便，只需要引入element ui的css与js文件即可使用。官网也提供了很多好用的功能，本博客就以菜单的使用为例简要介绍一下element ui的使用。</p>
-<ul>
-<li><p>引入element ui的css 与 js<br>可以下载到本地，然后写链接即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/static/element-ui/theme-chalk/index.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;/static/element-ui/index.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>以官网代码为例，需要改变的自己更改即可<br>官网链接： <a href="https://element.eleme.cn/#/zh-CN/component/menu" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/menu</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-row class=&quot;tac&quot;&gt;</span><br><span class="line">  &lt;el-col :span=&quot;12&quot;&gt;</span><br><span class="line">    &lt;h5&gt;默认颜色&lt;/h5&gt;</span><br><span class="line">    &lt;el-menu</span><br><span class="line">      default-active=&quot;2&quot;</span><br><span class="line">      class=&quot;el-menu-vertical-demo&quot;</span><br><span class="line">      @open=&quot;handleOpen&quot;</span><br><span class="line">      @close=&quot;handleClose&quot;&gt;</span><br><span class="line">      &lt;el-submenu index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;template slot=&quot;title&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;el-icon-location&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span&gt;导航一&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">        &lt;el-menu-item-group&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;分组一&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-2&quot;&gt;选项2&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-menu-item-group title=&quot;分组2&quot;&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-3&quot;&gt;选项3&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-submenu index=&quot;1-4&quot;&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;选项4&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-4-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-submenu&gt;</span><br><span class="line">      &lt;/el-submenu&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;2&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-menu&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航二&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;3&quot; disabled&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-document&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航三&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;4&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-setting&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航四&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">    &lt;/el-menu&gt;</span><br><span class="line">  &lt;/el-col&gt;</span><br><span class="line">  &lt;el-col :span=&quot;12&quot;&gt;</span><br><span class="line">    &lt;h5&gt;自定义颜色&lt;/h5&gt;</span><br><span class="line">    &lt;el-menu</span><br><span class="line">      default-active=&quot;2&quot;</span><br><span class="line">      class=&quot;el-menu-vertical-demo&quot;</span><br><span class="line">      @open=&quot;handleOpen&quot;</span><br><span class="line">      @close=&quot;handleClose&quot;</span><br><span class="line">      background-color=&quot;#545c64&quot;</span><br><span class="line">      text-color=&quot;#fff&quot;</span><br><span class="line">      active-text-color=&quot;#ffd04b&quot;&gt;</span><br><span class="line">      &lt;el-submenu index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;template slot=&quot;title&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;el-icon-location&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span&gt;导航一&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">        &lt;el-menu-item-group&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;分组一&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-2&quot;&gt;选项2&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-menu-item-group title=&quot;分组2&quot;&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-3&quot;&gt;选项3&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-submenu index=&quot;1-4&quot;&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;选项4&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-4-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-submenu&gt;</span><br><span class="line">      &lt;/el-submenu&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;2&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-menu&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航二&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;3&quot; disabled&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-document&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航三&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;4&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-setting&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航四&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">    &lt;/el-menu&gt;</span><br><span class="line">  &lt;/el-col&gt;</span><br><span class="line">&lt;/el-row&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    methods: &#123;</span><br><span class="line">      handleOpen(key, keyPath) &#123;</span><br><span class="line">        console.log(key, keyPath);</span><br><span class="line">      &#125;,</span><br><span class="line">      handleClose(key, keyPath) &#123;</span><br><span class="line">        console.log(key, keyPath);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>script中的函数写到vue中即可<br>显示效果：<br><img src="/2019/11/22/element ui learning1/1.png" alt="显示效果"></p>
-<p>基本格式为el-menu为第一级，包裹其他的选项。el-menu-item为菜单项。如果有的菜单有子菜单的话，使用el-submenu嵌套el-menu-item即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default-active=&quot;2&quot;</span><br></pre></td></tr></table></figure></p>
-<p>此处定义active的菜单项为第二处<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@open=&quot;handleOpen&quot;</span><br><span class="line">@close=&quot;handleClose&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这两处为open与close函数，写道vue的methods里即可</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/element ui learning1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue mounted and methods" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/vue mounted and methods/">vue学习之mounted与methods</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/22/vue mounted and methods/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="vue学习之mounted与methods"><a href="#vue学习之mounted与methods" class="headerlink" title="vue学习之mounted与methods"></a>vue学习之mounted与methods</h3><p>在项目中，会用到vue的数据传输以及函数调用，其中就涉及了vue中的mounted与methods。</p>
-<ul>
-<li>mounted中如何调用methods中的函数呢？<br>在mounted中加上let that = this;这句，然后在方法前加上that即可。<br>这其中就涉及到了this与that的使用。</li>
-<li>data中定义的变量，在methods中如何使？<br>data中定义的变量，在methods中使用，需要在前面加上this</li>
-</ul>
-<p>所以一般mounted中使用，要加that，methods中使用，需要加this</p>
-<p>接下来明确vue中that、this区别与用法，再明确js中that与this用法</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/vue mounted and methods/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/28/get login information/">展开全文 >></a>
         </p>
       
 
@@ -589,19 +371,19 @@
 
 
   
-    <article id="post-div append" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-thymeleaf learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/div append/">div追加</a>
+      <a class="article-title" href="/2019/11/22/thymeleaf learning1/">thymeleaf学习</a>
     </h1>
   
 
         
-        <a href="/2019/11/22/div append/" class="archive-article-date">
+        <a href="/2019/11/22/thymeleaf learning1/" class="archive-article-date">
   	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
 </a>
         
@@ -609,19 +391,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="给指定的div追加div"><a href="#给指定的div追加div" class="headerlink" title="给指定的div追加div"></a>给指定的div追加div</h3><p>在以前的博客中，曾经写过一个给网页嵌入loading，用到了innerHtml进行div的嵌入<br>本文中利用js的append函数来给指定 的div嵌入指定的div。</p>
+        <h3 id="thymeleaf学习之fragment"><a href="#thymeleaf学习之fragment" class="headerlink" title="thymeleaf学习之fragment"></a>thymeleaf学习之fragment</h3><p>在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。</p>
 <ul>
-<li>指定div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.applications-add&quot;).click(function () &#123;</span><br><span class="line">           var content_box = $(this).parent().children(&apos;div&apos;);&#125;</span><br></pre></td></tr></table></figure>
+<li>写模板网页<br><img src="/2019/11/22/thymeleaf learning1/1.png" alt="模板页结构"><br>图片中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">th:fragment=&quot;side&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>当点击class为applications-add，触发点击函数。<br>content-box用来指定哪个div是用来追加的，下文还会写到利用str拼接div<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var content_box = $(this).parent().children(&apos;div&apos;);</span><br></pre></td></tr></table></figure></p>
-<p> 这一句中指定了在哪个div下追加新的div。</p>
+<p>side为与其他网页链接的关键词。</p>
 <ul>
-<li>追加div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;&lt;div class=&apos;panel panel-primary&apos;&gt;&lt;div class=&apos;panel-heading info-head&apos;&gt;&lt;h4 class=&apos;panel-title&apos;&gt;&lt;a class=&apos;accordion-toggle collapsed&apos; style=\&quot;color:white\&quot; &quot; +</span><br><span class="line">              &quot;data-toggle=&apos;collapse&apos; data-target=&apos;#applications1&apos; href=\&quot;javascript:;\&quot;&gt; &quot;;</span><br><span class="line">          str += &quot;NEW&quot;;</span><br><span class="line">          str += &quot;&lt;/a&gt;&lt;/h4&gt; &lt;a href=\&quot;javascript:;\&quot;class=\&quot;fa fa-times author_close\&quot;style=\&quot;float:right;margin-top:8px;color:white\&quot;&gt;&lt;/a&gt;&lt;/div&gt; &quot; +</span><br><span class="line">              &quot;&lt;div id=&apos;applications1&apos;class=&apos;panel-collapse collapse in&apos;&gt;&lt;div class=&apos;panel-body user-contents&apos;&gt; &lt;div class=&apos;user-attr&apos;&gt;&lt;div&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Name&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;name\&quot; id=\&quot;applicationname\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=\&quot;margin-top:10px\&quot;&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Link:&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;ins\&quot; id=\&quot;applicationlink\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          str +=&quot;    &lt;div style=\&quot;margin-top:10px\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;lable class=&apos;control-label col-sm-2 text-center&apos;\n&quot; +</span><br><span class="line">              &quot;                                                                                                               style=&apos;font-weight: bold;&apos;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            Image:\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/lable&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;div class=\&quot;col-sm-10\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;img id=\&quot;imgShow1\&quot; src=\&quot;\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;div id=\&quot;imgChange1\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                &lt;i class=\&quot;fa fa-plus fa-5x\&quot;&gt;&lt;/i&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;input id=\&quot;imgFile1\&quot; type=\&quot;file\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   style=\&quot;display: none\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   accept=\&quot;image/*\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                    &lt;/div&gt;&quot;</span><br><span class="line">          str +=&quot;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          content_box.append(str);</span><br></pre></td></tr></table></figure>
+<li><p>在其他网页中链接需要的div</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:replace=&quot;fragments/sidebar :: side&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>在这一句中，这个div将会被sidebar.html中的side这个div替换掉</p>
 </li>
 </ul>
-<p>将利用str拼接好的str的div追加到content-box中。</p>
-<p>效果类似于我那篇jquery的效果图<br><img src="/2019/11/22/div append/1.png" alt="效果图"></p>
 
       
 
@@ -634,7 +415,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/div append/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/22/thymeleaf learning1/">展开全文 >></a>
         </p>
       
 
@@ -736,6 +517,225 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/11/22/Front and back interaction/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue mounted and methods" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/22/vue mounted and methods/">vue学习之mounted与methods</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/22/vue mounted and methods/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="vue学习之mounted与methods"><a href="#vue学习之mounted与methods" class="headerlink" title="vue学习之mounted与methods"></a>vue学习之mounted与methods</h3><p>在项目中，会用到vue的数据传输以及函数调用，其中就涉及了vue中的mounted与methods。</p>
+<ul>
+<li>mounted中如何调用methods中的函数呢？<br>在mounted中加上let that = this;这句，然后在方法前加上that即可。<br>这其中就涉及到了this与that的使用。</li>
+<li>data中定义的变量，在methods中如何使？<br>data中定义的变量，在methods中使用，需要在前面加上this</li>
+</ul>
+<p>所以一般mounted中使用，要加that，methods中使用，需要加this</p>
+<p>接下来明确vue中that、this区别与用法，再明确js中that与this用法</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/22/vue mounted and methods/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-element ui learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/22/element ui learning1/">element ui learning1</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/22/element ui learning1/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="element-ui-学习之菜单的使用"><a href="#element-ui-学习之菜单的使用" class="headerlink" title="element ui 学习之菜单的使用"></a>element ui 学习之菜单的使用</h3><p>element ui组件属于vue中的ui组件，element的使用其实也比较方便，只需要引入element ui的css与js文件即可使用。官网也提供了很多好用的功能，本博客就以菜单的使用为例简要介绍一下element ui的使用。</p>
+<ul>
+<li><p>引入element ui的css 与 js<br>可以下载到本地，然后写链接即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/static/element-ui/theme-chalk/index.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;/static/element-ui/index.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以官网代码为例，需要改变的自己更改即可<br>官网链接： <a href="https://element.eleme.cn/#/zh-CN/component/menu" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/menu</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-row class=&quot;tac&quot;&gt;</span><br><span class="line">  &lt;el-col :span=&quot;12&quot;&gt;</span><br><span class="line">    &lt;h5&gt;默认颜色&lt;/h5&gt;</span><br><span class="line">    &lt;el-menu</span><br><span class="line">      default-active=&quot;2&quot;</span><br><span class="line">      class=&quot;el-menu-vertical-demo&quot;</span><br><span class="line">      @open=&quot;handleOpen&quot;</span><br><span class="line">      @close=&quot;handleClose&quot;&gt;</span><br><span class="line">      &lt;el-submenu index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;template slot=&quot;title&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;el-icon-location&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span&gt;导航一&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">        &lt;el-menu-item-group&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;分组一&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-2&quot;&gt;选项2&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-menu-item-group title=&quot;分组2&quot;&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-3&quot;&gt;选项3&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-submenu index=&quot;1-4&quot;&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;选项4&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-4-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-submenu&gt;</span><br><span class="line">      &lt;/el-submenu&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;2&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-menu&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航二&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;3&quot; disabled&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-document&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航三&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;4&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-setting&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航四&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">    &lt;/el-menu&gt;</span><br><span class="line">  &lt;/el-col&gt;</span><br><span class="line">  &lt;el-col :span=&quot;12&quot;&gt;</span><br><span class="line">    &lt;h5&gt;自定义颜色&lt;/h5&gt;</span><br><span class="line">    &lt;el-menu</span><br><span class="line">      default-active=&quot;2&quot;</span><br><span class="line">      class=&quot;el-menu-vertical-demo&quot;</span><br><span class="line">      @open=&quot;handleOpen&quot;</span><br><span class="line">      @close=&quot;handleClose&quot;</span><br><span class="line">      background-color=&quot;#545c64&quot;</span><br><span class="line">      text-color=&quot;#fff&quot;</span><br><span class="line">      active-text-color=&quot;#ffd04b&quot;&gt;</span><br><span class="line">      &lt;el-submenu index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;template slot=&quot;title&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;el-icon-location&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span&gt;导航一&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">        &lt;el-menu-item-group&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;分组一&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-2&quot;&gt;选项2&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-menu-item-group title=&quot;分组2&quot;&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-3&quot;&gt;选项3&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-submenu index=&quot;1-4&quot;&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;选项4&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-4-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-submenu&gt;</span><br><span class="line">      &lt;/el-submenu&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;2&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-menu&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航二&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;3&quot; disabled&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-document&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航三&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;4&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-setting&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航四&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">    &lt;/el-menu&gt;</span><br><span class="line">  &lt;/el-col&gt;</span><br><span class="line">&lt;/el-row&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    methods: &#123;</span><br><span class="line">      handleOpen(key, keyPath) &#123;</span><br><span class="line">        console.log(key, keyPath);</span><br><span class="line">      &#125;,</span><br><span class="line">      handleClose(key, keyPath) &#123;</span><br><span class="line">        console.log(key, keyPath);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>script中的函数写到vue中即可<br>显示效果：<br><img src="/2019/11/22/element ui learning1/1.png" alt="显示效果"></p>
+<p>基本格式为el-menu为第一级，包裹其他的选项。el-menu-item为菜单项。如果有的菜单有子菜单的话，使用el-submenu嵌套el-menu-item即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default-active=&quot;2&quot;</span><br></pre></td></tr></table></figure></p>
+<p>此处定义active的菜单项为第二处<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@open=&quot;handleOpen&quot;</span><br><span class="line">@close=&quot;handleClose&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这两处为open与close函数，写道vue的methods里即可</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/22/element ui learning1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-div append" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/22/div append/">div追加</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/22/div append/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="给指定的div追加div"><a href="#给指定的div追加div" class="headerlink" title="给指定的div追加div"></a>给指定的div追加div</h3><p>在以前的博客中，曾经写过一个给网页嵌入loading，用到了innerHtml进行div的嵌入<br>本文中利用js的append函数来给指定 的div嵌入指定的div。</p>
+<ul>
+<li>指定div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.applications-add&quot;).click(function () &#123;</span><br><span class="line">           var content_box = $(this).parent().children(&apos;div&apos;);&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当点击class为applications-add，触发点击函数。<br>content-box用来指定哪个div是用来追加的，下文还会写到利用str拼接div<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var content_box = $(this).parent().children(&apos;div&apos;);</span><br></pre></td></tr></table></figure></p>
+<p> 这一句中指定了在哪个div下追加新的div。</p>
+<ul>
+<li>追加div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;&lt;div class=&apos;panel panel-primary&apos;&gt;&lt;div class=&apos;panel-heading info-head&apos;&gt;&lt;h4 class=&apos;panel-title&apos;&gt;&lt;a class=&apos;accordion-toggle collapsed&apos; style=\&quot;color:white\&quot; &quot; +</span><br><span class="line">              &quot;data-toggle=&apos;collapse&apos; data-target=&apos;#applications1&apos; href=\&quot;javascript:;\&quot;&gt; &quot;;</span><br><span class="line">          str += &quot;NEW&quot;;</span><br><span class="line">          str += &quot;&lt;/a&gt;&lt;/h4&gt; &lt;a href=\&quot;javascript:;\&quot;class=\&quot;fa fa-times author_close\&quot;style=\&quot;float:right;margin-top:8px;color:white\&quot;&gt;&lt;/a&gt;&lt;/div&gt; &quot; +</span><br><span class="line">              &quot;&lt;div id=&apos;applications1&apos;class=&apos;panel-collapse collapse in&apos;&gt;&lt;div class=&apos;panel-body user-contents&apos;&gt; &lt;div class=&apos;user-attr&apos;&gt;&lt;div&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Name&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;name\&quot; id=\&quot;applicationname\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=\&quot;margin-top:10px\&quot;&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Link:&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;ins\&quot; id=\&quot;applicationlink\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          str +=&quot;    &lt;div style=\&quot;margin-top:10px\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;lable class=&apos;control-label col-sm-2 text-center&apos;\n&quot; +</span><br><span class="line">              &quot;                                                                                                               style=&apos;font-weight: bold;&apos;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            Image:\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/lable&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;div class=\&quot;col-sm-10\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;img id=\&quot;imgShow1\&quot; src=\&quot;\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;div id=\&quot;imgChange1\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                &lt;i class=\&quot;fa fa-plus fa-5x\&quot;&gt;&lt;/i&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;input id=\&quot;imgFile1\&quot; type=\&quot;file\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   style=\&quot;display: none\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   accept=\&quot;image/*\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                    &lt;/div&gt;&quot;</span><br><span class="line">          str +=&quot;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          content_box.append(str);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将利用str拼接好的str的div追加到content-box中。</p>
+<p>效果类似于我那篇jquery的效果图<br><img src="/2019/11/22/div append/1.png" alt="效果图"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/22/div append/">展开全文 >></a>
         </p>
       
 

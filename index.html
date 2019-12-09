@@ -168,7 +168,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="jquery-step使用"><a href="#jquery-step使用" class="headerlink" title="jquery step使用"></a>jquery step使用</h4><p>jquery step是jquery的一个插件，用于表示进度。<br><img src="/2019/12/09/jquery step/jquery step" alt="step demo"></p>
+        <h4 id="jquery-step使用"><a href="#jquery-step使用" class="headerlink" title="jquery step使用"></a>jquery step使用</h4><p>jquery step是jquery的一个插件，用于表示进度。<br><img src="/2019/12/09/jquery step/step.png" alt="step demo"></p>
 <ul>
 <li>step页面引入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; stemedia=&quot;screen&quot; href=&quot;/static/css/other/jquery-steps.css&quot;/&gt;</span><br></pre></td></tr></table></figure>
 </li>
@@ -176,7 +176,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 引入step --&gt;</span><br><span class="line">&lt;div class=&quot;step&quot; id=&quot;step&quot;&gt;</span><br><span class="line">   &lt;div class=&quot;step-app&quot;&gt;</span><br><span class="line">      &lt;ul class=&quot;step-steps text-center&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;li&gt;</span><br><span class="line">            &lt;a href=&quot;#step1&quot;&gt;Theme Info&lt;/a&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">            &lt;a href=&quot;#step2&quot;&gt;Models&lt;/a&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">            &lt;a href=&quot;#step3&quot;&gt;Data&lt;/a&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">            &lt;a href=&quot;#step4&quot;&gt;Applications&lt;/a&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line"></span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line">      &lt;!-- step的内容 --&gt;</span><br><span class="line">      &lt;div class=&quot;step-content&quot;&gt;</span><br><span class="line">         &lt;div class=&quot;step-tab-panel&quot; id=&quot;step1&quot;&gt;</span><br><span class="line">         ...</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;step-content&quot;&gt;</span><br><span class="line">         &lt;div class=&quot;step-tab-panel&quot; id=&quot;step2&quot;&gt;</span><br><span class="line">         ...</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;step-content&quot;&gt;</span><br><span class="line">         &lt;div class=&quot;step-tab-panel&quot; id=&quot;step3&quot;&gt;</span><br><span class="line">         ...</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;step-content&quot;&gt;</span><br><span class="line">         &lt;div class=&quot;step-tab-panel&quot; id=&quot;step4&quot;&gt;</span><br><span class="line">         ...</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">&lt;!-- step footer部分 --&gt;</span><br><span class="line">      &lt;div class=&quot;step-footer text-right&quot;&gt;</span><br><span class="line">         &lt;button class=&quot;btn btn-warning prev&quot; data-direction=&quot;prev&quot;&gt;</span><br><span class="line">              Previous</span><br><span class="line">          &lt;/button&gt;</span><br><span class="line">          &lt;button class=&quot;btn btn-success finish&quot; data-direction=&quot;finish&quot;&gt;</span><br><span class="line">               Finish</span><br><span class="line">          &lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>以上代码中，step-footer里的按钮，可以在自己写的js中未设置的情况下执行相应的向前、向后、结束的功能，也可以根据这些class自己加相应的需要的各种功能</p>
 <ul>
-<li>加 未输入某些必须部分而无法下一步的功能（逻辑控制）<br><img src="/2019/12/09/jquery step/jquery step" alt="logic control"><br>使用jquery的class绑定相应事件来实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.step&quot;).steps(&#123;</span><br><span class="line"></span><br><span class="line">            onFinish: function () &#123;</span><br><span class="line">                alert(&apos;complete&apos;);</span><br><span class="line">            &#125;,</span><br><span class="line">            &lt;!-- currentIndex为当前处于的step的标号 newIndex为下一步step标号，stepdirection可选则forword来判断是否步骤为向前 --&gt;</span><br><span class="line">            onChange: function (currentIndex, newIndex, stepDirection) &#123;</span><br><span class="line">                if (currentIndex === 0) &#123;</span><br><span class="line">                    if (stepDirection === &quot;forward&quot;) &#123;</span><br><span class="line">                      &lt;!-- 可在句子中加入是否输入名称的判断语句 --&gt;</span><br><span class="line">                        if ($(&quot;#nameInput&quot;).val().length == 0) &#123;</span><br><span class="line">                            alert(&apos;Please Input Theme Name!&apos;);</span><br><span class="line">                            return false;</span><br><span class="line">                        &#125; else &#123;</span><br><span class="line">                            return true;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                if (currentIndex === 1) &#123;</span><br><span class="line">                    if (stepDirection === &quot;forward&quot;) &#123;</span><br><span class="line">                        if (that.themeObj.classinfo.length==1&amp;&amp;that.themeObj.classinfo[0].mcname==&quot;&quot;&amp;&amp;that.themeObj.classinfo[0].modelsoid.length==0)&#123;</span><br><span class="line">                            return true</span><br><span class="line">                        &#125; else&#123;</span><br><span class="line">                          &lt;!-- 遍历数组，如果有一项未填，则return false，不跳入下一步 --&gt;</span><br><span class="line">                            for (i = 0; i &lt; that.themeObj.classinfo.length; i++) &#123;</span><br><span class="line">                                if (that.themeObj.classinfo[i].mcname == &quot;&quot; || that.themeObj.classinfo[i].modelsoid.length == 0) &#123;</span><br><span class="line">                                    alert(&quot;Please complete the information&quot;);</span><br><span class="line">                                    return false;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        return true;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;if (currentIndex === 2) &#123;</span><br><span class="line">                    if (stepDirection === &quot;forward&quot;) &#123;</span><br><span class="line">                        if (that.themeObj.dataClassInfo.length==1&amp;&amp;that.themeObj.dataClassInfo[0].dcname==&quot;&quot;&amp;&amp;that.themeObj.dataClassInfo[0].datasoid.length==0)&#123;</span><br><span class="line">                            return true;</span><br><span class="line">                        &#125; else &#123;</span><br><span class="line">                            for (i = 0; i &lt; that.themeObj.dataClassInfo.length; i++) &#123;</span><br><span class="line">                                if (that.themeObj.dataClassInfo[i].dcname == &quot;&quot; || that.themeObj.dataClassInfo[i].datasoid.length == 0) &#123;</span><br><span class="line">                                    alert(&quot;Please complete the information&quot;);</span><br><span class="line">                                    return false;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        return true;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                if (currentIndex === 3) &#123;</span><br><span class="line">                  &lt;!-- return true表示不判断，直接可执行下一步 --&gt;</span><br><span class="line">                    return true;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<li>加 未输入某些必须部分而无法下一步的功能（逻辑控制）<br><img src="/2019/12/09/jquery step/logic control.png" alt="logic control"><br>使用jquery的class绑定相应事件来实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.step&quot;).steps(&#123;</span><br><span class="line"></span><br><span class="line">            onFinish: function () &#123;</span><br><span class="line">                alert(&apos;complete&apos;);</span><br><span class="line">            &#125;,</span><br><span class="line">            &lt;!-- currentIndex为当前处于的step的标号 newIndex为下一步step标号，stepdirection可选则forword来判断是否步骤为向前 --&gt;</span><br><span class="line">            onChange: function (currentIndex, newIndex, stepDirection) &#123;</span><br><span class="line">                if (currentIndex === 0) &#123;</span><br><span class="line">                    if (stepDirection === &quot;forward&quot;) &#123;</span><br><span class="line">                      &lt;!-- 可在句子中加入是否输入名称的判断语句 --&gt;</span><br><span class="line">                        if ($(&quot;#nameInput&quot;).val().length == 0) &#123;</span><br><span class="line">                            alert(&apos;Please Input Theme Name!&apos;);</span><br><span class="line">                            return false;</span><br><span class="line">                        &#125; else &#123;</span><br><span class="line">                            return true;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                if (currentIndex === 1) &#123;</span><br><span class="line">                    if (stepDirection === &quot;forward&quot;) &#123;</span><br><span class="line">                        if (that.themeObj.classinfo.length==1&amp;&amp;that.themeObj.classinfo[0].mcname==&quot;&quot;&amp;&amp;that.themeObj.classinfo[0].modelsoid.length==0)&#123;</span><br><span class="line">                            return true</span><br><span class="line">                        &#125; else&#123;</span><br><span class="line">                          &lt;!-- 遍历数组，如果有一项未填，则return false，不跳入下一步 --&gt;</span><br><span class="line">                            for (i = 0; i &lt; that.themeObj.classinfo.length; i++) &#123;</span><br><span class="line">                                if (that.themeObj.classinfo[i].mcname == &quot;&quot; || that.themeObj.classinfo[i].modelsoid.length == 0) &#123;</span><br><span class="line">                                    alert(&quot;Please complete the information&quot;);</span><br><span class="line">                                    return false;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        return true;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;if (currentIndex === 2) &#123;</span><br><span class="line">                    if (stepDirection === &quot;forward&quot;) &#123;</span><br><span class="line">                        if (that.themeObj.dataClassInfo.length==1&amp;&amp;that.themeObj.dataClassInfo[0].dcname==&quot;&quot;&amp;&amp;that.themeObj.dataClassInfo[0].datasoid.length==0)&#123;</span><br><span class="line">                            return true;</span><br><span class="line">                        &#125; else &#123;</span><br><span class="line">                            for (i = 0; i &lt; that.themeObj.dataClassInfo.length; i++) &#123;</span><br><span class="line">                                if (that.themeObj.dataClassInfo[i].dcname == &quot;&quot; || that.themeObj.dataClassInfo[i].datasoid.length == 0) &#123;</span><br><span class="line">                                    alert(&quot;Please complete the information&quot;);</span><br><span class="line">                                    return false;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        return true;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                if (currentIndex === 3) &#123;</span><br><span class="line">                  &lt;!-- return true表示不判断，直接可执行下一步 --&gt;</span><br><span class="line">                    return true;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>这些便是jquery中用的step插件，element ui中也有一些好用的step功能可供选择</p>
@@ -358,6 +358,93 @@
 
 
   
+    <article id="post-thymeleaf learning2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/22/thymeleaf learning2/">thymeleaf学习2</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/22/thymeleaf learning2/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="thymeleaf学习之各种学习过的绑定"><a href="#thymeleaf学习之各种学习过的绑定" class="headerlink" title="thymeleaf学习之各种学习过的绑定"></a>thymeleaf学习之各种学习过的绑定</h3><p>在上一篇博客中，简单的介绍了thymeleaf的如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。本文就将我目前涉及到的thymeleaf绑定简单罗列一下</p>
+<ul>
+<li><p>th-text<br>文字替换，将此处的文字替换为绑定的值<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span th:text=&quot;$&#123;item.name&#125;&quot;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>th-utext<br>在网页中写文字，相当于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>中间写文字<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:utext=&quot;$&#123;info.themename&#125;&quot; style=&quot;font-size: 24px;color:#444&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>th:src<br>thymeleaf的链接<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;img th:src=&quot;&apos;/static/img/icon/default.png&apos;&quot;</span><br><span class="line">                                            class=&quot;round_icon&quot; style=&quot;width:40px;height: 40px;float:left;&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>th:href<br>thymeleaf的超链接<br>例如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a th:href=&quot;&apos;/user/&apos;+$&#123;info.creator_oid&#125;&quot;&gt;&lt;h4 th:text=&quot;$&#123;info.creator_name&#125;&quot;&gt;Tom Marvolo Riddle&lt;/h4&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>th:each<br>循环执行，类似于vue中的v-for<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:each=&quot;modelClass,index:$&#123;modelClassInfos&#125;&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中，${modelClassInfos}为绑定的model值，index类似于数组中的计数，0、1、2…等，modelClass为数组的值，配合th:each将数组modelClassInfos的值循环取出。</p>
+</li>
+<li>th:id<br>thymeleaf的id，一般用来设置id值</li>
+</ul>
+<p>一个介绍thymeleaf的博客：<br><a href="https://www.cnblogs.com/zjfjava/p/6893486.html" target="_blank" rel="noopener">https://www.cnblogs.com/zjfjava/p/6893486.html</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/22/thymeleaf learning2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-thymeleaf learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -403,6 +490,81 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/11/22/thymeleaf learning1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-div append" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/22/div append/">div追加</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/22/div append/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="给指定的div追加div"><a href="#给指定的div追加div" class="headerlink" title="给指定的div追加div"></a>给指定的div追加div</h3><p>在以前的博客中，曾经写过一个给网页嵌入loading，用到了innerHtml进行div的嵌入<br>本文中利用js的append函数来给指定 的div嵌入指定的div。</p>
+<ul>
+<li>指定div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.applications-add&quot;).click(function () &#123;</span><br><span class="line">           var content_box = $(this).parent().children(&apos;div&apos;);&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当点击class为applications-add，触发点击函数。<br>content-box用来指定哪个div是用来追加的，下文还会写到利用str拼接div<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var content_box = $(this).parent().children(&apos;div&apos;);</span><br></pre></td></tr></table></figure></p>
+<p> 这一句中指定了在哪个div下追加新的div。</p>
+<ul>
+<li>追加div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;&lt;div class=&apos;panel panel-primary&apos;&gt;&lt;div class=&apos;panel-heading info-head&apos;&gt;&lt;h4 class=&apos;panel-title&apos;&gt;&lt;a class=&apos;accordion-toggle collapsed&apos; style=\&quot;color:white\&quot; &quot; +</span><br><span class="line">              &quot;data-toggle=&apos;collapse&apos; data-target=&apos;#applications1&apos; href=\&quot;javascript:;\&quot;&gt; &quot;;</span><br><span class="line">          str += &quot;NEW&quot;;</span><br><span class="line">          str += &quot;&lt;/a&gt;&lt;/h4&gt; &lt;a href=\&quot;javascript:;\&quot;class=\&quot;fa fa-times author_close\&quot;style=\&quot;float:right;margin-top:8px;color:white\&quot;&gt;&lt;/a&gt;&lt;/div&gt; &quot; +</span><br><span class="line">              &quot;&lt;div id=&apos;applications1&apos;class=&apos;panel-collapse collapse in&apos;&gt;&lt;div class=&apos;panel-body user-contents&apos;&gt; &lt;div class=&apos;user-attr&apos;&gt;&lt;div&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Name&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;name\&quot; id=\&quot;applicationname\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=\&quot;margin-top:10px\&quot;&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Link:&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;ins\&quot; id=\&quot;applicationlink\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          str +=&quot;    &lt;div style=\&quot;margin-top:10px\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;lable class=&apos;control-label col-sm-2 text-center&apos;\n&quot; +</span><br><span class="line">              &quot;                                                                                                               style=&apos;font-weight: bold;&apos;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            Image:\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/lable&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;div class=\&quot;col-sm-10\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;img id=\&quot;imgShow1\&quot; src=\&quot;\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;div id=\&quot;imgChange1\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                &lt;i class=\&quot;fa fa-plus fa-5x\&quot;&gt;&lt;/i&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;input id=\&quot;imgFile1\&quot; type=\&quot;file\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   style=\&quot;display: none\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   accept=\&quot;image/*\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                    &lt;/div&gt;&quot;</span><br><span class="line">          str +=&quot;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          content_box.append(str);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将利用str拼接好的str的div追加到content-box中。</p>
+<p>效果类似于我那篇jquery的效果图<br><img src="/2019/11/22/div append/1.png" alt="效果图"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/22/div append/">展开全文 >></a>
         </p>
       
 
@@ -608,93 +770,6 @@
 
 
   
-    <article id="post-thymeleaf learning2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/thymeleaf learning2/">thymeleaf学习2</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/22/thymeleaf learning2/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="thymeleaf学习之各种学习过的绑定"><a href="#thymeleaf学习之各种学习过的绑定" class="headerlink" title="thymeleaf学习之各种学习过的绑定"></a>thymeleaf学习之各种学习过的绑定</h3><p>在上一篇博客中，简单的介绍了thymeleaf的如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。本文就将我目前涉及到的thymeleaf绑定简单罗列一下</p>
-<ul>
-<li><p>th-text<br>文字替换，将此处的文字替换为绑定的值<br>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span th:text=&quot;$&#123;item.name&#125;&quot;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>th-utext<br>在网页中写文字，相当于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>中间写文字<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:utext=&quot;$&#123;info.themename&#125;&quot; style=&quot;font-size: 24px;color:#444&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>th:src<br>thymeleaf的链接<br>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;img th:src=&quot;&apos;/static/img/icon/default.png&apos;&quot;</span><br><span class="line">                                            class=&quot;round_icon&quot; style=&quot;width:40px;height: 40px;float:left;&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>th:href<br>thymeleaf的超链接<br>例如:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a th:href=&quot;&apos;/user/&apos;+$&#123;info.creator_oid&#125;&quot;&gt;&lt;h4 th:text=&quot;$&#123;info.creator_name&#125;&quot;&gt;Tom Marvolo Riddle&lt;/h4&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>th:each<br>循环执行，类似于vue中的v-for<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:each=&quot;modelClass,index:$&#123;modelClassInfos&#125;&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>其中，${modelClassInfos}为绑定的model值，index类似于数组中的计数，0、1、2…等，modelClass为数组的值，配合th:each将数组modelClassInfos的值循环取出。</p>
-</li>
-<li>th:id<br>thymeleaf的id，一般用来设置id值</li>
-</ul>
-<p>一个介绍thymeleaf的博客：<br><a href="https://www.cnblogs.com/zjfjava/p/6893486.html" target="_blank" rel="noopener">https://www.cnblogs.com/zjfjava/p/6893486.html</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/thymeleaf learning2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-vue mounted and methods" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -735,81 +810,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/11/22/vue mounted and methods/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-div append" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/div append/">div追加</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/22/div append/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="给指定的div追加div"><a href="#给指定的div追加div" class="headerlink" title="给指定的div追加div"></a>给指定的div追加div</h3><p>在以前的博客中，曾经写过一个给网页嵌入loading，用到了innerHtml进行div的嵌入<br>本文中利用js的append函数来给指定 的div嵌入指定的div。</p>
-<ul>
-<li>指定div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.applications-add&quot;).click(function () &#123;</span><br><span class="line">           var content_box = $(this).parent().children(&apos;div&apos;);&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>当点击class为applications-add，触发点击函数。<br>content-box用来指定哪个div是用来追加的，下文还会写到利用str拼接div<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var content_box = $(this).parent().children(&apos;div&apos;);</span><br></pre></td></tr></table></figure></p>
-<p> 这一句中指定了在哪个div下追加新的div。</p>
-<ul>
-<li>追加div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;&lt;div class=&apos;panel panel-primary&apos;&gt;&lt;div class=&apos;panel-heading info-head&apos;&gt;&lt;h4 class=&apos;panel-title&apos;&gt;&lt;a class=&apos;accordion-toggle collapsed&apos; style=\&quot;color:white\&quot; &quot; +</span><br><span class="line">              &quot;data-toggle=&apos;collapse&apos; data-target=&apos;#applications1&apos; href=\&quot;javascript:;\&quot;&gt; &quot;;</span><br><span class="line">          str += &quot;NEW&quot;;</span><br><span class="line">          str += &quot;&lt;/a&gt;&lt;/h4&gt; &lt;a href=\&quot;javascript:;\&quot;class=\&quot;fa fa-times author_close\&quot;style=\&quot;float:right;margin-top:8px;color:white\&quot;&gt;&lt;/a&gt;&lt;/div&gt; &quot; +</span><br><span class="line">              &quot;&lt;div id=&apos;applications1&apos;class=&apos;panel-collapse collapse in&apos;&gt;&lt;div class=&apos;panel-body user-contents&apos;&gt; &lt;div class=&apos;user-attr&apos;&gt;&lt;div&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Name&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;name\&quot; id=\&quot;applicationname\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=\&quot;margin-top:10px\&quot;&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Link:&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;ins\&quot; id=\&quot;applicationlink\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          str +=&quot;    &lt;div style=\&quot;margin-top:10px\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;lable class=&apos;control-label col-sm-2 text-center&apos;\n&quot; +</span><br><span class="line">              &quot;                                                                                                               style=&apos;font-weight: bold;&apos;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            Image:\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/lable&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;div class=\&quot;col-sm-10\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;img id=\&quot;imgShow1\&quot; src=\&quot;\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;div id=\&quot;imgChange1\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                &lt;i class=\&quot;fa fa-plus fa-5x\&quot;&gt;&lt;/i&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;input id=\&quot;imgFile1\&quot; type=\&quot;file\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   style=\&quot;display: none\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   accept=\&quot;image/*\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                    &lt;/div&gt;&quot;</span><br><span class="line">          str +=&quot;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          content_box.append(str);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>将利用str拼接好的str的div追加到content-box中。</p>
-<p>效果类似于我那篇jquery的效果图<br><img src="/2019/11/22/div append/1.png" alt="效果图"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/div append/">展开全文 >></a>
         </p>
       
 

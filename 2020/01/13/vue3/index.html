@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Mingyuan</title>
+  <title>VUE学习之数据绑定的使用 | Mingyuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mingyuan">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="VUE学习之数据绑定的使用最近在进行项目开发中用到很多vue的数据绑定。js从后台取到数据，前台渲染时需要配合vue的data中的数据进行具体的渲染以及数据拼接操作。有些时候使用vue的一些工具，例如利用avatar设置头像  avatar绑定数据1&amp;lt;avatar :username = &amp;quot;item2.name&amp;quot; :size=&amp;quot;140&amp;quot; :rounde">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VUE学习之数据绑定的使用">
+<meta property="og:url" content="http://yoursite.com/2020/01/13/vue3/index.html">
 <meta property="og:site_name" content="Mingyuan">
+<meta property="og:description" content="VUE学习之数据绑定的使用最近在进行项目开发中用到很多vue的数据绑定。js从后台取到数据，前台渲染时需要配合vue的data中的数据进行具体的渲染以及数据拼接操作。有些时候使用vue的一些工具，例如利用avatar设置头像  avatar绑定数据1&amp;lt;avatar :username = &amp;quot;item2.name&amp;quot; :size=&amp;quot;140&amp;quot; :rounde">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-01-13T12:06:22.742Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mingyuan">
+<meta name="twitter:title" content="VUE学习之数据绑定的使用">
+<meta name="twitter:description" content="VUE学习之数据绑定的使用最近在进行项目开发中用到很多vue的数据绑定。js从后台取到数据，前台渲染时需要配合vue的data中的数据进行具体的渲染以及数据拼接操作。有些时候使用vue的一些工具，例如利用avatar设置头像  avatar绑定数据1&amp;lt;avatar :username = &amp;quot;item2.name&amp;quot; :size=&amp;quot;140&amp;quot; :rounde">
   
     <link rel="alternative" href="/atom.xml" title="Mingyuan" type="application/atom+xml">
   
@@ -146,295 +150,184 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-vue3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VUE学习之数据绑定的使用
+    </h1>
+  
+
+        
+        <a href="/2020/01/13/vue3/" class="archive-article-date">
+  	<time datetime="2020-01-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-13</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="VUE学习之数据绑定的使用"><a href="#VUE学习之数据绑定的使用" class="headerlink" title="VUE学习之数据绑定的使用"></a>VUE学习之数据绑定的使用</h4><p>最近在进行项目开发中用到很多vue的数据绑定。js从后台取到数据，前台渲染时需要配合vue的data中的数据进行具体的渲染以及数据拼接操作。有些时候使用vue的一些工具，例如利用avatar设置头像</p>
+<ul>
+<li>avatar绑定数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;avatar :username = &quot;item2.name&quot; :size=&quot;140&quot; :rounded=&quot;false&quot;&gt;&lt;/avatar&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在username前加上冒号即可，冒号为v-bind的缩写，属性内容直接填写绑定的条目即可</p>
+<ul>
+<li><p>vue的绑定数据与字符串的拼接</p>
+<ul>
+<li>href的拼接</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a :href=&quot;&apos;http://geomodeling.njnu.edu.cn/modelItem/&apos;+item2.oid&quot;&gt;</span><br><span class="line">    &lt;avatar :username = &quot;item2.name&quot; :size=&quot;140&quot; :rounded=&quot;false&quot;&gt;&lt;/avatar&gt;</span><br><span class="line">&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>首先需要在href前加上冒号。拼接使用格式为：  “‘字符串’+绑定条目”即可</p>
+<ul>
+<li>src的拼接<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img :src=&quot;&apos;/static/upload&apos; + item.applicationname&quot; class=&quot;image&quot; id=&quot;sub_application_image&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>与href的类似</p>
+<ul>
+<li>v-text</li>
+<li>v-html</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<div id="app"><br>　　<p></p> <!-- 输出：<span>通过双括号绑定</span> --><br>　　<p v-html="html"></p> <!-- 输出：html标签在渲染的时候被解析 --><br>　　<p v-text="text"></p> <!-- 输出：<span>html标签在渲染的时候被源码输出</span> --><br></div>
+
+
+</li>
+</ul>
+<p>  <script><br>  　　let app = new Vue({<br>  　　el: “#app”,<br>  　　data: {<br>  　　　　message: “<span>通过双括号绑定</span>“,<br>  　　　　html: “<span>html标签在渲染的时候被解析</span>“,<br>  　　　　text: “<span>html标签在渲染的时候被源码输出</span>“,<br>  　　}<br>  });<br>  </script><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">  &#123;&#123;message&#125;&#125;：将数据解析为纯文本，不能输出真正的html，在页面加载时显示&#123;&#123;&#125;&#125;，所以通常使用v-html和v-text代替，且花括号方式在以后可能被取消</span><br><span class="line"></span><br><span class="line">  v-html=&quot;html&quot;：输出真正的html</span><br><span class="line"></span><br><span class="line">  v-text=&quot;text&quot;：将数据解析为纯文本，不能输出真正的html，与花括号的区别是在页面加载时不显示&#123;&#123;&#125;&#125;</span><br><span class="line"></span><br><span class="line">  一般的属性绑定加上冒号</span><br><span class="line"></span><br><span class="line">  与themeleaf绑定的相区分</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/30/jquery learning/" class="archive-article-date">
-  	<time datetime="2019-10-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/30/jquery learning/">jquery学习</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/13/vue3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/22/es5-es6/" class="archive-article-date">
-  	<time datetime="2019-10-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/09/jquery step/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jquery学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/22/es5-es6/">es5转es6</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/17/left click right change/" class="archive-article-date">
-  	<time datetime="2019-10-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/17/left click right change/">左点右变</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/11/Error creating bean/" class="archive-article-date">
-  	<time datetime="2019-10-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/11/Error creating bean/">Error creating bean</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/10/vhr summary/" class="archive-article-date">
-  	<time datetime="2019-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/10/vhr summary/">vhr summary</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/25/data set/" class="archive-article-date">
-  	<time datetime="2019-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/25/data set/">数据集</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/25/Semantic segmentation/" class="archive-article-date">
-  	<time datetime="2019-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/25/Semantic segmentation/">语义分割模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/20/Arithmetic Arrangement/" class="archive-article-date">
-  	<time datetime="2019-09-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/20/Arithmetic Arrangement/">算法整理之2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/19/Deep Learning Arithmetic Arrangement/" class="archive-article-date">
-  	<time datetime="2019-09-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/19/Deep Learning Arithmetic Arrangement/">算法整理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/16/mysql read error/" class="archive-article-date">
-  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/16/mysql read error/">读取外部mysql脚本出现乱码问题解决</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -458,8 +351,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

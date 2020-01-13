@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Mingyuan">
 <meta property="og:description" content="VUE学习之数据绑定的使用最近在进行项目开发中用到很多vue的数据绑定。js从后台取到数据，前台渲染时需要配合vue的data中的数据进行具体的渲染以及数据拼接操作。有些时候使用vue的一些工具，例如利用avatar设置头像  avatar绑定数据1&amp;lt;avatar :username = &amp;quot;item2.name&amp;quot; :size=&amp;quot;140&amp;quot; :rounde">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-13T12:06:22.742Z">
+<meta property="og:updated_time" content="2020-01-13T12:09:00.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VUE学习之数据绑定的使用">
 <meta name="twitter:description" content="VUE学习之数据绑定的使用最近在进行项目开发中用到很多vue的数据绑定。js从后台取到数据，前台渲染时需要配合vue的data中的数据进行具体的渲染以及数据拼接操作。有些时候使用vue的一些工具，例如利用avatar设置头像  avatar绑定数据1&amp;lt;avatar :username = &amp;quot;item2.name&amp;quot; :size=&amp;quot;140&amp;quot; :rounde">
@@ -191,16 +191,13 @@
 <ul>
 <li>v-text</li>
 <li>v-html</li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#125;&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<div id="app"><br>　　<p></p> <!-- 输出：<span>通过双括号绑定</span> --><br>　　<p v-html="html"></p> <!-- 输出：html标签在渲染的时候被解析 --><br>　　<p v-text="text"></p> <!-- 输出：<span>html标签在渲染的时候被源码输出</span> --><br></div>
-
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">　　&lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt; &lt;!-- 输出：&lt;span&gt;通过双括号绑定&lt;/span&gt; --&gt;</span><br><span class="line">　　&lt;p v-html=&quot;html&quot;&gt;&lt;/p&gt; &lt;!-- 输出：html标签在渲染的时候被解析 --&gt;</span><br><span class="line">　　&lt;p v-text=&quot;text&quot;&gt;&lt;/p&gt; &lt;!-- 输出：&lt;span&gt;html标签在渲染的时候被源码输出&lt;/span&gt; --&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">　　let app = new Vue(&#123;</span><br><span class="line">　　el: &quot;#app&quot;,</span><br><span class="line">　　data: &#123;</span><br><span class="line">　　　　message: &quot;&lt;span&gt;通过双括号绑定&lt;/span&gt;&quot;,</span><br><span class="line">　　　　html: &quot;&lt;span&gt;html标签在渲染的时候被解析&lt;/span&gt;&quot;,</span><br><span class="line">　　　　text: &quot;&lt;span&gt;html标签在渲染的时候被源码输出&lt;/span&gt;&quot;,</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>  <script><br>  　　let app = new Vue({<br>  　　el: “#app”,<br>  　　data: {<br>  　　　　message: “<span>通过双括号绑定</span>“,<br>  　　　　html: “<span>html标签在渲染的时候被解析</span>“,<br>  　　　　text: “<span>html标签在渲染的时候被源码输出</span>“,<br>  　　}<br>  });<br>  </script><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">  &#123;&#123;message&#125;&#125;：将数据解析为纯文本，不能输出真正的html，在页面加载时显示&#123;&#123;&#125;&#125;，所以通常使用v-html和v-text代替，且花括号方式在以后可能被取消</span><br><span class="line"></span><br><span class="line">  v-html=&quot;html&quot;：输出真正的html</span><br><span class="line"></span><br><span class="line">  v-text=&quot;text&quot;：将数据解析为纯文本，不能输出真正的html，与花括号的区别是在页面加载时不显示&#123;&#123;&#125;&#125;</span><br><span class="line"></span><br><span class="line">  一般的属性绑定加上冒号</span><br><span class="line"></span><br><span class="line">  与themeleaf绑定的相区分</span><br></pre></td></tr></table></figure></p>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;message&#125;&#125;：将数据解析为纯文本，不能输出真正的html，在页面加载时显示&#123;&#123;&#125;&#125;，所以通常使用v-html和v-text代替，且花括号方式在以后可能被取消</span><br><span class="line"></span><br><span class="line">v-html=&quot;html&quot;：输出真正的html</span><br><span class="line"></span><br><span class="line">v-text=&quot;text&quot;：将数据解析为纯文本，不能输出真正的html，与花括号的区别是在页面加载时不显示&#123;&#123;&#125;&#125;</span><br><span class="line"></span><br><span class="line">一般的属性绑定加上冒号</span><br><span class="line"></span><br><span class="line">与themeleaf绑定的相区分</span><br></pre></td></tr></table></figure>
       
 
       

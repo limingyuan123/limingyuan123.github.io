@@ -148,6 +148,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-element ui learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/22/element ui learning1/">element ui learning1</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/22/element ui learning1/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="element-ui-学习之菜单的使用"><a href="#element-ui-学习之菜单的使用" class="headerlink" title="element ui 学习之菜单的使用"></a>element ui 学习之菜单的使用</h3><p>element ui组件属于vue中的ui组件，element的使用其实也比较方便，只需要引入element ui的css与js文件即可使用。官网也提供了很多好用的功能，本博客就以菜单的使用为例简要介绍一下element ui的使用。</p>
+<ul>
+<li><p>引入element ui的css 与 js<br>可以下载到本地，然后写链接即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/static/element-ui/theme-chalk/index.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;/static/element-ui/index.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以官网代码为例，需要改变的自己更改即可<br>官网链接： <a href="https://element.eleme.cn/#/zh-CN/component/menu" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/menu</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-row class=&quot;tac&quot;&gt;</span><br><span class="line">  &lt;el-col :span=&quot;12&quot;&gt;</span><br><span class="line">    &lt;h5&gt;默认颜色&lt;/h5&gt;</span><br><span class="line">    &lt;el-menu</span><br><span class="line">      default-active=&quot;2&quot;</span><br><span class="line">      class=&quot;el-menu-vertical-demo&quot;</span><br><span class="line">      @open=&quot;handleOpen&quot;</span><br><span class="line">      @close=&quot;handleClose&quot;&gt;</span><br><span class="line">      &lt;el-submenu index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;template slot=&quot;title&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;el-icon-location&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span&gt;导航一&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">        &lt;el-menu-item-group&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;分组一&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-2&quot;&gt;选项2&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-menu-item-group title=&quot;分组2&quot;&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-3&quot;&gt;选项3&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-submenu index=&quot;1-4&quot;&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;选项4&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-4-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-submenu&gt;</span><br><span class="line">      &lt;/el-submenu&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;2&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-menu&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航二&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;3&quot; disabled&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-document&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航三&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;4&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-setting&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航四&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">    &lt;/el-menu&gt;</span><br><span class="line">  &lt;/el-col&gt;</span><br><span class="line">  &lt;el-col :span=&quot;12&quot;&gt;</span><br><span class="line">    &lt;h5&gt;自定义颜色&lt;/h5&gt;</span><br><span class="line">    &lt;el-menu</span><br><span class="line">      default-active=&quot;2&quot;</span><br><span class="line">      class=&quot;el-menu-vertical-demo&quot;</span><br><span class="line">      @open=&quot;handleOpen&quot;</span><br><span class="line">      @close=&quot;handleClose&quot;</span><br><span class="line">      background-color=&quot;#545c64&quot;</span><br><span class="line">      text-color=&quot;#fff&quot;</span><br><span class="line">      active-text-color=&quot;#ffd04b&quot;&gt;</span><br><span class="line">      &lt;el-submenu index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;template slot=&quot;title&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;el-icon-location&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span&gt;导航一&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">        &lt;el-menu-item-group&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;分组一&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-2&quot;&gt;选项2&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-menu-item-group title=&quot;分组2&quot;&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-3&quot;&gt;选项3&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-submenu index=&quot;1-4&quot;&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;选项4&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-4-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-submenu&gt;</span><br><span class="line">      &lt;/el-submenu&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;2&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-menu&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航二&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;3&quot; disabled&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-document&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航三&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;4&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-setting&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航四&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">    &lt;/el-menu&gt;</span><br><span class="line">  &lt;/el-col&gt;</span><br><span class="line">&lt;/el-row&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    methods: &#123;</span><br><span class="line">      handleOpen(key, keyPath) &#123;</span><br><span class="line">        console.log(key, keyPath);</span><br><span class="line">      &#125;,</span><br><span class="line">      handleClose(key, keyPath) &#123;</span><br><span class="line">        console.log(key, keyPath);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>script中的函数写到vue中即可<br>显示效果：<br><img src="/2019/11/22/element ui learning1/1.png" alt="显示效果"></p>
+<p>基本格式为el-menu为第一级，包裹其他的选项。el-menu-item为菜单项。如果有的菜单有子菜单的话，使用el-submenu嵌套el-menu-item即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default-active=&quot;2&quot;</span><br></pre></td></tr></table></figure></p>
+<p>此处定义active的菜单项为第二处<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@open=&quot;handleOpen&quot;</span><br><span class="line">@close=&quot;handleClose&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这两处为open与close函数，写道vue的methods里即可</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/22/element ui learning1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jquery learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -542,76 +617,6 @@
 
 
   
-    <article id="post-data set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/25/data set/">数据集</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/25/data set/" class="archive-article-date">
-  	<time datetime="2019-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="常用数据集汇总（汇总找到的汇总链接）"><a href="#常用数据集汇总（汇总找到的汇总链接）" class="headerlink" title="常用数据集汇总（汇总找到的汇总链接）"></a>常用数据集汇总（汇总找到的汇总链接）</h2><h4 id="一、常用的公共数据集（一）"><a href="#一、常用的公共数据集（一）" class="headerlink" title="一、常用的公共数据集（一）"></a>一、常用的公共数据集（一）</h4><p><a href="https://blog.csdn.net/m0_37570854/article/details/88734695" target="_blank" rel="noopener">https://blog.csdn.net/m0_37570854/article/details/88734695</a> </p>
-<h4 id="二、常用的公共数据集（二）"><a href="#二、常用的公共数据集（二）" class="headerlink" title="二、常用的公共数据集（二）"></a>二、常用的公共数据集（二）</h4><p><a href="https://blog.csdn.net/m0_37570854/article/details/88736189" target="_blank" rel="noopener">https://blog.csdn.net/m0_37570854/article/details/88736189</a></p>
-<h4 id="三、最强数据集集合：50个最佳机器学习公共数据集"><a href="#三、最强数据集集合：50个最佳机器学习公共数据集" class="headerlink" title="三、最强数据集集合：50个最佳机器学习公共数据集"></a>三、最强数据集集合：50个最佳机器学习公共数据集</h4><p><a href="https://blog.csdn.net/weixin_42137700/article/details/83855588" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42137700/article/details/83855588</a></p>
-<h4 id="四、机器学习免费数据集"><a href="#四、机器学习免费数据集" class="headerlink" title="四、机器学习免费数据集"></a>四、机器学习免费数据集</h4><p><a href="https://blog.csdn.net/wwtwinter/article/details/85992227" target="_blank" rel="noopener">https://blog.csdn.net/wwtwinter/article/details/85992227</a> </p>
-<h4 id="五、100款机器学习数据集"><a href="#五、100款机器学习数据集" class="headerlink" title="五、100款机器学习数据集"></a>五、100款机器学习数据集</h4><p><a href="https://blog.csdn.net/Touch_Dream/article/details/77847057" target="_blank" rel="noopener">https://blog.csdn.net/Touch_Dream/article/details/77847057</a></p>
-<h4 id="六、公开的海量数据集-Public-Research-Quality-Datasets"><a href="#六、公开的海量数据集-Public-Research-Quality-Datasets" class="headerlink" title="六、公开的海量数据集 Public Research-Quality Datasets"></a>六、公开的海量数据集 Public Research-Quality Datasets</h4><p><a href="https://blog.csdn.net/dcxhun3/article/details/51647753" target="_blank" rel="noopener">https://blog.csdn.net/dcxhun3/article/details/51647753</a> </p>
-<h4 id="七、人工智能公开数据集汇总"><a href="#七、人工智能公开数据集汇总" class="headerlink" title="七、人工智能公开数据集汇总"></a>七、人工智能公开数据集汇总</h4><p><a href="https://blog.csdn.net/jinghongluexia/article/details/81019010" target="_blank" rel="noopener">https://blog.csdn.net/jinghongluexia/article/details/81019010</a> </p>
-<h4 id="八、最全数据集网站汇总，绝对是一个金矿请查收！"><a href="#八、最全数据集网站汇总，绝对是一个金矿请查收！" class="headerlink" title="八、最全数据集网站汇总，绝对是一个金矿请查收！"></a>八、最全数据集网站汇总，绝对是一个金矿请查收！</h4><p><a href="https://blog.csdn.net/r6Auo52bK/article/details/80105751" target="_blank" rel="noopener">https://blog.csdn.net/r6Auo52bK/article/details/80105751</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/25/data set/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Semantic segmentation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -679,6 +684,76 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/25/Semantic segmentation/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-data set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/25/data set/">数据集</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/25/data set/" class="archive-article-date">
+  	<time datetime="2019-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="常用数据集汇总（汇总找到的汇总链接）"><a href="#常用数据集汇总（汇总找到的汇总链接）" class="headerlink" title="常用数据集汇总（汇总找到的汇总链接）"></a>常用数据集汇总（汇总找到的汇总链接）</h2><h4 id="一、常用的公共数据集（一）"><a href="#一、常用的公共数据集（一）" class="headerlink" title="一、常用的公共数据集（一）"></a>一、常用的公共数据集（一）</h4><p><a href="https://blog.csdn.net/m0_37570854/article/details/88734695" target="_blank" rel="noopener">https://blog.csdn.net/m0_37570854/article/details/88734695</a> </p>
+<h4 id="二、常用的公共数据集（二）"><a href="#二、常用的公共数据集（二）" class="headerlink" title="二、常用的公共数据集（二）"></a>二、常用的公共数据集（二）</h4><p><a href="https://blog.csdn.net/m0_37570854/article/details/88736189" target="_blank" rel="noopener">https://blog.csdn.net/m0_37570854/article/details/88736189</a></p>
+<h4 id="三、最强数据集集合：50个最佳机器学习公共数据集"><a href="#三、最强数据集集合：50个最佳机器学习公共数据集" class="headerlink" title="三、最强数据集集合：50个最佳机器学习公共数据集"></a>三、最强数据集集合：50个最佳机器学习公共数据集</h4><p><a href="https://blog.csdn.net/weixin_42137700/article/details/83855588" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42137700/article/details/83855588</a></p>
+<h4 id="四、机器学习免费数据集"><a href="#四、机器学习免费数据集" class="headerlink" title="四、机器学习免费数据集"></a>四、机器学习免费数据集</h4><p><a href="https://blog.csdn.net/wwtwinter/article/details/85992227" target="_blank" rel="noopener">https://blog.csdn.net/wwtwinter/article/details/85992227</a> </p>
+<h4 id="五、100款机器学习数据集"><a href="#五、100款机器学习数据集" class="headerlink" title="五、100款机器学习数据集"></a>五、100款机器学习数据集</h4><p><a href="https://blog.csdn.net/Touch_Dream/article/details/77847057" target="_blank" rel="noopener">https://blog.csdn.net/Touch_Dream/article/details/77847057</a></p>
+<h4 id="六、公开的海量数据集-Public-Research-Quality-Datasets"><a href="#六、公开的海量数据集-Public-Research-Quality-Datasets" class="headerlink" title="六、公开的海量数据集 Public Research-Quality Datasets"></a>六、公开的海量数据集 Public Research-Quality Datasets</h4><p><a href="https://blog.csdn.net/dcxhun3/article/details/51647753" target="_blank" rel="noopener">https://blog.csdn.net/dcxhun3/article/details/51647753</a> </p>
+<h4 id="七、人工智能公开数据集汇总"><a href="#七、人工智能公开数据集汇总" class="headerlink" title="七、人工智能公开数据集汇总"></a>七、人工智能公开数据集汇总</h4><p><a href="https://blog.csdn.net/jinghongluexia/article/details/81019010" target="_blank" rel="noopener">https://blog.csdn.net/jinghongluexia/article/details/81019010</a> </p>
+<h4 id="八、最全数据集网站汇总，绝对是一个金矿请查收！"><a href="#八、最全数据集网站汇总，绝对是一个金矿请查收！" class="headerlink" title="八、最全数据集网站汇总，绝对是一个金矿请查收！"></a>八、最全数据集网站汇总，绝对是一个金矿请查收！</h4><p><a href="https://blog.csdn.net/r6Auo52bK/article/details/80105751" target="_blank" rel="noopener">https://blog.csdn.net/r6Auo52bK/article/details/80105751</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/25/data set/">展开全文 >></a>
         </p>
       
 
@@ -1228,75 +1303,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/19/Deep Learning Arithmetic Arrangement/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysql read error" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/16/mysql read error/">读取外部mysql脚本出现乱码问题解决</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/16/mysql read error/" class="archive-article-date">
-  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="读取外部mysql脚本出现乱码问题解决"><a href="#读取外部mysql脚本出现乱码问题解决" class="headerlink" title="读取外部mysql脚本出现乱码问题解决"></a>读取外部mysql脚本出现乱码问题解决</h3><p>在配置前后端分离项目时需要为项目配置mysql数据库，数据库由.sql后缀的脚本构建，脚本中写了构建数据库需要的数据库语言。在mysql中执行脚本时可能会出现未设定utf8导致导入数据出现乱码的问题，本文对这个问题提出一些解决办法，特此记录。</p>
-<ul>
-<li>检查mysql的my.ini文件<br>首先检查mysql的my.ini文件，一般位于C盘的programData\MySQL\MySQL Server 8.0文件夹下，如果找不到可以使用小工具everything进行搜索。设置my.ini文件里default-character-set=utf8。</li>
-<li>在脚本文件中insert语句前插入语句set character set utf8;</li>
-<li>在创建表格语句的最后添加语句DEFAULT CHARSET=utf8;</li>
-</ul>
-<p>一般经过以上三步可以解决脚本读取出现乱码的问题。如果发生数据无法读取的问题，可能是脚本存放的路径存在中文，更改到英文路径即可解决。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/16/mysql read error/">展开全文 >></a>
         </p>
       
 

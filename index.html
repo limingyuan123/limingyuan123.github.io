@@ -148,6 +148,103 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Foreground request format corresponds to background received data record" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/01/Foreground request format corresponds to background received data record/">Postman请求格式对应后台接收数据汇总</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/01/Foreground request format corresponds to background received data record/" class="archive-article-date">
+  	<time datetime="2020-06-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Postman请求格式对应后台接收数据汇总"><a href="#Postman请求格式对应后台接收数据汇总" class="headerlink" title="Postman请求格式对应后台接收数据汇总"></a>Postman请求格式对应后台接收数据汇总</h4><ul>
+<li><p>前台data格式为一种复杂数据结构的，例如包含List<e>以及单个属性，这时候可以写固定格式的entity来进行传输<br>（注释@RequestBody）</e></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">//前台</span><br><span class="line">var oids =[&#123;&#125;];</span><br><span class="line">                for (let i=0;i&lt;this.community_tableData3_self.length;i++)&#123;</span><br><span class="line">                    if (this.model_tableData3_self[i].readStatus == 0) &#123;</span><br><span class="line">                        var object=&#123;&#125;;</span><br><span class="line">                        object.oid = this.community_tableData3_self[i].oid;</span><br><span class="line">                        object.type = this.community_tableData3_self[i].type;</span><br><span class="line">                        oids.push(object);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">                        url:&quot;/version/MyEditionReaded&quot;,</span><br><span class="line">                        type:&quot;POST&quot;,</span><br><span class="line">                        contentType:&quot;application/json&quot;,</span><br><span class="line">                        data:JSON.stringify(&#123;</span><br><span class="line">                            my_edition_num:this.community_reject_unread,</span><br><span class="line">                            oids:oids,</span><br><span class="line">                        &#125;),</span><br><span class="line">                        // dataType: &quot;json&quot;,</span><br><span class="line">                        success: (json) =&gt; &#123;</span><br><span class="line">                            if (json==&quot;ok&quot;)&#123;</span><br><span class="line">                                *****</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;)</span><br><span class="line"></span><br><span class="line">//后台</span><br><span class="line">//实体一</span><br><span class="line">@Data</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">@NoArgsConstructor</span><br><span class="line">public class Oids &#123;</span><br><span class="line">    String oid;</span><br><span class="line">    String type;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//实体二</span><br><span class="line">@Data</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">@NoArgsConstructor</span><br><span class="line">public class MyEdition &#123;</span><br><span class="line">    int my_edition_num;</span><br><span class="line">    List&lt;Oids&gt; oids;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//接口  使用@RequestBody来接收数据</span><br><span class="line">@RequestMapping(value = &quot;/MyEditionReaded&quot;,method = RequestMethod.POST)</span><br><span class="line">    public String MyEditionReaded(HttpServletRequest request,@RequestBody MyEdition myEditions)&#123;</span><br><span class="line">    ***</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用DTO格式来进行接收数据<br>前台更为复杂数据，包含各种类型的字段的数据，诸如List<string>、 List<filemetauser>  （FileMetaUser是一种数据结构的实体）、int、String等，这时候在前台需要将各种类型数据放置到与后台所设DTO数据结构一致的data中，再在后台使用DTO进行接收（DTO层用来规范接收数据）<br>（注释@RequestBody）</filemetauser></string></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">//前台</span><br><span class="line">//data层</span><br><span class="line">dataItemAddDTO: &#123;</span><br><span class="line">                name: &apos;&apos;,</span><br><span class="line">                status: &apos;Public&apos;,</span><br><span class="line">                description: &apos;&apos;,</span><br><span class="line">                detail: &apos;&apos;,</span><br><span class="line">                author: &apos;&apos;,</span><br><span class="line">                reference: &apos;&apos;,</span><br><span class="line">                keywords: [],</span><br><span class="line">                classifications: [],</span><br><span class="line">                displays: [],</span><br><span class="line">                authorship: [],</span><br><span class="line">                meta: &#123;</span><br><span class="line">                    coordinateSystem: &apos;&apos;,</span><br><span class="line">                    geographicProjection: &apos;&apos;,</span><br><span class="line">                    coordinateUnits: &apos;&apos;,</span><br><span class="line">                    boundingRectangle: []</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">//methods层</span><br><span class="line">this.dataItemAddDTO.authorship = authorship;</span><br><span class="line">this.dataItemAddDTO.userDataList = this.userDataList;</span><br><span class="line">*****</span><br><span class="line">//后台DTO</span><br><span class="line">@Data</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">@NoArgsConstructor</span><br><span class="line">public class DataItemAddDTO &#123;</span><br><span class="line"></span><br><span class="line">    String name;</span><br><span class="line">    String status;</span><br><span class="line">    String contentType;</span><br><span class="line">    String description;</span><br><span class="line">    String detail;</span><br><span class="line">    String author;</span><br><span class="line"></span><br><span class="line">    String reference;</span><br><span class="line"></span><br><span class="line">    List&lt;String&gt; keywords;</span><br><span class="line">    List&lt;String&gt; classifications;</span><br><span class="line">    List&lt;String&gt; displays;</span><br><span class="line">    List&lt;AuthorInfo&gt; authorship;</span><br><span class="line">    List&lt;FileMetaUser&gt; userDataList;</span><br><span class="line">    String dataType;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    List&lt;DataMeta&gt; dataList;</span><br><span class="line"></span><br><span class="line">    int shareCount=0;</span><br><span class="line">    int viewCount=0;</span><br><span class="line">    int thumbsUpCount=0;</span><br><span class="line"></span><br><span class="line">    DataItemMeta meta;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//post向后台  使用@RequestBody接收数据</span><br><span class="line">@RequestMapping (value = &quot;&quot;, method = RequestMethod.POST)</span><br><span class="line">    JsonResult add(@RequestBody DataItemAddDTO dataItemAddDTO) &#123;</span><br><span class="line">        return ResultUtils.success(dataItemService.insert(dataItemAddDTO));</span><br><span class="line">    &#125;</span><br><span class="line">//Service层处理数据，进行诸如入库等操作</span><br><span class="line">略</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用application/json传输特定格式的数据<br>可以利用DTO来进行数据的规范传输<br>（注释@RequestBody）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">//首先引入jar包</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;fastjson&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;1.2.3&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">//前台</span><br><span class="line">let data=&#123;</span><br><span class="line">                        modifier:tableItem.modifier.modifier,</span><br><span class="line">                        type:tableItem.type,</span><br><span class="line">                        oid:tableItem.oid,</span><br><span class="line">                        originOid:tableItem.originOid</span><br><span class="line">                    &#125;;</span><br><span class="line">                    $.ajax(&#123;</span><br><span class="line">                        type:&quot;POST&quot;,</span><br><span class="line">                        url:&quot;/version/accept&quot;,</span><br><span class="line">                        contentType: &quot;application/json&quot;,</span><br><span class="line">                        data: JSON.stringify(data),</span><br><span class="line">                        async: true,</span><br><span class="line">                        success:(json)=&gt;&#123;</span><br><span class="line">                            window.location.reload();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;)</span><br><span class="line"></span><br><span class="line">//后台DTO</span><br><span class="line">@Data</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">@NoArgsConstructor</span><br><span class="line">public class VersionDTO &#123;</span><br><span class="line">    String modifier;</span><br><span class="line">    String type;</span><br><span class="line">    String oid;</span><br><span class="line">    String originOid;</span><br><span class="line">&#125;</span><br><span class="line">//接口</span><br><span class="line">@RequestMapping(value = &quot;/accept&quot;, method = RequestMethod.POST)</span><br><span class="line">    public JsonResult accept(@RequestBody VersionDTO versionDTO) &#123;</span><br><span class="line">    ***</span><br><span class="line">    &#125;</span><br><span class="line">    这种结构的使用@RequestBody注释进行接收</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>postman测试接口类</p>
+<ul>
+<li><p>第一种 数据传输格式使用formdata</p>
+<ul>
+<li>1.上传包括多个文件在内的各种数据以及参数<br>（注释@RequestParam）<br><img src="/2020/07/01/Foreground request format corresponds to background received data record/postman upload.jpg" alt="postman upload"><br>使用formdata格式传输接收时，使用@RequestParam注释进行接收<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//后台接收</span><br><span class="line">@RequestMapping(value = &quot;/data&quot;, method = RequestMethod.POST)</span><br><span class="line">    public JsonResult uploadFile(@RequestParam(&quot;ogmsdata&quot;)MultipartFile[] files,</span><br><span class="line">                                 @RequestParam(&quot;name&quot;)String uploadName,</span><br><span class="line">                                 @RequestParam(&quot;userId&quot;)String userName,</span><br><span class="line">                                 @RequestParam(&quot;serverNode&quot;)String serverNode,</span><br><span class="line">                                 @RequestParam(&quot;origination&quot;)String origination) throws IOException, DocumentException &#123;</span><br><span class="line">                                 ***</span><br><span class="line">                                 &#125;</span><br><span class="line"></span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">* postman测试接口类</span><br><span class="line">	*	第一种 数据传输格式使用formdata</span><br><span class="line">		* 2.利用formdata格式的传输ArrayList&lt;String&gt;的数组数据</span><br><span class="line">			（注释@RequestParam）</span><br><span class="line">![List format transmission](Foreground request format corresponds to background received data record/List format transmission.jpg)</span><br><span class="line">	使用formdata格式传输接收时，使用@RequestParam注释进行接收</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>@RequestMapping(value = “/bindDataItem”, method = RequestMethod.POST)<br>public JsonResult bingDataItem(@RequestParam (value = “dataIds”) ArrayList<string> dataIds,</string></p>
+<pre><code>@RequestParam(value = &quot;proId&quot;) String proId,
+@RequestParam(value = &quot;proName&quot;) String proName,
+@RequestParam(value = &quot;proDescription&quot;) String proDescription,
+@RequestParam(value = &quot;token&quot;) String token,
+@RequestParam(value = &quot;parameter&quot;) ArrayList&lt;String&gt; parameter
+</code></pre><p>){</p>
+</li>
+</ul>
+<hr>
+<p>  }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* postman测试接口类</span><br><span class="line">	*	第二种 数据传输格式也是使用application/json</span><br><span class="line">		*	利用application/json格式，传输json数据,通过这种方式可以传输List&lt;String&gt;数据，在postman中选择raw进行填写json串</span><br><span class="line">![application json](Foreground request format corresponds to background received data record/application json.jpg)</span><br><span class="line">使用application/json格式传输接收时，使用@RequestBody注释进行接收</span><br></pre></td></tr></table></figure>
+<p>  @RequestMapping(value = “/BulkDownLoad”,method = RequestMethod.GET)<br>  public void BulkDownLoad(@RequestBody List<string> uids, HttpServletResponse response) throws UnsupportedEncodingException {</string></p>
+<hr>
+<p>  }<br><code>`</code></p>
+</li>
+</ul>
+<p>未完待续</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/01/Foreground request format corresponds to background received data record/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Transmitting JSON string before and after spring boot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -390,6 +487,71 @@
 
 
   
+    <article id="post-js learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/28/js learning/">前端之javascript学习</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/28/js learning/" class="archive-article-date">
+  	<time datetime="2019-11-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="javascript学习"><a href="#javascript学习" class="headerlink" title="javascript学习"></a>javascript学习</h4><p>几个注意点：<br>1.在js中经常会用到id与class的绑定。id是唯一的，class不是，所以在绑定时尽量使用class，避免使用id<br>2.利用vue写程序，this与that是指的data中定义的变量，在methods中使用this，在mounted中使用that来拿data中的数据<br>3.熟练使用push来向数组中追加数据，因为在data中定义数组，数组中有很多的属性，[{}]这种形式只能定义第一个元素，所以灵活使用push往数组中追加各种属性的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this.editableTabs_data.push(&#123;</span><br><span class="line">                    tabledata:[],</span><br><span class="line">                    title: &apos;New Tab&apos;,</span><br><span class="line">                    name: newTabName,</span><br><span class="line">                    content: &apos;New Tab content&apos;</span><br><span class="line">                &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>4.JQuery的ON()方法支持的所有事件罗列<br><a href="https://blog.csdn.net/lookbackward/article/details/78364345?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">https://blog.csdn.net/lookbackward/article/details/78364345?tdsourcetag=s_pctim_aiomsg</a><br>jquery在监听input是否输入值时，用到keyup事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//input的监听值变动的事件</span><br><span class="line">        $(document).on(&apos;keyup&apos;,&apos;.category_name&apos;,function ($event) &#123;</span><br><span class="line">            let category_input=$(&quot;.category_name&quot;);</span><br><span class="line">            let index=0;</span><br><span class="line">            for(;index&lt;category_input.length;index++)&#123;</span><br><span class="line">                if($(this)[0]==category_input.eq(index)[0])&#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            that.editableTabs_model[index].title = $(&quot;.category_name&quot;).eq(index).val();</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>一般，使新增的控件有效，使用document来绑定<br>5.JavaScript splice() 方法<br>splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。<br><img src="/2019/11/28/js learning/splice.png" alt="splice参数"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">table1.splice(index, 1);</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/28/js learning/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-get login information" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -461,84 +623,19 @@
 
 
   
-    <article id="post-js learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-thymeleaf learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/28/js learning/">前端之javascript学习</a>
+      <a class="article-title" href="/2019/11/22/thymeleaf learning1/">thymeleaf学习</a>
     </h1>
   
 
         
-        <a href="/2019/11/28/js learning/" class="archive-article-date">
-  	<time datetime="2019-11-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="javascript学习"><a href="#javascript学习" class="headerlink" title="javascript学习"></a>javascript学习</h4><p>几个注意点：<br>1.在js中经常会用到id与class的绑定。id是唯一的，class不是，所以在绑定时尽量使用class，避免使用id<br>2.利用vue写程序，this与that是指的data中定义的变量，在methods中使用this，在mounted中使用that来拿data中的数据<br>3.熟练使用push来向数组中追加数据，因为在data中定义数组，数组中有很多的属性，[{}]这种形式只能定义第一个元素，所以灵活使用push往数组中追加各种属性的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this.editableTabs_data.push(&#123;</span><br><span class="line">                    tabledata:[],</span><br><span class="line">                    title: &apos;New Tab&apos;,</span><br><span class="line">                    name: newTabName,</span><br><span class="line">                    content: &apos;New Tab content&apos;</span><br><span class="line">                &#125;);</span><br></pre></td></tr></table></figure></p>
-<p>4.JQuery的ON()方法支持的所有事件罗列<br><a href="https://blog.csdn.net/lookbackward/article/details/78364345?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">https://blog.csdn.net/lookbackward/article/details/78364345?tdsourcetag=s_pctim_aiomsg</a><br>jquery在监听input是否输入值时，用到keyup事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//input的监听值变动的事件</span><br><span class="line">        $(document).on(&apos;keyup&apos;,&apos;.category_name&apos;,function ($event) &#123;</span><br><span class="line">            let category_input=$(&quot;.category_name&quot;);</span><br><span class="line">            let index=0;</span><br><span class="line">            for(;index&lt;category_input.length;index++)&#123;</span><br><span class="line">                if($(this)[0]==category_input.eq(index)[0])&#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            that.editableTabs_model[index].title = $(&quot;.category_name&quot;).eq(index).val();</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure></p>
-<p>一般，使新增的控件有效，使用document来绑定<br>5.JavaScript splice() 方法<br>splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。<br><img src="/2019/11/28/js learning/splice.png" alt="splice参数"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">table1.splice(index, 1);</span><br></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/28/js learning/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-div append" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/div append/">div追加</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/22/div append/" class="archive-article-date">
+        <a href="/2019/11/22/thymeleaf learning1/" class="archive-article-date">
   	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
 </a>
         
@@ -546,19 +643,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="给指定的div追加div"><a href="#给指定的div追加div" class="headerlink" title="给指定的div追加div"></a>给指定的div追加div</h3><p>在以前的博客中，曾经写过一个给网页嵌入loading，用到了innerHtml进行div的嵌入<br>本文中利用js的append函数来给指定 的div嵌入指定的div。</p>
+        <h3 id="thymeleaf学习之fragment"><a href="#thymeleaf学习之fragment" class="headerlink" title="thymeleaf学习之fragment"></a>thymeleaf学习之fragment</h3><p>在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。</p>
 <ul>
-<li>指定div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.applications-add&quot;).click(function () &#123;</span><br><span class="line">           var content_box = $(this).parent().children(&apos;div&apos;);&#125;</span><br></pre></td></tr></table></figure>
+<li>写模板网页<br><img src="/2019/11/22/thymeleaf learning1/1.png" alt="模板页结构"><br>图片中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">th:fragment=&quot;side&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>当点击class为applications-add，触发点击函数。<br>content-box用来指定哪个div是用来追加的，下文还会写到利用str拼接div<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var content_box = $(this).parent().children(&apos;div&apos;);</span><br></pre></td></tr></table></figure></p>
-<p> 这一句中指定了在哪个div下追加新的div。</p>
+<p>side为与其他网页链接的关键词。</p>
 <ul>
-<li>追加div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;&lt;div class=&apos;panel panel-primary&apos;&gt;&lt;div class=&apos;panel-heading info-head&apos;&gt;&lt;h4 class=&apos;panel-title&apos;&gt;&lt;a class=&apos;accordion-toggle collapsed&apos; style=\&quot;color:white\&quot; &quot; +</span><br><span class="line">              &quot;data-toggle=&apos;collapse&apos; data-target=&apos;#applications1&apos; href=\&quot;javascript:;\&quot;&gt; &quot;;</span><br><span class="line">          str += &quot;NEW&quot;;</span><br><span class="line">          str += &quot;&lt;/a&gt;&lt;/h4&gt; &lt;a href=\&quot;javascript:;\&quot;class=\&quot;fa fa-times author_close\&quot;style=\&quot;float:right;margin-top:8px;color:white\&quot;&gt;&lt;/a&gt;&lt;/div&gt; &quot; +</span><br><span class="line">              &quot;&lt;div id=&apos;applications1&apos;class=&apos;panel-collapse collapse in&apos;&gt;&lt;div class=&apos;panel-body user-contents&apos;&gt; &lt;div class=&apos;user-attr&apos;&gt;&lt;div&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Name&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;name\&quot; id=\&quot;applicationname\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=\&quot;margin-top:10px\&quot;&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Link:&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;ins\&quot; id=\&quot;applicationlink\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          str +=&quot;    &lt;div style=\&quot;margin-top:10px\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;lable class=&apos;control-label col-sm-2 text-center&apos;\n&quot; +</span><br><span class="line">              &quot;                                                                                                               style=&apos;font-weight: bold;&apos;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            Image:\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/lable&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;div class=\&quot;col-sm-10\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;img id=\&quot;imgShow1\&quot; src=\&quot;\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;div id=\&quot;imgChange1\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                &lt;i class=\&quot;fa fa-plus fa-5x\&quot;&gt;&lt;/i&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;input id=\&quot;imgFile1\&quot; type=\&quot;file\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   style=\&quot;display: none\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   accept=\&quot;image/*\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                    &lt;/div&gt;&quot;</span><br><span class="line">          str +=&quot;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          content_box.append(str);</span><br></pre></td></tr></table></figure>
+<li><p>在其他网页中链接需要的div</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:replace=&quot;fragments/sidebar :: side&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>在这一句中，这个div将会被sidebar.html中的side这个div替换掉</p>
 </li>
 </ul>
-<p>将利用str拼接好的str的div追加到content-box中。</p>
-<p>效果类似于我那篇jquery的效果图<br><img src="/2019/11/22/div append/1.png" alt="效果图"></p>
 
       
 
@@ -571,94 +667,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/div append/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-thymeleaf learning2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/thymeleaf learning2/">thymeleaf学习2</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/22/thymeleaf learning2/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="thymeleaf学习之各种学习过的绑定"><a href="#thymeleaf学习之各种学习过的绑定" class="headerlink" title="thymeleaf学习之各种学习过的绑定"></a>thymeleaf学习之各种学习过的绑定</h3><p>在上一篇博客中，简单的介绍了thymeleaf的如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。本文就将我目前涉及到的thymeleaf绑定简单罗列一下</p>
-<ul>
-<li><p>th-text<br>文字替换，将此处的文字替换为绑定的值<br>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span th:text=&quot;$&#123;item.name&#125;&quot;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>th-utext<br>在网页中写文字，相当于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>中间写文字<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:utext=&quot;$&#123;info.themename&#125;&quot; style=&quot;font-size: 24px;color:#444&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>th:src<br>thymeleaf的链接<br>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;img th:src=&quot;&apos;/static/img/icon/default.png&apos;&quot;</span><br><span class="line">                                            class=&quot;round_icon&quot; style=&quot;width:40px;height: 40px;float:left;&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>th:href<br>thymeleaf的超链接<br>例如:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a th:href=&quot;&apos;/user/&apos;+$&#123;info.creator_oid&#125;&quot;&gt;&lt;h4 th:text=&quot;$&#123;info.creator_name&#125;&quot;&gt;Tom Marvolo Riddle&lt;/h4&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>th:each<br>循环执行，类似于vue中的v-for<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:each=&quot;modelClass,index:$&#123;modelClassInfos&#125;&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>其中，${modelClassInfos}为绑定的model值，index类似于数组中的计数，0、1、2…等，modelClass为数组的值，配合th:each将数组modelClassInfos的值循环取出。</p>
-</li>
-<li>th:id<br>thymeleaf的id，一般用来设置id值</li>
-</ul>
-<p>一个介绍thymeleaf的博客：<br><a href="https://www.cnblogs.com/zjfjava/p/6893486.html" target="_blank" rel="noopener">https://www.cnblogs.com/zjfjava/p/6893486.html</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/thymeleaf learning2/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/22/thymeleaf learning1/">展开全文 >></a>
         </p>
       
 
@@ -789,19 +798,19 @@
 
 
   
-    <article id="post-thymeleaf learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-element ui learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/thymeleaf learning1/">thymeleaf学习</a>
+      <a class="article-title" href="/2019/11/22/element ui learning1/">element ui learning1</a>
     </h1>
   
 
         
-        <a href="/2019/11/22/thymeleaf learning1/" class="archive-article-date">
+        <a href="/2019/11/22/element ui learning1/" class="archive-article-date">
   	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
 </a>
         
@@ -809,18 +818,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="thymeleaf学习之fragment"><a href="#thymeleaf学习之fragment" class="headerlink" title="thymeleaf学习之fragment"></a>thymeleaf学习之fragment</h3><p>在上一篇博客中，简单的介绍了一些thymeleaf的使用，包括thymeleaf如何利用modelandview确定view的名字以及如何给model加值。并利用确定好的model以及view在前台绑定与渲染数据。本篇博客将介绍如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。</p>
+        <h3 id="element-ui-学习之菜单的使用"><a href="#element-ui-学习之菜单的使用" class="headerlink" title="element ui 学习之菜单的使用"></a>element ui 学习之菜单的使用</h3><p>element ui组件属于vue中的ui组件，element的使用其实也比较方便，只需要引入element ui的css与js文件即可使用。官网也提供了很多好用的功能，本博客就以菜单的使用为例简要介绍一下element ui的使用。</p>
 <ul>
-<li>写模板网页<br><img src="/2019/11/22/thymeleaf learning1/1.png" alt="模板页结构"><br>图片中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">th:fragment=&quot;side&quot;</span><br></pre></td></tr></table></figure>
+<li><p>引入element ui的css 与 js<br>可以下载到本地，然后写链接即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/static/element-ui/theme-chalk/index.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;/static/element-ui/index.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以官网代码为例，需要改变的自己更改即可<br>官网链接： <a href="https://element.eleme.cn/#/zh-CN/component/menu" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/menu</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-row class=&quot;tac&quot;&gt;</span><br><span class="line">  &lt;el-col :span=&quot;12&quot;&gt;</span><br><span class="line">    &lt;h5&gt;默认颜色&lt;/h5&gt;</span><br><span class="line">    &lt;el-menu</span><br><span class="line">      default-active=&quot;2&quot;</span><br><span class="line">      class=&quot;el-menu-vertical-demo&quot;</span><br><span class="line">      @open=&quot;handleOpen&quot;</span><br><span class="line">      @close=&quot;handleClose&quot;&gt;</span><br><span class="line">      &lt;el-submenu index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;template slot=&quot;title&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;el-icon-location&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span&gt;导航一&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">        &lt;el-menu-item-group&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;分组一&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-2&quot;&gt;选项2&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-menu-item-group title=&quot;分组2&quot;&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-3&quot;&gt;选项3&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-submenu index=&quot;1-4&quot;&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;选项4&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-4-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-submenu&gt;</span><br><span class="line">      &lt;/el-submenu&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;2&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-menu&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航二&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;3&quot; disabled&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-document&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航三&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;4&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-setting&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航四&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">    &lt;/el-menu&gt;</span><br><span class="line">  &lt;/el-col&gt;</span><br><span class="line">  &lt;el-col :span=&quot;12&quot;&gt;</span><br><span class="line">    &lt;h5&gt;自定义颜色&lt;/h5&gt;</span><br><span class="line">    &lt;el-menu</span><br><span class="line">      default-active=&quot;2&quot;</span><br><span class="line">      class=&quot;el-menu-vertical-demo&quot;</span><br><span class="line">      @open=&quot;handleOpen&quot;</span><br><span class="line">      @close=&quot;handleClose&quot;</span><br><span class="line">      background-color=&quot;#545c64&quot;</span><br><span class="line">      text-color=&quot;#fff&quot;</span><br><span class="line">      active-text-color=&quot;#ffd04b&quot;&gt;</span><br><span class="line">      &lt;el-submenu index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;template slot=&quot;title&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;el-icon-location&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span&gt;导航一&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">        &lt;el-menu-item-group&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;分组一&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-2&quot;&gt;选项2&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-menu-item-group title=&quot;分组2&quot;&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-3&quot;&gt;选项3&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-submenu index=&quot;1-4&quot;&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;选项4&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-4-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-submenu&gt;</span><br><span class="line">      &lt;/el-submenu&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;2&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-menu&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航二&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;3&quot; disabled&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-document&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航三&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;4&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-setting&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航四&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">    &lt;/el-menu&gt;</span><br><span class="line">  &lt;/el-col&gt;</span><br><span class="line">&lt;/el-row&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    methods: &#123;</span><br><span class="line">      handleOpen(key, keyPath) &#123;</span><br><span class="line">        console.log(key, keyPath);</span><br><span class="line">      &#125;,</span><br><span class="line">      handleClose(key, keyPath) &#123;</span><br><span class="line">        console.log(key, keyPath);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>side为与其他网页链接的关键词。</p>
-<ul>
-<li><p>在其他网页中链接需要的div</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:replace=&quot;fragments/sidebar :: side&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>在这一句中，这个div将会被sidebar.html中的side这个div替换掉</p>
-</li>
-</ul>
+<p>script中的函数写到vue中即可<br>显示效果：<br><img src="/2019/11/22/element ui learning1/1.png" alt="显示效果"></p>
+<p>基本格式为el-menu为第一级，包裹其他的选项。el-menu-item为菜单项。如果有的菜单有子菜单的话，使用el-submenu嵌套el-menu-item即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default-active=&quot;2&quot;</span><br></pre></td></tr></table></figure></p>
+<p>此处定义active的菜单项为第二处<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@open=&quot;handleOpen&quot;</span><br><span class="line">@close=&quot;handleClose&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这两处为open与close函数，写道vue的methods里即可</p>
 
       
 
@@ -833,7 +843,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/thymeleaf learning1/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/22/element ui learning1/">展开全文 >></a>
         </p>
       
 
@@ -863,19 +873,19 @@
 
 
   
-    <article id="post-vue mounted and methods" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-div append" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/vue mounted and methods/">vue学习之mounted与methods</a>
+      <a class="article-title" href="/2019/11/22/div append/">div追加</a>
     </h1>
   
 
         
-        <a href="/2019/11/22/vue mounted and methods/" class="archive-article-date">
+        <a href="/2019/11/22/div append/" class="archive-article-date">
   	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
 </a>
         
@@ -883,13 +893,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="vue学习之mounted与methods"><a href="#vue学习之mounted与methods" class="headerlink" title="vue学习之mounted与methods"></a>vue学习之mounted与methods</h3><p>在项目中，会用到vue的数据传输以及函数调用，其中就涉及了vue中的mounted与methods。</p>
+        <h3 id="给指定的div追加div"><a href="#给指定的div追加div" class="headerlink" title="给指定的div追加div"></a>给指定的div追加div</h3><p>在以前的博客中，曾经写过一个给网页嵌入loading，用到了innerHtml进行div的嵌入<br>本文中利用js的append函数来给指定 的div嵌入指定的div。</p>
 <ul>
-<li>mounted中如何调用methods中的函数呢？<br>在mounted中加上let that = this;这句，然后在方法前加上that即可。<br>这其中就涉及到了this与that的使用。</li>
-<li>data中定义的变量，在methods中如何使？<br>data中定义的变量，在methods中使用，需要在前面加上this</li>
+<li>指定div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.applications-add&quot;).click(function () &#123;</span><br><span class="line">           var content_box = $(this).parent().children(&apos;div&apos;);&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>所以一般mounted中使用，要加that，methods中使用，需要加this</p>
-<p>接下来明确vue中that、this区别与用法，再明确js中that与this用法</p>
+<p>当点击class为applications-add，触发点击函数。<br>content-box用来指定哪个div是用来追加的，下文还会写到利用str拼接div<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var content_box = $(this).parent().children(&apos;div&apos;);</span><br></pre></td></tr></table></figure></p>
+<p> 这一句中指定了在哪个div下追加新的div。</p>
+<ul>
+<li>追加div<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;&lt;div class=&apos;panel panel-primary&apos;&gt;&lt;div class=&apos;panel-heading info-head&apos;&gt;&lt;h4 class=&apos;panel-title&apos;&gt;&lt;a class=&apos;accordion-toggle collapsed&apos; style=\&quot;color:white\&quot; &quot; +</span><br><span class="line">              &quot;data-toggle=&apos;collapse&apos; data-target=&apos;#applications1&apos; href=\&quot;javascript:;\&quot;&gt; &quot;;</span><br><span class="line">          str += &quot;NEW&quot;;</span><br><span class="line">          str += &quot;&lt;/a&gt;&lt;/h4&gt; &lt;a href=\&quot;javascript:;\&quot;class=\&quot;fa fa-times author_close\&quot;style=\&quot;float:right;margin-top:8px;color:white\&quot;&gt;&lt;/a&gt;&lt;/div&gt; &quot; +</span><br><span class="line">              &quot;&lt;div id=&apos;applications1&apos;class=&apos;panel-collapse collapse in&apos;&gt;&lt;div class=&apos;panel-body user-contents&apos;&gt; &lt;div class=&apos;user-attr&apos;&gt;&lt;div&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Name&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;name\&quot; id=\&quot;applicationname\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=\&quot;margin-top:10px\&quot;&gt;&lt;lable class=&apos;control-label col-sm-2 text-center&apos;&quot; +</span><br><span class="line">              &quot;style=&apos;font-weight: bold;&apos;&gt;&quot;;</span><br><span class="line">          str += &quot;Link:&quot;;</span><br><span class="line">          str += &quot;&lt;/lable&gt;&lt;div class=&apos;input-group col-sm-10&apos;&gt;&lt;input type=&apos;text&apos; name=\&quot;ins\&quot; id=\&quot;applicationlink\&quot; class=&apos;form-control&apos;&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          str +=&quot;    &lt;div style=\&quot;margin-top:10px\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;lable class=&apos;control-label col-sm-2 text-center&apos;\n&quot; +</span><br><span class="line">              &quot;                                                                                                               style=&apos;font-weight: bold;&apos;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            Image:\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/lable&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;div class=\&quot;col-sm-10\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;img id=\&quot;imgShow1\&quot; src=\&quot;\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;div id=\&quot;imgChange1\&quot;&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                &lt;i class=\&quot;fa fa-plus fa-5x\&quot;&gt;&lt;/i&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                            &lt;input id=\&quot;imgFile1\&quot; type=\&quot;file\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   style=\&quot;display: none\&quot;\n&quot; +</span><br><span class="line">              &quot;                                                                                                                   accept=\&quot;image/*\&quot;/&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                        &lt;/div&gt;\n&quot; +</span><br><span class="line">              &quot;                                                                                                    &lt;/div&gt;&quot;</span><br><span class="line">          str +=&quot;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&quot;;</span><br><span class="line">          content_box.append(str);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将利用str拼接好的str的div追加到content-box中。</p>
+<p>效果类似于我那篇jquery的效果图<br><img src="/2019/11/22/div append/1.png" alt="效果图"></p>
 
       
 
@@ -902,7 +918,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/vue mounted and methods/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/22/div append/">展开全文 >></a>
         </p>
       
 

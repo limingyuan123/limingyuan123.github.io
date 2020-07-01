@@ -148,19 +148,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-element ui learning1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue mounted and methods" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/element ui learning1/">element ui learning1</a>
+      <a class="article-title" href="/2019/11/22/vue mounted and methods/">vue学习之mounted与methods</a>
     </h1>
   
 
         
-        <a href="/2019/11/22/element ui learning1/" class="archive-article-date">
+        <a href="/2019/11/22/vue mounted and methods/" class="archive-article-date">
   	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
 </a>
         
@@ -168,19 +168,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="element-ui-学习之菜单的使用"><a href="#element-ui-学习之菜单的使用" class="headerlink" title="element ui 学习之菜单的使用"></a>element ui 学习之菜单的使用</h3><p>element ui组件属于vue中的ui组件，element的使用其实也比较方便，只需要引入element ui的css与js文件即可使用。官网也提供了很多好用的功能，本博客就以菜单的使用为例简要介绍一下element ui的使用。</p>
+        <h3 id="vue学习之mounted与methods"><a href="#vue学习之mounted与methods" class="headerlink" title="vue学习之mounted与methods"></a>vue学习之mounted与methods</h3><p>在项目中，会用到vue的数据传输以及函数调用，其中就涉及了vue中的mounted与methods。</p>
 <ul>
-<li><p>引入element ui的css 与 js<br>可以下载到本地，然后写链接即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/static/element-ui/theme-chalk/index.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;/static/element-ui/index.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>以官网代码为例，需要改变的自己更改即可<br>官网链接： <a href="https://element.eleme.cn/#/zh-CN/component/menu" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component/menu</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-row class=&quot;tac&quot;&gt;</span><br><span class="line">  &lt;el-col :span=&quot;12&quot;&gt;</span><br><span class="line">    &lt;h5&gt;默认颜色&lt;/h5&gt;</span><br><span class="line">    &lt;el-menu</span><br><span class="line">      default-active=&quot;2&quot;</span><br><span class="line">      class=&quot;el-menu-vertical-demo&quot;</span><br><span class="line">      @open=&quot;handleOpen&quot;</span><br><span class="line">      @close=&quot;handleClose&quot;&gt;</span><br><span class="line">      &lt;el-submenu index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;template slot=&quot;title&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;el-icon-location&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span&gt;导航一&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">        &lt;el-menu-item-group&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;分组一&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-2&quot;&gt;选项2&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-menu-item-group title=&quot;分组2&quot;&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-3&quot;&gt;选项3&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-submenu index=&quot;1-4&quot;&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;选项4&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-4-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-submenu&gt;</span><br><span class="line">      &lt;/el-submenu&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;2&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-menu&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航二&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;3&quot; disabled&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-document&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航三&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;4&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-setting&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航四&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">    &lt;/el-menu&gt;</span><br><span class="line">  &lt;/el-col&gt;</span><br><span class="line">  &lt;el-col :span=&quot;12&quot;&gt;</span><br><span class="line">    &lt;h5&gt;自定义颜色&lt;/h5&gt;</span><br><span class="line">    &lt;el-menu</span><br><span class="line">      default-active=&quot;2&quot;</span><br><span class="line">      class=&quot;el-menu-vertical-demo&quot;</span><br><span class="line">      @open=&quot;handleOpen&quot;</span><br><span class="line">      @close=&quot;handleClose&quot;</span><br><span class="line">      background-color=&quot;#545c64&quot;</span><br><span class="line">      text-color=&quot;#fff&quot;</span><br><span class="line">      active-text-color=&quot;#ffd04b&quot;&gt;</span><br><span class="line">      &lt;el-submenu index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;template slot=&quot;title&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;el-icon-location&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span&gt;导航一&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">        &lt;el-menu-item-group&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;分组一&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-2&quot;&gt;选项2&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-menu-item-group title=&quot;分组2&quot;&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-3&quot;&gt;选项3&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-menu-item-group&gt;</span><br><span class="line">        &lt;el-submenu index=&quot;1-4&quot;&gt;</span><br><span class="line">          &lt;template slot=&quot;title&quot;&gt;选项4&lt;/template&gt;</span><br><span class="line">          &lt;el-menu-item index=&quot;1-4-1&quot;&gt;选项1&lt;/el-menu-item&gt;</span><br><span class="line">        &lt;/el-submenu&gt;</span><br><span class="line">      &lt;/el-submenu&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;2&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-menu&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航二&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;3&quot; disabled&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-document&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航三&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">      &lt;el-menu-item index=&quot;4&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-setting&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;span slot=&quot;title&quot;&gt;导航四&lt;/span&gt;</span><br><span class="line">      &lt;/el-menu-item&gt;</span><br><span class="line">    &lt;/el-menu&gt;</span><br><span class="line">  &lt;/el-col&gt;</span><br><span class="line">&lt;/el-row&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    methods: &#123;</span><br><span class="line">      handleOpen(key, keyPath) &#123;</span><br><span class="line">        console.log(key, keyPath);</span><br><span class="line">      &#125;,</span><br><span class="line">      handleClose(key, keyPath) &#123;</span><br><span class="line">        console.log(key, keyPath);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>mounted中如何调用methods中的函数呢？<br>在mounted中加上let that = this;这句，然后在方法前加上that即可。<br>这其中就涉及到了this与that的使用。</li>
+<li>data中定义的变量，在methods中如何使？<br>data中定义的变量，在methods中使用，需要在前面加上this</li>
 </ul>
-<p>script中的函数写到vue中即可<br>显示效果：<br><img src="/2019/11/22/element ui learning1/1.png" alt="显示效果"></p>
-<p>基本格式为el-menu为第一级，包裹其他的选项。el-menu-item为菜单项。如果有的菜单有子菜单的话，使用el-submenu嵌套el-menu-item即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default-active=&quot;2&quot;</span><br></pre></td></tr></table></figure></p>
-<p>此处定义active的菜单项为第二处<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@open=&quot;handleOpen&quot;</span><br><span class="line">@close=&quot;handleClose&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这两处为open与close函数，写道vue的methods里即可</p>
+<p>所以一般mounted中使用，要加that，methods中使用，需要加this</p>
+<p>接下来明确vue中that、this区别与用法，再明确js中that与this用法</p>
 
       
 
@@ -193,7 +187,94 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/element ui learning1/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/22/vue mounted and methods/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-thymeleaf learning2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/22/thymeleaf learning2/">thymeleaf学习2</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/22/thymeleaf learning2/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="thymeleaf学习之各种学习过的绑定"><a href="#thymeleaf学习之各种学习过的绑定" class="headerlink" title="thymeleaf学习之各种学习过的绑定"></a>thymeleaf学习之各种学习过的绑定</h3><p>在上一篇博客中，简单的介绍了thymeleaf的如何利用fragment作为模板，在网页需要的地方，嵌入模板网页中写的指定的部分。本文就将我目前涉及到的thymeleaf绑定简单罗列一下</p>
+<ul>
+<li><p>th-text<br>文字替换，将此处的文字替换为绑定的值<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span th:text=&quot;$&#123;item.name&#125;&quot;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>th-utext<br>在网页中写文字，相当于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>中间写文字<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:utext=&quot;$&#123;info.themename&#125;&quot; style=&quot;font-size: 24px;color:#444&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>th:src<br>thymeleaf的链接<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;img th:src=&quot;&apos;/static/img/icon/default.png&apos;&quot;</span><br><span class="line">                                            class=&quot;round_icon&quot; style=&quot;width:40px;height: 40px;float:left;&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>th:href<br>thymeleaf的超链接<br>例如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a th:href=&quot;&apos;/user/&apos;+$&#123;info.creator_oid&#125;&quot;&gt;&lt;h4 th:text=&quot;$&#123;info.creator_name&#125;&quot;&gt;Tom Marvolo Riddle&lt;/h4&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>th:each<br>循环执行，类似于vue中的v-for<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div th:each=&quot;modelClass,index:$&#123;modelClassInfos&#125;&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中，${modelClassInfos}为绑定的model值，index类似于数组中的计数，0、1、2…等，modelClass为数组的值，配合th:each将数组modelClassInfos的值循环取出。</p>
+</li>
+<li>th:id<br>thymeleaf的id，一般用来设置id值</li>
+</ul>
+<p>一个介绍thymeleaf的博客：<br><a href="https://www.cnblogs.com/zjfjava/p/6893486.html" target="_blank" rel="noopener">https://www.cnblogs.com/zjfjava/p/6893486.html</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/22/thymeleaf learning2/">展开全文 >></a>
         </p>
       
 
@@ -617,6 +698,76 @@
 
 
   
+    <article id="post-data set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/25/data set/">数据集</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/25/data set/" class="archive-article-date">
+  	<time datetime="2019-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="常用数据集汇总（汇总找到的汇总链接）"><a href="#常用数据集汇总（汇总找到的汇总链接）" class="headerlink" title="常用数据集汇总（汇总找到的汇总链接）"></a>常用数据集汇总（汇总找到的汇总链接）</h2><h4 id="一、常用的公共数据集（一）"><a href="#一、常用的公共数据集（一）" class="headerlink" title="一、常用的公共数据集（一）"></a>一、常用的公共数据集（一）</h4><p><a href="https://blog.csdn.net/m0_37570854/article/details/88734695" target="_blank" rel="noopener">https://blog.csdn.net/m0_37570854/article/details/88734695</a> </p>
+<h4 id="二、常用的公共数据集（二）"><a href="#二、常用的公共数据集（二）" class="headerlink" title="二、常用的公共数据集（二）"></a>二、常用的公共数据集（二）</h4><p><a href="https://blog.csdn.net/m0_37570854/article/details/88736189" target="_blank" rel="noopener">https://blog.csdn.net/m0_37570854/article/details/88736189</a></p>
+<h4 id="三、最强数据集集合：50个最佳机器学习公共数据集"><a href="#三、最强数据集集合：50个最佳机器学习公共数据集" class="headerlink" title="三、最强数据集集合：50个最佳机器学习公共数据集"></a>三、最强数据集集合：50个最佳机器学习公共数据集</h4><p><a href="https://blog.csdn.net/weixin_42137700/article/details/83855588" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42137700/article/details/83855588</a></p>
+<h4 id="四、机器学习免费数据集"><a href="#四、机器学习免费数据集" class="headerlink" title="四、机器学习免费数据集"></a>四、机器学习免费数据集</h4><p><a href="https://blog.csdn.net/wwtwinter/article/details/85992227" target="_blank" rel="noopener">https://blog.csdn.net/wwtwinter/article/details/85992227</a> </p>
+<h4 id="五、100款机器学习数据集"><a href="#五、100款机器学习数据集" class="headerlink" title="五、100款机器学习数据集"></a>五、100款机器学习数据集</h4><p><a href="https://blog.csdn.net/Touch_Dream/article/details/77847057" target="_blank" rel="noopener">https://blog.csdn.net/Touch_Dream/article/details/77847057</a></p>
+<h4 id="六、公开的海量数据集-Public-Research-Quality-Datasets"><a href="#六、公开的海量数据集-Public-Research-Quality-Datasets" class="headerlink" title="六、公开的海量数据集 Public Research-Quality Datasets"></a>六、公开的海量数据集 Public Research-Quality Datasets</h4><p><a href="https://blog.csdn.net/dcxhun3/article/details/51647753" target="_blank" rel="noopener">https://blog.csdn.net/dcxhun3/article/details/51647753</a> </p>
+<h4 id="七、人工智能公开数据集汇总"><a href="#七、人工智能公开数据集汇总" class="headerlink" title="七、人工智能公开数据集汇总"></a>七、人工智能公开数据集汇总</h4><p><a href="https://blog.csdn.net/jinghongluexia/article/details/81019010" target="_blank" rel="noopener">https://blog.csdn.net/jinghongluexia/article/details/81019010</a> </p>
+<h4 id="八、最全数据集网站汇总，绝对是一个金矿请查收！"><a href="#八、最全数据集网站汇总，绝对是一个金矿请查收！" class="headerlink" title="八、最全数据集网站汇总，绝对是一个金矿请查收！"></a>八、最全数据集网站汇总，绝对是一个金矿请查收！</h4><p><a href="https://blog.csdn.net/r6Auo52bK/article/details/80105751" target="_blank" rel="noopener">https://blog.csdn.net/r6Auo52bK/article/details/80105751</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/25/data set/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Semantic segmentation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -684,76 +835,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/25/Semantic segmentation/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-data set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/25/data set/">数据集</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/25/data set/" class="archive-article-date">
-  	<time datetime="2019-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="常用数据集汇总（汇总找到的汇总链接）"><a href="#常用数据集汇总（汇总找到的汇总链接）" class="headerlink" title="常用数据集汇总（汇总找到的汇总链接）"></a>常用数据集汇总（汇总找到的汇总链接）</h2><h4 id="一、常用的公共数据集（一）"><a href="#一、常用的公共数据集（一）" class="headerlink" title="一、常用的公共数据集（一）"></a>一、常用的公共数据集（一）</h4><p><a href="https://blog.csdn.net/m0_37570854/article/details/88734695" target="_blank" rel="noopener">https://blog.csdn.net/m0_37570854/article/details/88734695</a> </p>
-<h4 id="二、常用的公共数据集（二）"><a href="#二、常用的公共数据集（二）" class="headerlink" title="二、常用的公共数据集（二）"></a>二、常用的公共数据集（二）</h4><p><a href="https://blog.csdn.net/m0_37570854/article/details/88736189" target="_blank" rel="noopener">https://blog.csdn.net/m0_37570854/article/details/88736189</a></p>
-<h4 id="三、最强数据集集合：50个最佳机器学习公共数据集"><a href="#三、最强数据集集合：50个最佳机器学习公共数据集" class="headerlink" title="三、最强数据集集合：50个最佳机器学习公共数据集"></a>三、最强数据集集合：50个最佳机器学习公共数据集</h4><p><a href="https://blog.csdn.net/weixin_42137700/article/details/83855588" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42137700/article/details/83855588</a></p>
-<h4 id="四、机器学习免费数据集"><a href="#四、机器学习免费数据集" class="headerlink" title="四、机器学习免费数据集"></a>四、机器学习免费数据集</h4><p><a href="https://blog.csdn.net/wwtwinter/article/details/85992227" target="_blank" rel="noopener">https://blog.csdn.net/wwtwinter/article/details/85992227</a> </p>
-<h4 id="五、100款机器学习数据集"><a href="#五、100款机器学习数据集" class="headerlink" title="五、100款机器学习数据集"></a>五、100款机器学习数据集</h4><p><a href="https://blog.csdn.net/Touch_Dream/article/details/77847057" target="_blank" rel="noopener">https://blog.csdn.net/Touch_Dream/article/details/77847057</a></p>
-<h4 id="六、公开的海量数据集-Public-Research-Quality-Datasets"><a href="#六、公开的海量数据集-Public-Research-Quality-Datasets" class="headerlink" title="六、公开的海量数据集 Public Research-Quality Datasets"></a>六、公开的海量数据集 Public Research-Quality Datasets</h4><p><a href="https://blog.csdn.net/dcxhun3/article/details/51647753" target="_blank" rel="noopener">https://blog.csdn.net/dcxhun3/article/details/51647753</a> </p>
-<h4 id="七、人工智能公开数据集汇总"><a href="#七、人工智能公开数据集汇总" class="headerlink" title="七、人工智能公开数据集汇总"></a>七、人工智能公开数据集汇总</h4><p><a href="https://blog.csdn.net/jinghongluexia/article/details/81019010" target="_blank" rel="noopener">https://blog.csdn.net/jinghongluexia/article/details/81019010</a> </p>
-<h4 id="八、最全数据集网站汇总，绝对是一个金矿请查收！"><a href="#八、最全数据集网站汇总，绝对是一个金矿请查收！" class="headerlink" title="八、最全数据集网站汇总，绝对是一个金矿请查收！"></a>八、最全数据集网站汇总，绝对是一个金矿请查收！</h4><p><a href="https://blog.csdn.net/r6Auo52bK/article/details/80105751" target="_blank" rel="noopener">https://blog.csdn.net/r6Auo52bK/article/details/80105751</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/25/data set/">展开全文 >></a>
         </p>
       
 
@@ -887,422 +968,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/20/Arithmetic Arrangement/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Deep Learning Arithmetic Arrangement" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/19/Deep Learning Arithmetic Arrangement/">算法整理</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/19/Deep Learning Arithmetic Arrangement/" class="archive-article-date">
-  	<time datetime="2019-09-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="目标识别算法整理"><a href="#目标识别算法整理" class="headerlink" title="目标识别算法整理"></a>目标识别算法整理</h2><ul>
-<li>一、adv_imagenet_models</li>
-<li><ul>
-<li>算法名称：经过对抗训练的ImageNet模型</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：如果要运行提供的示例，还需要ImageNet数据集的副本。按照 准备 TF-Slim库中的数据集（<a href="https://github.com/tensorflow/models/tree/master/research/slim#Data）" target="_blank" rel="noopener">https://github.com/tensorflow/models/tree/master/research/slim#Data）</a> 指令来获取和预处理ImageNet数据。<br>imagenet数据集：<br><a href="http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_img_train.tar" target="_blank" rel="noopener">http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_img_train.tar</a><br><a href="http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_img_val.tar" target="_blank" rel="noopener">http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_img_val.tar</a></li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：图像识别</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://blog.csdn.net/gzroy/article/details/85954329" target="_blank" rel="noopener">https://blog.csdn.net/gzroy/article/details/85954329</a> </li>
-</ul>
-</li>
-<li>二、adversarial_logit_pairing</li>
-<li><ul>
-<li>算法名称：对抗性logit配对</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：支持以下几个数据集<br>ImageNet（<a href="http://www.image-net.org/）" target="_blank" rel="noopener">http://www.image-net.org/）</a> 。按照 准备 TF-Slim文档中的数据集（<a href="https://github.com/tensorflow/models/tree/master/research/slim#Data）" target="_blank" rel="noopener">https://github.com/tensorflow/models/tree/master/research/slim#Data）</a> 说明，下载ImageNet数据集并将其转换为TFRecord格式。<br>微小的ImageNet（<a href="https://tiny-imagenet.herokuapp.com/）" target="_blank" rel="noopener">https://tiny-imagenet.herokuapp.com/）</a> 。要获取Tiny ImageNet数据集，请执行以下操作：</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：图像识别</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://github.com/tensorflow/models/tree/master/research/adversarial_logit_pairing" target="_blank" rel="noopener">https://github.com/tensorflow/models/tree/master/research/adversarial_logit_pairing</a> </li>
-</ul>
-</li>
-<li>三、attention_ocr</li>
-<li><ul>
-<li>算法名称：用于实际图像文本提取的模型</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：TensorFlow模型，用于实际图像文本提取问题。</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：FSNS数据集（<a href="https://github.com/tensorflow/models/tree/master/research/street）" target="_blank" rel="noopener">https://github.com/tensorflow/models/tree/master/research/street）</a> 数据集上训练新的Attention OCR模型以转录法国街道名称所需的代码。</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：</li>
-</ul>
-</li>
-<li>四、cognitive_mapping_and_planning</li>
-<li><ul>
-<li>算法名称：认知型地图构建器和规划器，用于视觉导航的基于空间存储器的映射和规划架构的实现</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<br><a href="https://blog.csdn.net/c602273091/article/details/78819362" target="_blank" rel="noopener">https://blog.csdn.net/c602273091/article/details/78819362</a><br><a href="https://blog.csdn.net/weixin_37251044/article/details/78569428" target="_blank" rel="noopener">https://blog.csdn.net/weixin_37251044/article/details/78569428</a></li>
-</ul>
-</li>
-<li>五、DeepLab</li>
-<li><ul>
-<li>算法名称：语义图像分割的深度标注</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：可以自己制作。如数据需要标注，则可以使用labelme进行数据标注</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：图像分割</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://www.jianshu.com/p/b5f5cdc0ba9d" target="_blank" rel="noopener">https://www.jianshu.com/p/b5f5cdc0ba9d</a></li>
-</ul>
-</li>
-<li>六、Delf</li>
-<li><ul>
-<li>算法名称：用于图像匹配和检索的深层局部特征</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：DELF对于大规模实例级图像识别特别有用。它检测并描述语义局部特征，这些特征可以在显示相同对象实例的图像之间进行几何验证。此处发布的预先训练的模型已针对地标识别进行了优化，因此期望它在该领域中运行良好。</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：基于Google标志性数据集的预训练模型<br><a href="https://www.kaggle.com/google/google-landmarks-dataset" target="_blank" rel="noopener">https://www.kaggle.com/google/google-landmarks-dataset</a><br>有两个Google-Landmarks数据集版本：<br>初始版本（v1）可以在这里（<a href="https://www.kaggle.com/google/google-landmarks-dataset" target="_blank" rel="noopener">https://www.kaggle.com/google/google-landmarks-dataset</a> ）找到 。包含“检测到检索”文件中描述的Google Landmark Box。<br>第二版（v2）已作为两个Kaggle挑战的一部分发布： 地标识别（<a href="https://www.kaggle.com/c/landmark-recognition-2019" target="_blank" rel="noopener">https://www.kaggle.com/c/landmark-recognition-2019</a> ） 和地标检索（<a href="https://www.kaggle.com/c/landmark-retrieval-2019" target="_blank" rel="noopener">https://www.kaggle.com/c/landmark-retrieval-2019</a> )。它可以在这里从CVDF(<a href="https://github.com/cvdfoundation/google-landmark" target="_blank" rel="noopener">https://github.com/cvdfoundation/google-landmark</a> )下载 。</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：大规模实例级图像识别</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://blog.csdn.net/sparkexpert/article/details/80590452" target="_blank" rel="noopener">https://blog.csdn.net/sparkexpert/article/details/80590452</a></li>
-</ul>
-</li>
-<li>七、im2txt</li>
-<li><ul>
-<li>算法名称：图像字幕的图像到文本神经网络</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：这个模型的作用跟它的名字一样，image-to-text，把图像转为文字，也就是图片描述</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：图像编码器是深度卷积神经网络。这种类型的网络广泛用于图像任务，并且目前是用于对象识别和检测的最先进技术。我们特别选择的网络是在ILSVRC-2012-CLS（<a href="http://www.image-net.org/challenges/LSVRC/2012/" target="_blank" rel="noopener">http://www.image-net.org/challenges/LSVRC/2012/</a> ）图像分类数据集上预先训练的 Inception v3（<a href="https://arxiv.org/abs/1512.00567" target="_blank" rel="noopener">https://arxiv.org/abs/1512.00567</a> ）图像识别模型 。</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：在NVIDIA Tesla K20m GPU上的经验，初始培训阶段需要1-2周。第二个培训阶段可能需要几个星期才能达到最佳性能（但您可以提前停止此阶段并仍然获得合理的结果）。</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://blog.51cto.com/12340098/2337731" target="_blank" rel="noopener">https://blog.51cto.com/12340098/2337731</a></li>
-</ul>
-</li>
-<li>八、inception</li>
-<li><ul>
-<li>算法名称：用于计算机视觉的深度卷积网络</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：ImageNet（<a href="http://www.image-net.org/" target="_blank" rel="noopener">http://www.image-net.org/</a> ）是用于训练图像识别系统的机器学习中的常见学术数据集。</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：图像识别</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://blog.csdn.net/loveliuzz/article/details/79135583" target="_blank" rel="noopener">https://blog.csdn.net/loveliuzz/article/details/79135583</a></li>
-</ul>
-</li>
-<li>九、KeypointNet</li>
-<li><ul>
-<li>算法名称：通过端到端几何eeasoning [ demo ] 发现潜在的3D关键点。</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：给定已知类的单个2D图像，该网络可以预测一组3D关键点，这些关键点在同一对象的视角和对象实例之间是一致的。这些关键点及其探测器在没有关键点位置监控的情况下自动发现和学习</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：ShapeNet的汽车（<a href="https://storage.googleapis.com/discovery-3dkeypoints-data/cars_with_keypoints.zip" target="_blank" rel="noopener">https://storage.googleapis.com/discovery-3dkeypoints-data/cars_with_keypoints.zip</a> ）， 飞机（<a href="https://storage.googleapis.com/discovery-3dkeypoints-data/planes_with_keypoints.zip" target="_blank" rel="noopener">https://storage.googleapis.com/discovery-3dkeypoints-data/planes_with_keypoints.zip</a> ）， 椅子（<a href="https://storage.googleapis.com/discovery-3dkeypoints-data/chairs_with_keypoints.zip" target="_blank" rel="noopener">https://storage.googleapis.com/discovery-3dkeypoints-data/chairs_with_keypoints.zip</a> ）渲染 。<br>每组包含：<br>tfrecords<br>train.txt，用于培训的tfrecords列表。<br>dev.txt，用于验证的tfrecords列表。<br>test.txt，用于测试的tfrecords列表。<br>projection.txt，存储全局4x4相机投影矩阵。<br>job.txt，在每个tfrecord中存储ShapeNet的对象ID。</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://blog.csdn.net/buyan4395/article/details/82890825" target="_blank" rel="noopener">https://blog.csdn.net/buyan4395/article/details/82890825</a></li>
-</ul>
-</li>
-<li>十、Marco</li>
-<li><ul>
-<li>算法名称：自动化结晶实验的评估</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：该模型将结晶实验图像作为输入：水晶样品,它将其归类为属于四种类别之一：晶体，沉淀物，透明物质或“其他物种”。</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：该模型可以从以下位置下载：<br><a href="https://storage.googleapis.com/marco-168219-model/savedmodel.zip" target="_blank" rel="noopener">https://storage.googleapis.com/marco-168219-model/savedmodel.zip</a><br>可以从以下位置下载示例图像：<br><a href="https://storage.googleapis.com/marco-168219-model/002s_C6_ImagerDefaults_9.jpg" target="_blank" rel="noopener">https://storage.googleapis.com/marco-168219-model/002s_C6_ImagerDefaults_9.jpg</a> </li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：</li>
-</ul>
-</li>
-<li>十一、object_detection</li>
-<li><ul>
-<li>算法名称：在单个图像中本地化和识别多个对象</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：我们发布了更快的R-CNN探测器，其中ResNet-50 / ResNet-101特征提取器在iNaturalist物种检测数据集（<a href="https://github.com/visipedia/inat_comp/blob/master/2017/README.md#bounding-boxes" target="_blank" rel="noopener">https://github.com/visipedia/inat_comp/blob/master/2017/README.md#bounding-boxes</a> )上进行了训练。对于4M迭代的iNaturalist数据的训练拆分训练模型，它们分别在2854个类中达到55％和58％的平均AP @ .5</li>
-</ul>
-</li>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：对象检测</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：</li>
-</ul>
-</li>
-<li>十二、slim</li>
-<li><ul>
-<li>算法名称：TF-Slim中的图像分类模型</li>
-</ul>
-</li>
-<li><ul>
-<li>特点：</li>
-</ul>
-</li>
-<li><ul>
-<li>数据集：<br>作为该库的一部分，我们已经包含了下载几个流行图像数据集（下面列出）的脚本，并将它们转换为超薄格式。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">数据集	训练集大小	测试集大小	课程数量	评论</span><br><span class="line">花卉	2500	        2500	            五	各种尺寸（来源：Flickr）</span><br><span class="line">Cifar10	60K	            10K	            10	32x32颜色</span><br><span class="line">MNIST	60K	            10K	            10	28x28灰色</span><br><span class="line">ImageNet1.2M	        50K         	    1000各种大小</span><br><span class="line">VisualWakeWords	82783	40504	            2	各种尺寸（来源：MS COCO）</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cifar10（https://www.cs.toronto.edu/~kriz/cifar.html ）</span><br><span class="line">mnist（http://yann.lecun.com/exdb/mnist/ ）</span><br><span class="line">imagenet（http://www.image-net.org/challenges/LSVRC/2012/ ）</span><br></pre></td></tr></table></figure>
-<ul>
-<li><ul>
-<li>精度：</li>
-</ul>
-</li>
-<li><ul>
-<li>花费时间：</li>
-</ul>
-</li>
-<li><ul>
-<li>可能的出口：</li>
-</ul>
-</li>
-<li><ul>
-<li>blog资源：<a href="https://www.cnblogs.com/hejunlin1992/p/8082535.html" target="_blank" rel="noopener">https://www.cnblogs.com/hejunlin1992/p/8082535.html</a> </li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/19/Deep Learning Arithmetic Arrangement/">展开全文 >></a>
         </p>
       
 

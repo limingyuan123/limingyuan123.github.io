@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Mingyuan</title>
+  <title>Postman请求格式对应后台接收数据汇总 | Mingyuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mingyuan">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="Postman请求格式对应后台接收数据汇总 前台data格式为一种复杂数据结构的，例如包含List以及单个属性，这时候可以写固定格式的entity来进行传输（注释@RequestBody） 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849//前台var oids =[&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Postman请求格式对应后台接收数据汇总">
+<meta property="og:url" content="http://yoursite.com/2020/07/01/Foreground request format corresponds to background received data record/index.html">
 <meta property="og:site_name" content="Mingyuan">
+<meta property="og:description" content="Postman请求格式对应后台接收数据汇总 前台data格式为一种复杂数据结构的，例如包含List以及单个属性，这时候可以写固定格式的entity来进行传输（注释@RequestBody） 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849//前台var oids =[&amp;">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2020/07/01/Foreground%20request%20format%20corresponds%20to%20background%20received%20data%20record/postman%20upload.jpg">
+<meta property="og:updated_time" content="2020-07-01T11:49:23.117Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mingyuan">
+<meta name="twitter:title" content="Postman请求格式对应后台接收数据汇总">
+<meta name="twitter:description" content="Postman请求格式对应后台接收数据汇总 前台data格式为一种复杂数据结构的，例如包含List以及单个属性，这时候可以写固定格式的entity来进行传输（注释@RequestBody） 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849//前台var oids =[&amp;">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/01/Foreground%20request%20format%20corresponds%20to%20background%20received%20data%20record/postman%20upload.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Mingyuan" type="application/atom+xml">
   
@@ -146,295 +152,189 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Foreground request format corresponds to background received data record" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Postman请求格式对应后台接收数据汇总
+    </h1>
+  
+
+        
+        <a href="/2020/07/01/Foreground request format corresponds to background received data record/" class="archive-article-date">
+  	<time datetime="2020-06-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-01</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Postman请求格式对应后台接收数据汇总"><a href="#Postman请求格式对应后台接收数据汇总" class="headerlink" title="Postman请求格式对应后台接收数据汇总"></a>Postman请求格式对应后台接收数据汇总</h4><ul>
+<li><p>前台data格式为一种复杂数据结构的，例如包含List<e>以及单个属性，这时候可以写固定格式的entity来进行传输<br>（注释@RequestBody）</e></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">//前台</span><br><span class="line">var oids =[&#123;&#125;];</span><br><span class="line">                for (let i=0;i&lt;this.community_tableData3_self.length;i++)&#123;</span><br><span class="line">                    if (this.model_tableData3_self[i].readStatus == 0) &#123;</span><br><span class="line">                        var object=&#123;&#125;;</span><br><span class="line">                        object.oid = this.community_tableData3_self[i].oid;</span><br><span class="line">                        object.type = this.community_tableData3_self[i].type;</span><br><span class="line">                        oids.push(object);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">                        url:&quot;/version/MyEditionReaded&quot;,</span><br><span class="line">                        type:&quot;POST&quot;,</span><br><span class="line">                        contentType:&quot;application/json&quot;,</span><br><span class="line">                        data:JSON.stringify(&#123;</span><br><span class="line">                            my_edition_num:this.community_reject_unread,</span><br><span class="line">                            oids:oids,</span><br><span class="line">                        &#125;),</span><br><span class="line">                        // dataType: &quot;json&quot;,</span><br><span class="line">                        success: (json) =&gt; &#123;</span><br><span class="line">                            if (json==&quot;ok&quot;)&#123;</span><br><span class="line">                                *****</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;)</span><br><span class="line"></span><br><span class="line">//后台</span><br><span class="line">//实体一</span><br><span class="line">@Data</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">@NoArgsConstructor</span><br><span class="line">public class Oids &#123;</span><br><span class="line">    String oid;</span><br><span class="line">    String type;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//实体二</span><br><span class="line">@Data</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">@NoArgsConstructor</span><br><span class="line">public class MyEdition &#123;</span><br><span class="line">    int my_edition_num;</span><br><span class="line">    List&lt;Oids&gt; oids;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//接口  使用@RequestBody来接收数据</span><br><span class="line">@RequestMapping(value = &quot;/MyEditionReaded&quot;,method = RequestMethod.POST)</span><br><span class="line">    public String MyEditionReaded(HttpServletRequest request,@RequestBody MyEdition myEditions)&#123;</span><br><span class="line">    ***</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用DTO格式来进行接收数据<br>前台更为复杂数据，包含各种类型的字段的数据，诸如List<string>、 List<filemetauser>  （FileMetaUser是一种数据结构的实体）、int、String等，这时候在前台需要将各种类型数据放置到与后台所设DTO数据结构一致的data中，再在后台使用DTO进行接收（DTO层用来规范接收数据）<br>（注释@RequestBody）</filemetauser></string></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">//前台</span><br><span class="line">//data层</span><br><span class="line">dataItemAddDTO: &#123;</span><br><span class="line">                name: &apos;&apos;,</span><br><span class="line">                status: &apos;Public&apos;,</span><br><span class="line">                description: &apos;&apos;,</span><br><span class="line">                detail: &apos;&apos;,</span><br><span class="line">                author: &apos;&apos;,</span><br><span class="line">                reference: &apos;&apos;,</span><br><span class="line">                keywords: [],</span><br><span class="line">                classifications: [],</span><br><span class="line">                displays: [],</span><br><span class="line">                authorship: [],</span><br><span class="line">                meta: &#123;</span><br><span class="line">                    coordinateSystem: &apos;&apos;,</span><br><span class="line">                    geographicProjection: &apos;&apos;,</span><br><span class="line">                    coordinateUnits: &apos;&apos;,</span><br><span class="line">                    boundingRectangle: []</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">//methods层</span><br><span class="line">this.dataItemAddDTO.authorship = authorship;</span><br><span class="line">this.dataItemAddDTO.userDataList = this.userDataList;</span><br><span class="line">*****</span><br><span class="line">//后台DTO</span><br><span class="line">@Data</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">@NoArgsConstructor</span><br><span class="line">public class DataItemAddDTO &#123;</span><br><span class="line"></span><br><span class="line">    String name;</span><br><span class="line">    String status;</span><br><span class="line">    String contentType;</span><br><span class="line">    String description;</span><br><span class="line">    String detail;</span><br><span class="line">    String author;</span><br><span class="line"></span><br><span class="line">    String reference;</span><br><span class="line"></span><br><span class="line">    List&lt;String&gt; keywords;</span><br><span class="line">    List&lt;String&gt; classifications;</span><br><span class="line">    List&lt;String&gt; displays;</span><br><span class="line">    List&lt;AuthorInfo&gt; authorship;</span><br><span class="line">    List&lt;FileMetaUser&gt; userDataList;</span><br><span class="line">    String dataType;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    List&lt;DataMeta&gt; dataList;</span><br><span class="line"></span><br><span class="line">    int shareCount=0;</span><br><span class="line">    int viewCount=0;</span><br><span class="line">    int thumbsUpCount=0;</span><br><span class="line"></span><br><span class="line">    DataItemMeta meta;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//post向后台  使用@RequestBody接收数据</span><br><span class="line">@RequestMapping (value = &quot;&quot;, method = RequestMethod.POST)</span><br><span class="line">    JsonResult add(@RequestBody DataItemAddDTO dataItemAddDTO) &#123;</span><br><span class="line">        return ResultUtils.success(dataItemService.insert(dataItemAddDTO));</span><br><span class="line">    &#125;</span><br><span class="line">//Service层处理数据，进行诸如入库等操作</span><br><span class="line">略</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用application/json传输特定格式的数据<br>可以利用DTO来进行数据的规范传输<br>（注释@RequestBody）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">//首先引入jar包</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;fastjson&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;1.2.3&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">//前台</span><br><span class="line">let data=&#123;</span><br><span class="line">                        modifier:tableItem.modifier.modifier,</span><br><span class="line">                        type:tableItem.type,</span><br><span class="line">                        oid:tableItem.oid,</span><br><span class="line">                        originOid:tableItem.originOid</span><br><span class="line">                    &#125;;</span><br><span class="line">                    $.ajax(&#123;</span><br><span class="line">                        type:&quot;POST&quot;,</span><br><span class="line">                        url:&quot;/version/accept&quot;,</span><br><span class="line">                        contentType: &quot;application/json&quot;,</span><br><span class="line">                        data: JSON.stringify(data),</span><br><span class="line">                        async: true,</span><br><span class="line">                        success:(json)=&gt;&#123;</span><br><span class="line">                            window.location.reload();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;)</span><br><span class="line"></span><br><span class="line">//后台DTO</span><br><span class="line">@Data</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">@NoArgsConstructor</span><br><span class="line">public class VersionDTO &#123;</span><br><span class="line">    String modifier;</span><br><span class="line">    String type;</span><br><span class="line">    String oid;</span><br><span class="line">    String originOid;</span><br><span class="line">&#125;</span><br><span class="line">//接口</span><br><span class="line">@RequestMapping(value = &quot;/accept&quot;, method = RequestMethod.POST)</span><br><span class="line">    public JsonResult accept(@RequestBody VersionDTO versionDTO) &#123;</span><br><span class="line">    ***</span><br><span class="line">    &#125;</span><br><span class="line">    这种结构的使用@RequestBody注释进行接收</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>postman测试接口类</p>
+<ul>
+<li><p>第一种 数据传输格式使用formdata</p>
+<ul>
+<li>1.上传包括多个文件在内的各种数据以及参数<br>（注释@RequestParam）<br><img src="/2020/07/01/Foreground request format corresponds to background received data record/postman upload.jpg" alt="postman upload"><br>使用formdata格式传输接收时，使用@RequestParam注释进行接收<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//后台接收</span><br><span class="line">@RequestMapping(value = &quot;/data&quot;, method = RequestMethod.POST)</span><br><span class="line">    public JsonResult uploadFile(@RequestParam(&quot;ogmsdata&quot;)MultipartFile[] files,</span><br><span class="line">                                 @RequestParam(&quot;name&quot;)String uploadName,</span><br><span class="line">                                 @RequestParam(&quot;userId&quot;)String userName,</span><br><span class="line">                                 @RequestParam(&quot;serverNode&quot;)String serverNode,</span><br><span class="line">                                 @RequestParam(&quot;origination&quot;)String origination) throws IOException, DocumentException &#123;</span><br><span class="line">                                 ***</span><br><span class="line">                                 &#125;</span><br><span class="line"></span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">* postman测试接口类</span><br><span class="line">	*	第一种 数据传输格式使用formdata</span><br><span class="line">		* 2.利用formdata格式的传输ArrayList&lt;String&gt;的数组数据</span><br><span class="line">			（注释@RequestParam）</span><br><span class="line">![List format transmission](Foreground request format corresponds to background received data record/List format transmission.jpg)</span><br><span class="line">	使用formdata格式传输接收时，使用@RequestParam注释进行接收</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>@RequestMapping(value = “/bindDataItem”, method = RequestMethod.POST)<br>public JsonResult bingDataItem(@RequestParam (value = “dataIds”) ArrayList<string> dataIds,</string></p>
+<pre><code>@RequestParam(value = &quot;proId&quot;) String proId,
+@RequestParam(value = &quot;proName&quot;) String proName,
+@RequestParam(value = &quot;proDescription&quot;) String proDescription,
+@RequestParam(value = &quot;token&quot;) String token,
+@RequestParam(value = &quot;parameter&quot;) ArrayList&lt;String&gt; parameter
+</code></pre><p>){</p>
+</li>
+</ul>
+<hr>
+<p>  }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* postman测试接口类</span><br><span class="line">	*	第二种 数据传输格式也是使用application/json</span><br><span class="line">		*	利用application/json格式，传输json数据,通过这种方式可以传输List&lt;String&gt;数据，在postman中选择raw进行填写json串</span><br><span class="line">![application json](Foreground request format corresponds to background received data record/application json.jpg)</span><br><span class="line">使用application/json格式传输接收时，使用@RequestBody注释进行接收</span><br></pre></td></tr></table></figure>
+<p>  @RequestMapping(value = “/BulkDownLoad”,method = RequestMethod.GET)<br>  public void BulkDownLoad(@RequestBody List<string> uids, HttpServletResponse response) throws UnsupportedEncodingException {</string></p>
+<hr>
+<p>  }<br><code>`</code></p>
+</li>
+</ul>
+<p>未完待续</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/09/jquery step/" class="archive-article-date">
-  	<time datetime="2019-12-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/09/jquery step/">jquery学习</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/01/Foreground request format corresponds to background received data record/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/28/js learning/" class="archive-article-date">
-  	<time datetime="2019-11-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/01/14/Transmitting JSON string before and after spring boot/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring Boot学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/28/js learning/">前端之javascript学习</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/28/get login information/" class="archive-article-date">
-  	<time datetime="2019-11-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/28/get login information/">后台获取用户登录信息</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/22/thymeleaf learning1/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/22/thymeleaf learning1/">thymeleaf学习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/22/Front and back interaction/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/22/Front and back interaction/">前后端交互学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/22/element ui learning1/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/22/element ui learning1/">element ui learning1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/22/div append/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/22/div append/">div追加</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/22/vue mounted and methods/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/22/vue mounted and methods/">vue学习之mounted与methods</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/22/thymeleaf learning2/" class="archive-article-date">
-  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/22/thymeleaf learning2/">thymeleaf学习2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/30/jquery learning/" class="archive-article-date">
-  	<time datetime="2019-10-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/30/jquery learning/">jquery学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -458,8 +358,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
